@@ -7,6 +7,9 @@ Somos Gatastikos y nuestra pagina sera una catshop de nombre (PICATSO),que sera 
 
     Yufra Marcelo Alejandro:
     Soy estudiante de la carrera Analista Programador en la UNJu, me gusta programar sobre todo en la parte de frontend, tambien pasear, jugar videojuegos y tengo solo una mascota que es un perro se llama bechi y tiene 17 años :)
+    
+    Nadia Evangelina Fernandez: 
+    Me encanta los animales pero amo mas a los gatitos que te acompañan en los dias de frio, estudio en la Facultad de Ingenieria, soy un poco desordenada.Mis hobbies son: caminar , escuchar variedad de musica, me gusta hacer deporte pero amo jugar el futbol. 
 
 #Referencias
 https://purfect.com.ar
