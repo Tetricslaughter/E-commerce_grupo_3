@@ -10,6 +10,9 @@ Somos Gatastikos y nuestra pagina sera una catshop de nombre (PICATSO),que sera 
     
     Nadia Evangelina Fernandez: 
     Me encanta los animales pero amo mas a los gatitos que te acompañan en los dias de frio, estudio en la Facultad de Ingenieria, soy un poco desordenada.Mis hobbies son: caminar , escuchar variedad de musica, me gusta hacer deporte pero amo jugar el futbol. 
+    
+    Ezequiel Alejandro Tolaba Adauto:
+    Amo a todas las formas de vida en especial a los que tienen 4 patitas y ronronean. Soy estudiante de programacion y abogacia. Algunos de mis hobbies son hacer ejercicio, descubrir nuevos lugares en la naturaleza y leer.
 
 #Referencias
 https://purfect.com.ar
