@@ -14,6 +14,9 @@ Somos Gatastikos y nuestra pagina sera una catshop de nombre (PICATSO),que sera 
     Ezequiel Alejandro Tolaba Adauto:
     Amo a todas las formas de vida en especial a los que tienen 4 patitas y ronronean. Soy estudiante de programacion y abogacia. Algunos de mis hobbies son hacer ejercicio, descubrir nuevos lugares en la naturaleza y leer.
 
+    Albarracín Mauro Tupac:
+    Soy estudiante de la carrera Diseño Integral de VideoJuegos en la Unju. Me gusta programar, jugar videojuegos y hacer mis propios videojuegos. Me gustan mucho los animales por lo que tengo 2 gatos, 2 perros y una tortuga.
+
 #Referencias
 https://purfect.com.ar
 https://aristopet.com
