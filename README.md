@@ -19,6 +19,11 @@ Los Productos estaran divididos en tres tipos de secciones ALIMENTOS, ESTETICA E
     Albarracín Mauro Tupac:
     Soy estudiante de la carrera Diseño Integral de VideoJuegos en la Unju. Me gusta programar, jugar videojuegos y hacer mis propios videojuegos. Me gustan mucho los animales por lo que tengo 2 gatos, 2 perros y una tortuga.
 
+    Ocsa Choque Agustina Zoe:
+    Hola, que tal? me presento, actualmente soy estudiante de la Fi Unju y profesora en danzas folcloricas. 
+    Algunas de las cosas que me gusta hacer es bailar, leer, comer y programar.
+    En pandemia adopte dos amburguesitos que dejaron en la ventana de mi casa y misteriosamente la cantidad de amburguesitos se multiplicó ahora son 4 los amo.
+
 #Referencias
 https://purfect.com.ar
 https://aristopet.com
