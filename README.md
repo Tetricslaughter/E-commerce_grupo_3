@@ -1,7 +1,9 @@
 # E-commerce_grupo_3
 Somos Gatastikos y nuestra pagina sera una catshop de nombre (PICATSO),que sera dirijida a los amantes de los gatos, los productos a ofrecer seran: alimentos,indumentaria,transportadores de gatos y accesorios en general para los gatitos, nuestra oferta se basara en productos inovadores, caracteristicos e interesantes.
+Los Productos estaran divididos en tres tipos de secciones ALIMENTOS, ESTETICA E HIGIENE y ACCESORIOS
 
-#Integrantes
+#Integrantes:
+
     Jose Luis Marquez:
     Me gustan los gatikos de todos los colores,mi color de gato favorito es el naranja y algunos de mis hobbies son jughar ajedrez, programar ,y acaraiciar gatikos :D
 
