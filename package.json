@@ -1,0 +1,15 @@
+{
+  "name": "e-commerce_grupo_3_gatastikos",
+  "version": "1.0.0",
+  "description": "Somos Gatastikos y nuestra pagina sera una catshop de nombre (PICATSO),que sera dirijida a los amantes de los gatos, los productos a ofrecer seran: alimentos,indumentaria,transportadores de gatos y accesorios en general para los gatitos, nuestra oferta se basara en productos inovadores, caracteristicos e interesantes.\r Los Productos estaran divididos en tres tipos de secciones ALIMENTOS, ESTETICA E HIGIENE y ACCESORIOS\r # Herramienta:\r Usamos trello como herramienta de organizacion \r link: https://trello.com/w/espaciodetrabajo12226420",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
