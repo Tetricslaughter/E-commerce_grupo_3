@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,127 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>Picatso</title>
 </head>
+
 <body>
-    <p>hola</p>
+
+    <header class="header">
+        <div class="header__menu container">
+
+            <div class="header__divLogo">
+                <img src="/img/LogoRedondo.png" alt="" class="header__logo">
+                <h1 class="header__logoTexto">Pi-CAT-So</h1>
+            </div>
+
+            <div class="header__buscador">
+                <input type="text" name="" id="buscador" placeholder="buscar algun producto">
+                <button class="boton boton-buscar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <div class="header__divUserOptions">
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+            <input type="checkbox" id="menu">
+            <label class="header__label" for="menu">
+                <i class="header__icon fa-solid fa-bars"></i>
+            </label>
+            <nav class="header__nav">
+                <ul class="header__ul container">
+                    <li class="header__li"><a href="#">Inicio</a></li>
+                    <li class="header__li"><a href="#">Productos</a></li>
+                    <li class="header__li"><a href="#">Opciones</a></li>
+                    <li class="header__li"><a href="#">Perfil</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <img class="banner" src="/img/BannerHome.png" alt="banner-picatso">
+
+    <main class="main">
+
+        <div class="categorias container">
+            <div class="categoria__item">
+                <img src="/img/LogoRedondo.png" alt="" class="categoria__img">
+                <h2 class="categoria__nombre">alimentos</h2>
+            </div>
+            <div class="categoria__item">
+                <img src="/img/LogoRedondo.png" alt="" class="categoria__img">
+                <h2 class="categoria__nombre">estetica e higiene</h2>
+            </div>
+            <div class="categoria__item">
+                <img src="/img/LogoRedondo.png" alt="" class="categoria__img">
+                <h2 class="categoria__nombre">accesorios</h2>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__redes">
+            <a class="footer__enlace" href="https://www.facebook.com">
+                <i class="icono icono-facebook fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="footer__enlace" href="https://www.instagram.com">
+                <i class="icono icono-instagram fa-brands fa-instagram"></i>
+            </a>
+            <a class="footer__enlace" href="https://www.twitter.com">
+                <i class="icono icono-twitter fa-brands fa-twitter"></i>
+            </a>
+        </div>
+        <div class="footer__secciones">
+            <ul class="footer__listas">
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">necesitas ayuda</a>
+                </li>
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">contactanos</a>
+                </li>
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">preguntas frecuentes</a>
+                </li>
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">licencias</a>
+                </li>
+            </ul>
+            <ul class="footer__listas">
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">necesitas ayuda</a>
+                </li>
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">contactanos</a>
+                </li>
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">preguntas frecuentes</a>
+                </li>
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">licencias</a>
+                </li>
+            </ul>
+            <ul class="footer__listas">
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">necesitas ayuda</a>
+                </li>
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">contactanos</a>
+                </li>
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">preguntas frecuentes</a>
+                </li>
+                <li class="footer__li">
+                    <a href="#" class="footer__enlace">licencias</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <h6 class="copyright">Copyright2023 - Grupo3 - Digital House</h6>
+
 </body>
+
 </html>
