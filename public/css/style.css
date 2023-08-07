@@ -12,6 +12,7 @@
     --amarillo: #C0D904;
     --rosaClaro: #F2A2A2;
     --grisClaro: #F2F2F2;
+   
 }
 
 .header {
@@ -432,4 +433,29 @@
 
     65% { margin-left: -200%; }
     100% { margin-left: -200%; }
+}
+.registro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--rosaClaro) ;
+    color:white;
+  
+    
+}
+.titulof{
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+.botonf{
+    padding: 12px;
+    display: flex;
+    justify-content: space-around; 
+   
+    
+
 }
