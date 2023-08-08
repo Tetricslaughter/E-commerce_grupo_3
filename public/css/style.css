@@ -15,6 +15,14 @@
    
 }
 
+#carrito{
+    background-color:var(--rosaClaro);
+}
+.productosCarrito{
+    background-color: #aaa;
+    display: inline;
+}
+
 .header {
     padding: 8px;
     height: 80px;
