@@ -20,3 +20,6 @@ app.get("/login", (req, res) => {
 app.get("/productCard", (req, res) => {
     res.sendFile(path.join(__dirname, "./views/productCard.html"));
   });
+app.get("/detallesProductos", (req, res) => {
+    res.sendFile(path.join(__dirname, "./views/detallesProductos.html"))
+})
