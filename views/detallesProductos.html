@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,7 +17,7 @@
         <div class="header__menu container">
 
             <div class="header__divLogo">
-                <img src="/img/LogoRedondo.png" alt="" class="header__logo">
+                <img src="/public/img/LogoRedondo.png" alt="" class="header__logo">
                 <h1 class="header__logoTexto">Picatso</h1>
             </div>
 
@@ -29,7 +29,7 @@
             </div>
 
             <div class="header__divUserOptions">
-                <i class="fa-solid fa-user"></i>
+               <a href="login.html"> <i class="fa-solid fa-user"></i></a>
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
 
@@ -48,22 +48,78 @@
 
         </div>
     </header>
-  <main class="main-login">
-    <div>.</div>
-   <form action="/ingresa" method="post" class="ingresa">
-    <h2>Ingresá a tu cuenta</h2>
-      <input class="sep"
-       type="text" 
-       name="nombre" 
-       placeholder="Nombre de usuario"
-       />
-      <input class="sep"
-      type="password" 
-      name="contra" 
-      placeholder="Contraseña"
-      />
-      <button type="submit" class="botonf">Enviar</button>
-    </form>
+
+    <main class="main_Details_Products">
+
+        <div class="details_Products_Container">
+
+            <div class="details_Products_Item">
+                <img src="/public/img/alimentos.jpg" alt="" class="detail_img">
+            </div>
+
+            <div class="details_Products">
+
+                <div class="details_Products_Title">
+                    <h2 class="products_Title"> Titulo del Producto</h2>
+                </div>
+
+                <div class="details_Products_Description">
+                    <div class="products_Description_Title">
+                        <h3>Descripcion del producto:</h3>
+                    </div>
+                    <div class="products_Description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat est dolorem consequuntur,
+                             ipsa at laboriosam voluptas sit! Quae, doloremque ipsum aperiam quaerat rerum quibusdam sequi 
+                             corporis id exercitationem commodi reiciendis
+                        </p>
+                    </div>
+                    <div class="description_Price">
+                        <h4>
+                            Precio: $ 
+                        </h4>
+                        <h4>
+                            5000
+                        </h4>
+                    </div>
+                    <div class="description_Amount">
+                        <div class="description_Amount_Title">
+                            <h4>
+                                Cantidad
+                            </h4>
+                        </div>
+                        <div class="description_Amount_Num">
+                            <button class="button_Amount" type="button" >
+                                -
+                            </button>
+                            <input class="amount_Num" type="tel" step="1" value="1">
+                            <button class="button_Amount" type="button" >
+                                +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="description_Payment">
+                        <div class="method_Payment">
+                            <h4>
+                                Metodos de pago
+                            </h4>
+                        </div>
+                        <div class="method_Payment_Item">
+                            <li class="payment_li">
+                                <img src="/public/img/visa_logo.png" alt="img_Payment" class="products_payment_logo_img">
+                            </li>
+                            <li class="payment_li">
+                                <img src="/public/img/mastercard_logo.png" alt="img_Payment" class="products_payment_logo_img">
+                            </li>
+                            <li class="payment_li">
+                                <img src="/public/img/Icono_tarjeta.png" alt="img_Payment" class="products_payment_logo_img">
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+
     </main>
 
     <footer class="footer">

@@ -23,3 +23,8 @@ app.get("/productCard", (req, res) => {
 app.get("/history", (req, res) => {
     res.sendFile(path.join(__dirname, "./views/history.html"));
 });
+  });
+app.get("/detallesProductos", (req, res) => {
+    res.sendFile(path.join(__dirname, "./views/detallesProductos.html"))
+})
+
