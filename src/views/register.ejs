@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- head -->
+<%- include('partials/head.ejs') %>
+
+<body>
+
+    <!-- header -->
+    <%- include('partials/header.ejs') %>
+
+    <img class="banner" src="/img/BannerHome.png" alt="banner-picatso">
+
+    <main class="main">
+
+
+        <form action="" method="post">
+            <h2 class="titulof"> Registro</h2>
+            <div class="f">
+                <div class="registro">
+                    <label for="Nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre">
+                    <label for="Apellido">Apellido:</label>
+                    <input type="text" name="apellido" id="apellido">
+                    <label for="Fechadenac">Fecha de Nacimiento:</label>
+                    <input type="date" name="fechadenac" id="fechadenac">
+                    <label for="Nombredeusuario">Nombre de usuario:</label>
+                    <input type="text" name="nombredeusuario" id="nombredeusuario">
+                    <label for="Contraseña">Contraseña:</label>
+                    <input type="password" name="contraseña" id="contraseña">
+                    <label for="ConfirmarContraseña">Confirmar Contraseña:</label>
+                    <input type="password" name="contraseña" id="contraseña">
+                    <label for="Email">Email:</label>
+                    <input type="email" name="email" id="email">
+                    <label>Insertar una imagen de Perfil</label>
+                    <input type="file" name="imagenPerfil" accept=".jpg" multiple>
+                </div>
+                <div class="botonf">
+                    <button type="reset">Borrar</button>
+                    <button type="submit">Enviar</button>
+                </div>
+        </form>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>

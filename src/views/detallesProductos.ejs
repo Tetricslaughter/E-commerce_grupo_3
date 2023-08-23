@@ -1,53 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Picatso</title>
-</head>
+<!-- header -->
+<%- include('partials/header.ejs') %>
 
 <body>
 
-    <header class="header">
-        <div class="header__menu container">
-
-            <div class="header__divLogo">
-                <img src="/public/img/LogoRedondo.png" alt="" class="header__logo">
-                <h1 class="header__logoTexto">Picatso</h1>
-            </div>
-
-            <div class="header__buscador">
-                <input type="text" name="" id="buscador" placeholder="buscar algun producto">
-                <button class="boton boton-buscar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-
-            <div class="header__divUserOptions">
-               <a href="login.html"> <i class="fa-solid fa-user"></i></a>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-
-            <input type="checkbox" id="menu">
-            <label class="header__label" for="menu">
-                <i class="header__icon fa-solid fa-bars"></i>
-            </label>
-            <nav class="header__nav">
-                <ul class="header__ul container">
-                    <li class="header__li"><a href="home.html">Inicio</a></li>
-                    <li class="header__li"><a href="#">Productos</a></li>
-                    <li class="header__li"><a href="#">Opciones</a></li>
-                    <li class="header__li"><a href="#">Perfil</a></li>
-                </ul>
-            </nav>
-
-        </div>
-    </header>
+    <!-- header -->
+    <%- include('partials/header.ejs') %>
 
     <main class="main_Details_Products">
 
@@ -68,14 +28,16 @@
                         <h3>Descripcion del producto:</h3>
                     </div>
                     <div class="products_Description">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat est dolorem consequuntur,
-                             ipsa at laboriosam voluptas sit! Quae, doloremque ipsum aperiam quaerat rerum quibusdam sequi 
-                             corporis id exercitationem commodi reiciendis
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat est dolorem
+                            consequuntur,
+                            ipsa at laboriosam voluptas sit! Quae, doloremque ipsum aperiam quaerat rerum quibusdam
+                            sequi
+                            corporis id exercitationem commodi reiciendis
                         </p>
                     </div>
                     <div class="description_Price">
                         <h4>
-                            Precio: $ 
+                            Precio: $
                         </h4>
                         <h4>
                             5000
@@ -88,11 +50,11 @@
                             </h4>
                         </div>
                         <div class="description_Amount_Num">
-                            <button class="button_Amount" type="button" >
+                            <button class="button_Amount" type="button">
                                 -
                             </button>
                             <input class="amount_Num" type="tel" step="1" value="1">
-                            <button class="button_Amount" type="button" >
+                            <button class="button_Amount" type="button">
                                 +
                             </button>
                         </div>
@@ -105,20 +67,23 @@
                         </div>
                         <div class="method_Payment_Item">
                             <li class="payment_li">
-                                <img src="/public/img/visa_logo.png" alt="img_Payment" class="products_payment_logo_img">
+                                <img src="/public/img/visa_logo.png" alt="img_Payment"
+                                    class="products_payment_logo_img">
                             </li>
                             <li class="payment_li">
-                                <img src="/public/img/mastercard_logo.png" alt="img_Payment" class="products_payment_logo_img">
+                                <img src="/public/img/mastercard_logo.png" alt="img_Payment"
+                                    class="products_payment_logo_img">
                             </li>
                             <li class="payment_li">
-                                <img src="/public/img/Icono_tarjeta.png" alt="img_Payment" class="products_payment_logo_img">
+                                <img src="/public/img/Icono_tarjeta.png" alt="img_Payment"
+                                    class="products_payment_logo_img">
                             </li>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-  
+
 
     </main>
 
@@ -180,6 +145,9 @@
         </div>
     </footer>
     <h6 class="copyright">Copyright2023 - Grupo3 - Digital House</h6>
+
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
 
 </body>
 
