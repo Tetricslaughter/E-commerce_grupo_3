@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- head -->
+<%- include('partials/head.ejs') %>
+
+<body>
+
+    <!-- header -->
+    <%- include('partials/header.ejs') %>
+
+    <div id="carrito">
+        <div>
+            <p>
+                Detalle carrito
+            </p>
+            <ul>
+                <li type="none" class="productosCarrito">
+                    <div>
+                        <img src="img/alimento.jpg" alt="fotoproducto">
+                        <p>Lorem ipsum dolor sit amet et delectus accommodare his consul</p>
+                        Precio
+                        <button>Cantidad</button>
+                        Total
+                    </div>
+                    <div>
+                        <img src="img/alimento.jpg" alt="fotoproducto">
+                        <p>Lorem ipsum dolor sit amet et delectus accommodare his consul</p>
+                        Precio
+                        <button>Cantidad</button>
+                        Total
+                    </div>
+                    <div>
+                        <img src="img/alimento.jpg" alt="fotoproducto">
+                        <p>Lorem ipsum dolor sit amet et delectus accommodare his consul</p>
+                        Precio
+                        <button>Cantidad</button>
+                        Total
+                    </div>
+                </li>
+            </ul>
+            
+
+        </div>
+    </div>
+    <div id="carrito-pago">
+        <div id="slider-tarjetas">
+            aqui va el slider de tarjetas y tambien el recuadro para poner el cvv de la tarjeta
+        </div>
+        <div id="sitio-pago">
+            aqui va el codigo de descuento junto con el resumen y tambien el boton de pago 
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>

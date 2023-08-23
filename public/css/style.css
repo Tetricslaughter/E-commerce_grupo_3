@@ -504,6 +504,7 @@
 
     .historial {
         justify-items: flex-start;
+        margin-top: 50px;
     }
 
     .historial h2 {

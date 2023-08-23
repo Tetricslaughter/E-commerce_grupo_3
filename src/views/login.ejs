@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- head -->
+<%- include('partials/head.ejs') %>
+
+<body>
+
+    <!-- header -->
+    <%- include('partials/header.ejs') %>
+
+  <main class="main-login">
+    <div>.</div>
+   <form action="/ingresa" method="post" class="ingresa">
+    <h2>Ingresá a tu cuenta</h2>
+      <input class="sep"
+       type="text" 
+       name="nombre" 
+       placeholder="Nombre de usuario"
+       />
+      <input class="sep"
+      type="password" 
+      name="contra" 
+      placeholder="Contraseña"
+      />
+      <button type="submit" class="botonf">Enviar</button>
+    </form>
+    </main>
+
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>
