@@ -18,3 +18,12 @@ hablar de otras cosas y no hacer la tarea jaja
 
 *dejar de hacer:
 dejar las cosas para ultimo momento 
+
+SPRINT 3
+Al comienzo de este sprint no nos comunicamos para realizar las diferentes tareas del proyecto , por razones académicas no coincidíamos en los horarios disponibles de nuestros compañeros.
+Hubo algunas ocaciones en las  que se pudo hablar, pero no todos estuvieron presentes. Aun asi se avanzo en el sprint cumpliendo con la mayoría de los requerimientos. 
+ Hacer mas: Para el próximo sprint consideramos que debe a ver una mejor coordinación y comunicación.
+Continuar haciendo: Empatizar con la situación  particular de cada uno de nuestros compañeros.
+Hacer menos: No ser confiados en que habrá mas tiempo para hacer el trabajo.
+Dejar de hacer: Dejar de ser desatentos con la actividad grupal.
+
