@@ -6,7 +6,7 @@ const path = require('path');
 const mainRoutes = require('./routes/main.js');
 const productsRoutes = require('./routes/products.js');
 
-app.use(express.static('public'));
+app.use(express.static('./public'));
 app.listen(3000, () => console.log("el servidor se conecto en el puerto 3000"));
 
 
