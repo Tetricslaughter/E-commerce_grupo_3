@@ -1,19 +1,19 @@
 const controller = {
     
-    card: (req, res) => {
+    list: (req, res) => {
         res.render('productCard')
     },
 
     create: (req, res) => {
-        res.render('createProducts')
+        res.render('createProduct')
     },
     
     details: (req, res) => {
-        res.render('detallesProductos')
+        res.render('detailProduct')
     },
 
     history: (req, res) => {
-        res.render('history')
+        res.render('historyProduct')
     }
 }
 
