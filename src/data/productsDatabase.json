@@ -48,7 +48,7 @@
 
 
   {
-    "id": 1,
+    "id": 6,
     "name": "Rodillo Adhesivo Ferplast",
     "price": 1890.00,
     "category" : "esteticaEHigiene",
@@ -57,7 +57,7 @@
     "image": "https://puppis.vteximg.com.br/arquivos/ids/192426-1000-1000/248254.jpg?v=638193476420270000"
   },
   {
-    "id": 2,
+    "id": 7,
     "name": "Cepillo Puppis Doble - S",
     "price": 4290.00,
     "category" : "esteticaEHigiene",
@@ -66,16 +66,16 @@
     "image": "https://puppis.vteximg.com.br/arquivos/ids/176378-1000-1000/269107.jpg?v=637540873881500000"
   },
   {
-    "id": 3,
+    "id": 8,
     "name": "Shampoo Tonalizador Blanco Osspret - 250 Cc",
     "price": 2850.00,
     "category" : "esteticaEHigiene",
     "discount": 0,
     "description": "El shampoo tonalizador de Osspret cuida el pelaje de tu mascota dejandolo brilloso y suave",
-    "image": "https://puppis.vteximg.com.br/arquivos/ids/184978-1000-1000/269215.jpg?v=637792442751730000"
+    "image": "https://puppis.vteximg.com.br/arquivos/ids/157379-1000-1000/Osspret_tonalizador_blanco_fueysx.jpg?v=635773197434970000"
   },
   {
-    "id": 4,
+    "id": 9,
     "name": "Litera Abierta Cancat Netta",
     "price": 33290.00,
     "category" : "esteticaEHigiene",
@@ -84,7 +84,7 @@
     "image": "https://puppis.vteximg.com.br/arquivos/ids/171545-1000-1000/221194.jpg?v=637290590479400000"
   },
   {
-    "id": 5,
+    "id": 10,
     "name": "Piedras Sanitarias Michi Feliz - 1,8 Kg",
     "price": 490.00,
     "category" : "esteticaEHigiene",
@@ -97,7 +97,7 @@
 
 
   {
-    "id": 1,
+    "id": 11,
     "name": "Snack Golomiau Dental Care - 60 Gr",
     "price": 850.00,
     "category" : "alimento",
@@ -106,16 +106,16 @@
     "image": "https://puppis.vteximg.com.br/arquivos/ids/189515-1000-1000/434074.jpg?v=638004073911870000"
   },
   {
-    "id": 2,
+    "id": 12,
     "name": "Bocaditos De Granja Golomiau - 45 Gr",
     "price": 660.00,
     "category" : "alimento",
     "discount": 0,
     "description": "Los Bocaditos De Granja para gatos adultos tienen la formulación ideal para mantener la nutricion de tu gato. Están compuestos con ingredientes fundamentales para la buena salud y conforman una textura única que ayuda al proceso mecánico de limpieza dental, previniendo la formación de sarro. Contiene Taurina (aminoácido esencial en la dieta diaria) y Tropolifosfato de sodio (separa el calcio de la saliva y previene formación de sarro).",
-    "image": "https://puppis.vteximg.com.br/arquivos/ids/165991-1000-1000/237307.png?v=636862818526900000"
+    "image": "https://puppis.vteximg.com.br/arquivos/ids/170735-600-600/234007.jpg?v=637189485317300000"
   },
   {
-    "id": 3,
+    "id": 13,
     "name": "Alimento Excellent Pollo Y Arroz para Gato - 7,5 Kg",
     "price": 18750.00,
     "category" : "alimento",
@@ -124,16 +124,16 @@
     "image": "https://puppis.vteximg.com.br/arquivos/ids/179303-1000-1000/7613034755100-1.jpg?v=637570857843400000"
   },
   {
-    "id": 4,
+    "id": 14,
     "name": "Alimento Royal Canin Fit 32 - 15 Kg",
     "price": 35550.00,
     "category" : "alimento",
     "discount": 0,
     "description": "Royal Canin Cat Fit 32 es un alimento super-premium para gatos adultos de 1 a 7 años con actividad moderada y/o acceso al exterior ocasional.El alimento completo y equilibrado que contiene los nutrientes necesarios que responden perfectamente a las necesidades nutricionales de los gatos adultos y ayuda a mantener un buen estado de salud. Hecho a base de ingredientes de alta calidad y en la dosis que tu mascota necesita: proteinas (36%), grasas (15%), fibra (5,4%), calcio (0,9 a 1,6%), vitaminas y minerales.Beneficios de una alimentación a base de cat fit 32.",
-    "image": "https://puppis.vteximg.com.br/arquivos/ids/185002-1000-1000/269206.jpg?v=637792442854830000"
+    "image": "https://puppis.vteximg.com.br/arquivos/ids/172726-1000-1000/156286-1.jpg?v=637350103128230000"
   },
   {
-    "id": 5,
+    "id": 15,
     "name": "Pouch Homemade Delights River Salmon Gato Adulto - 100 Gr",
     "price": 650.00,
     "category" : "alimento",
