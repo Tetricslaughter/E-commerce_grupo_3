@@ -1,0 +1,132 @@
+:root {
+    --rojo: #D94A56;
+    --rojoOscuro: #af3d46;
+    --rosaFuerte: #F26B8F;
+    --amarillo: #C0D904;
+    --rosaClaro: #F2A2A2;
+    --grisClaro: #F2F2F2;
+   
+}
+
+.historial {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 20px 100px 20px;
+}
+
+.historial h2 {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 26px;
+    color: #565656;
+    text-align: center;
+}
+
+.producto__contenedor {
+    padding: 20px 0px;
+    border-bottom: 1px solid #d2d2d2;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.producto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    border-radius: 4px;
+}
+
+.producto__img {
+    height: 150px;
+    object-fit: contain;
+}
+
+.producto__info {
+    padding: 15px;
+}
+
+.producto__nombre {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5em;
+}
+
+.producto__nombre:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.producto__precio {
+    font-style: 18px;
+    line-height: 1.5em;
+    color: #22b12e;
+    margin-bottom: 10px;
+}
+
+.producto__descripcion {
+    line-height: 1.3em;
+    color: #565656;
+}
+
+
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+    .ingresa{
+        margin-top: 10%;
+    }
+
+    .historial {
+        justify-items: flex-start;
+        margin-top: 50px;
+    }
+
+    .historial h2 {
+        text-align: left;
+    }
+
+    .producto__contenedor {
+        text-align: left;
+        margin: 0;
+    }
+    
+    .producto {
+        flex-wrap: nowrap; 
+        max-width: none;
+    }
+    
+    .producto__img {
+        padding-right: 15px;
+        min-width: 250px;
+    }
+    
+    .producto__info {
+        padding: 15px;
+        border-left: 1px solid #a4a4a4;
+    }
+
+    .crearprod {
+        margin-top: 90px;
+        padding: 0px 30px;
+    }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+    
+}
+
+@media (min-width: 1400px) {
+    
+}

@@ -1,0 +1,95 @@
+:root {
+    --rojo: #D94A56;
+    --rojoOscuro: #af3d46;
+    --rosaFuerte: #F26B8F;
+    --amarillo: #C0D904;
+    --rosaClaro: #F2A2A2;
+    --grisClaro: #F2F2F2;
+   
+}
+
+
+.main-login {
+    background-color: #fff;
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.form-login {
+    padding: 0px 30px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form-login .campo input {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-login .campo-botones {
+    margin-top: 20px;
+}
+
+.form-login .campo-botones button {
+    width: 100%;
+    max-width: 500px;
+}
+
+.login__title {
+    margin-bottom: 20px;
+}
+
+
+@media (min-width: 576px) {
+    .form-login {
+        padding: 0px 80px;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-login {
+        background-image: url(/img/BannerHome.png);
+        background-size: cover;
+        background-repeat: repeat;
+        background-size: 1500px 700px;
+        background-position: center;
+        min-height: 100vh;
+        width: 100vw;
+        position: relative;
+    }
+    .form-login {
+        background-color: #fff;
+        margin: auto;
+        min-width: 100px;
+        max-width: 400px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 4px;
+        position: absolute;
+        box-shadow: 0px 0px 30px 5px #353535;
+        top: 150px;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+    
+}
+
+@media (min-width: 1400px) {
+
+}
