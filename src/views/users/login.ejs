@@ -6,29 +6,26 @@
 
 <body>
 
-    <!-- header -->
-    <%- include('../partials/header.ejs') %>
+  <!-- header -->
+  <%- include('../partials/header.ejs') %>
 
-  <main class="main-login">
-    <div>.</div>
-   <form action="/ingresa" method="post" class="ingresa">
-    <h2>Ingresá a tu cuenta</h2>
-      <input class="sep"
-       type="text" 
-       name="nombre" 
-       placeholder="Nombre de usuario"
-       />
-      <input class="sep"
-      type="password" 
-      name="contra" 
-      placeholder="Contraseña"
-      />
-      <button type="submit" class="botonf">Enviar</button>
+  <main class="main-login"> 
+    <form  class="form-login" action="/ingresa" method="POST" enctype="multipart/form-data">
+      <h2 class="login__title">Ingresá a tu cuenta</h2>
+      <div class="campo">
+        <input type="text" name="nombre" placeholder="Nombre de usuario"/>
+      </div>
+      <div class="campo">
+        <input type="password" name="contra" placeholder="Contraseña"/>
+      </div>
+      <div class="campo-botones">
+        <button type="submit" class="botonf">Enviar</button>
+      </div>
     </form>
-    </main>
+  </main>
 
-    <!-- Footer -->
-    <%- include('../partials/footer.ejs') %>
+  <!-- Footer -->
+  <%- include('../partials/footer.ejs') %>
 
 </body>
 
