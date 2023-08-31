@@ -1,0 +1,114 @@
+:root {
+    --rojo: #D94A56;
+    --rojoOscuro: #852f36;
+    --rosaFuerte: #F26B8F;
+    --amarillo: #C0D904;
+    --rosaClaro: #F2A2A2;
+    --grisClaro: #F2F2F2;
+   
+}
+
+
+.footer {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    background-color: var(--rojoOscuro);
+    height: fit-content;
+    padding: 20px;
+}
+
+.footer__redes {
+    min-width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer__enlace {
+    margin: 10px 10px;
+    color: #DEDEDE;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.footer__enlace:hover {
+    color: #BCBCBC;
+}
+
+.icono {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.icono-facebook {
+    color: #FFF;
+    background-color: #3b5998;
+    padding-left: 10px;
+}
+
+.icono-instagram {
+    color: #FFF;
+    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+}
+
+.icono-twitter {
+    color: #fff;
+    background-color: #00acee;
+    font-size: 28px;
+}
+
+.footer__secciones {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer__listas {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer__li {
+    list-style: none;
+    margin: 4px 0px;
+}
+
+.copyright {
+    height: 30px;
+    font-size: 13px;
+    color: #cdcdcd;
+    text-align: center;
+    background-color: var(--rojoOscuro);
+    font-weight: normal;
+    letter-spacing: 3px;
+}
+
+@media (min-width: 576px) {
+    
+}
+
+@media (min-width: 768px) {
+    .footer__listas {
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+    
+}
+
+@media (min-width: 1400px) {
+    
+}
