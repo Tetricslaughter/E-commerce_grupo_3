@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<!-- head -->
-<%- include('../partials/head.ejs')  %>
+<head>
+    <!-- head -->
+    <%- include('../partials/head.ejs')  %>
+    <link rel="stylesheet" href="/css/homeStyle.css">
+    <title>Picatso</title>
+</head>
 
 <body>
 
@@ -13,13 +17,13 @@
         <div class="categorias-container">
             <div class="categorias">
                 <div class="categoria__item cat1">
-                    <a href="#">Alimentos</a>
+                    <a href="/products/alimento">Alimentos</a>
                 </div>
                 <div class="categoria__item cat2">
-                    <a href="#">Accesorios</a>
+                    <a href="/products/acessorios">Accesorios</a>
                 </div>
                 <div class="categoria__item cat3">
-                    <a href="#">Higiene</a>
+                    <a href="/products/esteticaEHigiene">Higiene</a>
                 </div>
             </div>
         </div>

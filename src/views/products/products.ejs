@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<!-- head -->
-<%- include('../partials/head.ejs')  %>
+<head>
+    <!-- head -->
+    <%- include('../partials/head.ejs')  %>
+    <link rel="stylesheet" href="/css/productsStyle.css">
+    <title>Productos</title>
+</head>
 
 <body>
 
@@ -18,7 +22,7 @@
                 <div class="product__item">
                     <img class="product__image" src="<%= products[i].image %>" alt="">
                     <div class="product__info">
-                        <a href="#" class="product__name"><%= products[i].name %></a>
+                        <a href="/products/details/<%= products[i].id %>" class="product__name"><%= products[i].name %></a>
                         <div class="product__info2">
                             <p class="product__price">$<%= products[i].price %></p>
                             <p class="product__discount"><%= products[i].discount %>%OFF!</p>

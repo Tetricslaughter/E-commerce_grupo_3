@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<!-- head -->
-<%- include('../partials/head.ejs') %>
+<head>
+    <!-- head -->
+    <%- include('../partials/head.ejs')  %>
+    <link rel="stylesheet" href="/css/registerStyle.css">
+    <title>Registrarse</title>
+</head>
 
-    <body>
+<body>
 
-        <!-- header -->
-        <%- include('../partials/header.ejs') %>
+    <!-- header -->
+    <%- include('../partials/header.ejs') %>
 
-        <main class="main container">
+    <main class="main container">
 
-            <form class="form-register" action="" method="POST" enctype="multipart/form-data">
-                <h2 class="register__title">Crear nueva cuenta</h2>
-                <div class="campo">
-                    <label for="Nombre">Nombre:</label>
-                    <input type="text" name="userName" id="nombre">
-                </div>
-                <div class="campo">
-                    <label for="Apellido">Apellido:</label>
-                    <input type="text" name="apellido" id="apellido">
-                </div>
-                <div class="campo">
-                    <label for="Nombredeusuario">Nombre de usuario:</label>
-                    <input type="text" name="nombredeusuario" id="nombredeusuario">
-                </div>
-                <div class="campo">
-                    <label for="Contraseña">Contraseña:</label>
-                    <input type="password" name="contraseña" id="contraseña">
-                </div>
-                <div class="campo">
-                    <label for="ConfirmarContraseña">Confirmar Contraseña:</label>
-                    <input type="password" name="contraseña" id="contraseña">
-                </div>
-                <div class="campo">
-                    <label for="Email">Email:</label>
-                    <input type="email" name="email" id="email">
-                </div>
-                <div class="campo">
-                    <label for="Fechadenac">Fecha de Nacimiento:</label>
-                    <input type="date" name="fechadenac" id="fechadenac">
-                </div>
-                <div class="campo">
-                    <label>Foto de Perfil</label>
-                    <input type="file" name="imagenPerfil" id="imagenPerfil" accept=".jpg">
-                </div>
-                <div class="campo-botones">
-                    <button type="reset">Borrar</button>
-                    <button type="submit">Enviar</button>
-                </div>
-            </form>
+        <form class="form-register" action="" method="POST" enctype="multipart/form-data">
+            <h2 class="register__title">Crear nueva cuenta</h2>
+            <div class="campo">
+                <label for="Nombre">Nombre:</label>
+                <input type="text" name="userName" id="nombre">
+            </div>
+            <div class="campo">
+                <label for="Apellido">Apellido:</label>
+                <input type="text" name="apellido" id="apellido">
+            </div>
+            <div class="campo">
+                <label for="Nombredeusuario">Nombre de usuario:</label>
+                <input type="text" name="nombredeusuario" id="nombredeusuario">
+            </div>
+            <div class="campo">
+                <label for="Contraseña">Contraseña:</label>
+                <input type="password" name="contraseña" id="contraseña">
+            </div>
+            <div class="campo">
+                <label for="ConfirmarContraseña">Confirmar Contraseña:</label>
+                <input type="password" name="contraseña" id="contraseña">
+            </div>
+            <div class="campo">
+                <label for="Email">Email:</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div class="campo">
+                <label for="Fechadenac">Fecha de Nacimiento:</label>
+                <input type="date" name="fechadenac" id="fechadenac">
+            </div>
+            <div class="campo">
+                <label>Foto de Perfil</label>
+                <input type="file" name="imagenPerfil" id="imagenPerfil" accept=".jpg">
+            </div>
+            <div class="campo-botones">
+                <button type="reset">Borrar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
 
-        </main>
+    </main>
 
-        <!-- Footer -->
-        <%- include('../partials/footer.ejs') %>
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
 
-    </body>
+</body>
 
 </html>
