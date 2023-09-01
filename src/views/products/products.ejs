@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- head -->
+<%- include('../partials/head.ejs')  %>
+
+<body>
+
+    <!-- header -->
+    <%- include('../partials/header.ejs') %>
+
+    <main class="main">
+        <div class="productos container">
+
+            <% for (let i=0; i<products.length; i++) { %>
+
+            <div class="card">
+                <div class="product__item">
+                    <img class="product__image" src="<%= products[i].image %>" alt="">
+                    <div class="product__info">
+                        <a href="#" class="product__name"><%= products[i].name %></a>
+                        <div class="product__info2">
+                            <p class="product__price">$<%= products[i].price %></p>
+                            <p class="product__discount"><%= products[i].discount %>%OFF!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+
+</html>
