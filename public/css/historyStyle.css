@@ -80,10 +80,6 @@
 }
 
 @media (min-width: 768px) {
-    .ingresa{
-        margin-top: 10%;
-    }
-
     .historial {
         justify-items: flex-start;
         margin-top: 50px;
@@ -111,11 +107,6 @@
     .producto__info {
         padding: 15px;
         border-left: 1px solid #a4a4a4;
-    }
-
-    .crearprod {
-        margin-top: 90px;
-        padding: 0px 30px;
     }
 }
 

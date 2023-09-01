@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<!-- head -->
-<%- include('../partials/head.ejs') %>
+<head>
+    <!-- head -->
+    <%- include('../partials/head.ejs')  %>
+    <link rel="stylesheet" href="/css/detailProductStyle.css">
+    <title>Detalles del Producto</title>
+</head>
 
 <body>
 
@@ -14,33 +18,28 @@
         <div class="details_Products_Container">
 
             <div class="details_Products_Item">
-                <img src="/img/alimentos.jpg" alt="" class="detail_img">
+                <img src="<%= product.image %>" alt="" class="detail_img">
             </div>
 
             <div class="details_Products">
 
                 <div class="details_Products_Title">
-                    <h2 class="products_Title"> Titulo del Producto</h2>
+                    <h2 class="products_Title"><%= product.name %></h2>
                 </div>
 
                 <div class="details_Products_Description">
                     <div class="products_Description_Title">
-                        <h3>Descripcion del producto:</h3>
+                        <h3><%= product.name %></h3>
                     </div>
                     <div class="products_Description">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat est dolorem
-                            consequuntur,
-                            ipsa at laboriosam voluptas sit! Quae, doloremque ipsum aperiam quaerat rerum quibusdam
-                            sequi
-                            corporis id exercitationem commodi reiciendis
-                        </p>
+                        <p><%= product.description %></p>
                     </div>
                     <div class="description_Price">
                         <h4>
-                            Precio: $
+                            <%= product.price %>
                         </h4>
                         <h4>
-                            5000
+                            <%= product.discount %>
                         </h4>
                     </div>
                     <div class="description_Amount">
