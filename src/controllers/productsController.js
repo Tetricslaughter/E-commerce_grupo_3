@@ -1,16 +1,13 @@
-const { log } = require("console");
 const fs = require("fs");
 const path = require("path");
-
 const productsFilePath = path.join(__dirname, "../data/productsDatabase.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 
     allProducts: (req, res) => {
-        res.render('products', { products: products })
+        res.render('products', { products: products, toThousand: toThousand })
     },
 
     listByCategory: (req, res) => {
@@ -20,11 +17,22 @@ const controller = {
                 prodBuscados.push(products[i])
             }
         }
-        res.render('products', { products: prodBuscados })
+        res.render('products', { products: prodBuscados, toThousand: toThousand })
+    },
+
+    searchProducts: (req, res) => {
+        let buscado = req.query.searchBar;
+        let userResults = [];
+        for (let i=0; i<products.length; i++) {
+            if (products[i].name.toLowerCase().includes(buscado.toLowerCase())) {
+                userResults.push(products[i]);
+            }
+        }
+        res.render('products', { products: userResults, toThousand: toThousand })
     },
 
     productHistory: (req, res) => {
-        res.render('historyProduct')
+        res.render('productHistory', { toThousand: toThousand })
     },
 
     card: (req, res) => {
@@ -33,11 +41,11 @@ const controller = {
 
     productDetails: (req, res) => {
         let product = products.find((i) => i.id == req.params.idProducto);
-        res.render('detailProduct', { product: product })
+        res.render('productDetail', { product: product })
     },
 
     createProduct: (req, res) => {
-        res.render('createProduct')
+        res.render('productCreate')
     },
 
     saveProduct: (req, res) => {
@@ -59,7 +67,7 @@ const controller = {
                 name: req.body.nombreProd,
                 price: req.body.precioProd,
                 category: req.body.categoriaProd,
-                discount: 0,
+                discount: req.body.descuentoProd,
                 description: req.body.descripcionProd,
                 image: '/img/productImages/' + req.file.filename
             };
@@ -74,7 +82,7 @@ const controller = {
     editProduct: (req, res) => {
         let product = products.find((i) => i.id == req.params.idProducto);
         // console.log(product);
-        res.render('editProduct', { product: product })
+        res.render('productEdit', { product: product })
     },
 
     updateProduct: (req, res) => {
@@ -85,8 +93,12 @@ const controller = {
             }
         })
         res.redirect('/products');
+    },
+
+    deleteProduct: (req, res) => {
+        console.log(req.body);
+        res.redirect('/products');
     }
 }
-
 
 module.exports = controller;

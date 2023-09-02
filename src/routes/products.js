@@ -17,7 +17,7 @@ let multerDiskStorage1 = multer.diskStorage({
 })
 let fileUserUpload = multer({ storage: multerDiskStorage1 });
 
-// configuracion para imagenes de productos de usuario
+// configuracion para imagenes de productos
 let multerDiskStorage2 = multer.diskStorage({
     destination: (req, file, callback) => {
         let folder = path.join(__dirname, '../../public/img/productImages');
@@ -31,15 +31,16 @@ let multerDiskStorage2 = multer.diskStorage({
 let fileProdUpload = multer({ storage: multerDiskStorage2 });
 
 // rutas
-router.get('/', productsController.allProducts);
-router.get('/create', productsController.createProduct);
-router.post('/create', fileProdUpload.single('imagenProd'), productsController.saveProduct);
-router.get('/:idProducto/details', productsController.productDetails);
-router.get('/:idProducto/edit', productsController.editProduct);
-router.put('/:idProducto/edit', productsController.updateProduct);
-// router.delete('/:id', productsController.deleteProduct);
-router.get('/:categoria', productsController.listByCategory);
+router.get('/', productsController.allProducts); // 1
+router.get('/search', productsController.searchProducts)
 router.get('/history', productsController.productHistory);
+router.get('/create', productsController.createProduct); // 2
+router.post('/create', fileProdUpload.single('imagenProd'), productsController.saveProduct); // 4
+router.get('/:categoria', productsController.listByCategory);
+router.get('/:idProducto/details', productsController.productDetails); // 3
+router.get('/:idProducto/edit', productsController.editProduct); // 5
+router.put('/:idProducto/edit', productsController.updateProduct); // 6
+router.delete('/:idProducto/delete', productsController.deleteProduct); // 7
 
 
 module.exports = router;

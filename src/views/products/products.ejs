@@ -24,8 +24,12 @@
                     <div class="product__info">
                         <a href="/products/<%= products[i].id %>/details" class="product__name"><%= products[i].name %></a>
                         <div class="product__info2">
-                            <p class="product__price">$<%= products[i].price %></p>
-                            <p class="product__discount"><%= products[i].discount %>%OFF!</p>
+                            <% if (products[i].discount > 0) { %>
+                                <p class="product__price">$<%= toThousand(Math.floor(products[i].price - (products[i].price*(products[i].discount/100)))) %></p>
+                                <p class="product__discount"><%= products[i].discount %>% OFF!!!</p>
+                            <% } else { %>
+                                <p class="product__price">$<%= toThousand(Math.floor(products[i].price - (products[i].price*(products[i].discount/100)))) %></p>
+                            <% } %>
                         </div>
                     </div>
                 </div>
