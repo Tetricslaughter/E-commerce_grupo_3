@@ -1,0 +1,132 @@
+/* Estilos generales */
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+/* Estilos para la sección de pago */
+.pago {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    width: 45%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.tarjeta {
+    width: 48%;
+    padding: 0.5rem;
+    margin-right: 1%;
+    border: 1px solid #ddd;
+}
+
+.formulario-pago-descuento {
+    margin-bottom: 1rem;
+}
+
+#aplicar-descuento {
+    background-color: var(--amarillo);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.detalle-compra {
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+.lista-compra {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-compra li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+#envio, #descuento, #total {
+    font-weight: bold;
+}
+
+#boton-pagar {
+    background-color:var(--rojo);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Estilos para la estructura horizontal del producto en el carrito */
+.carrito {
+    width: 50%;
+}
+.producto-carrito {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.producto-imagen img {
+    max-width: 100px;
+    margin-right: 1rem;
+}
+
+.producto-info {
+    flex: 1;
+}
+
+.producto-info h3 {
+    margin: 0;
+}
+
+.producto-info p {
+    margin: 0;
+}
+
+.producto-cantidad {
+    margin-right: 1rem;
+}
+
+.selector-cantidad {
+    width: 50px;
+}
+
+.producto-precio-final {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.producto-remover .btn-remover {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Estilos adicionales */
+.lista-productos {
+    list-style: none;
+    padding: 0;
+}
