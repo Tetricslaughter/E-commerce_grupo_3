@@ -41,6 +41,7 @@ router.get('/:idProducto/details', productsController.productDetails); // 3
 router.get('/:idProducto/edit', productsController.editProduct); // 5
 router.put('/:idProducto/edit', productsController.updateProduct); // 6
 router.delete('/:idProducto/delete', productsController.deleteProduct); // 7
+router.get('/cart', productsController.card);
 
 
 module.exports = router;
