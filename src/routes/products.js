@@ -1,18 +1,46 @@
 const express = require("express");
 const router = express.Router();
-
+const path = require('path');
+const multer = require('multer');
 const productsController = require('../controllers/productsController.js');
 
-router.get('/', productsController.list);
-router.get('/history', productsController.history);
-router.get('/create', productsController.create);
-router.get('/cart', productsController.card);
+// configuracion para imagenes de fotos de usuario
+let multerDiskStorage1 = multer.diskStorage({
+    destination: (req, file, callback) => {
+        let folder = path.join(__dirname, '../../public/img/profileImages');
+        callback(null, folder);
+    },
+    filename: (req, file, callback) => {
+        let imageName = 'user-' + Date.now() + path.extname(file.originalname);
+        callback(null, imageName);
+    }
+})
+let fileUserUpload = multer({ storage: multerDiskStorage1 });
 
-// router.get('/:id', productsController.details)
-// router.post('/', productsController.saveProduct);
-// router.get('/:id/edit', productsController.editProduct);
-// router.put('/:id', productsController.editProduct);
-// router.delete('/:id', productsController.deleteProduct);
+// configuracion para imagenes de productos
+let multerDiskStorage2 = multer.diskStorage({
+    destination: (req, file, callback) => {
+        let folder = path.join(__dirname, '../../public/img/productImages');
+        callback(null, folder);
+    },
+    filename: (req, file, callback) => {
+        let imageName = 'prod-' + Date.now() + path.extname(file.originalname);
+        callback(null, imageName);
+    }
+})
+let fileProdUpload = multer({ storage: multerDiskStorage2 });
+
+// rutas
+router.get('/', productsController.allProducts); // 1
+router.get('/search', productsController.searchProducts)
+router.get('/history', productsController.productHistory);
+router.get('/create', productsController.createProduct); // 2
+router.post('/create', fileProdUpload.single('imagenProd'), productsController.saveProduct); // 4
+router.get('/:categoria', productsController.listByCategory);
+router.get('/:idProducto/details', productsController.productDetails); // 3
+router.get('/:idProducto/edit', productsController.editProduct); // 5
+router.put('/:idProducto/edit', productsController.updateProduct); // 6
+router.delete('/:idProducto/delete', productsController.deleteProduct); // 7
 
 
 module.exports = router;

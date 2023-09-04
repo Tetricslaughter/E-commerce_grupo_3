@@ -1,11 +1,12 @@
 <header class="header__fondo">
     <div class="header container">
         <div class="header__logo">
+            <img width="50px" src="/img/LogoRedondo.png" alt="logo-picatso">
             PICATSO
         </div>
-        <form class="header__searcher">
-            <input type="text" name="searchBar" id="searchBar">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form class="header__searcher" action="/products/search" method="GET">
+            <input type="text" name="searchBar" id="searchBar" placeholder="Buscar productos">
+            <button id="btn-buscar" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div class="header__userIcons">
             <ul class="userIcons__ul">

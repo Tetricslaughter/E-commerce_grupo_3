@@ -2,34 +2,34 @@
   {
     "id": 1,
     "name": "Comedero Puppis Acero Inoxidable",
-    "price": 2252.50,
+    "price": 2252,
     "category" : "acessorios",
-    "discount": 0,
+    "discount": 10,
     "description": "El Comedero Puppis Acero Inoxidable, incluye una base antideslizante para que tu mascota se alimente mejor sin que el comedero se mueva de su lugar.",
     "image": "https://puppis.vteximg.com.br/arquivos/ids/189226-1000-1000/269341.jpg?v=637979986924130000"
   },
   {
     "id": 2,
     "name": "Pelota Pawise Crinkle Para Gato",
-    "price": 490.00,
+    "price": 490,
     "category" : "acessorios",
-    "discount": 0,
+    "discount": 5,
     "description": "La pelota Pawise Crinkle para Gatos es una original pelota que con su textura, colores y diseño llama la atención de las mascotas.",
     "image": "https://puppis.vteximg.com.br/arquivos/ids/165991-1000-1000/237307.png?v=636862818526900000"
   },
   {
     "id": 3,
     "name": "Juguete Puppis Dinosaurio - Colores Surtidos",
-    "price": 2090.00,
+    "price": 2090,
     "category" : "acessorios",
-    "discount": 0,
+    "discount": 3,
     "description": "El Juguete Puppis Dinosaurio está fabricado con materiales suaves que aseguran que tu gato se sienta cómodo y relajado a la hora de jugar. Además de ser una excelente forma para descargar energía, los juguetes brindan un espacio lúdico donde tu gato puede estimular y desarrollar su mente.",
     "image": "https://puppis.vteximg.com.br/arquivos/ids/184978-1000-1000/269215.jpg?v=637792442751730000"
   },
   {
     "id": 4,
     "name": "Cañita Puppis Raton",
-    "price": 2090.00,
+    "price": 2090,
     "category" : "acessorios",
     "discount": 0,
     "description": "La Cañita Puppis Raton está diseñada para que tu gato no pierda su instinto cazador. Es recomendada por los veterinarios tanto para la salud mental de los felinos como para el control de peso.",
@@ -38,7 +38,7 @@
   {
     "id": 5,
     "name": "Repuesto Catit Play and Scracht",
-    "price": 2550.00,
+    "price": 2550,
     "category" : "acessorios",
     "discount": 0,
     "description": "El Repuesto Catit Play n Scratch, permite que tu gato se siga entreteniendo con su juguete Catit Play n Scratch! Cuando tu mascota ya ha gastado el cartón corrugado, este repuesto está pensado para reemplazarlo, así tu gato se siente nuevamente atraído a rascarlo",
@@ -50,16 +50,16 @@
   {
     "id": 6,
     "name": "Rodillo Adhesivo Ferplast",
-    "price": 1890.00,
+    "price": 1890,
     "category" : "esteticaEHigiene",
-    "discount": 0,
+    "discount": 10,
     "description": "El Rodillo Adhesivo Ferplast es la solución perfecta para mantener tu hogar libre de pelos de mascotas. Diseñado especialmente para gatos y perros, este rodillo recoge de manera efectiva y fácil el pelo que dejan tus mascotas en cualquier superficie doméstica como sillas, sofás o camas.El cómodo mango de plástico facilita el agarre y su uso en cualquier lugar de la casa. Cada rodillo contiene 12 hojas de papel adhesivo, lo que garantiza su durabilidad y efectividad a largo plazo.",
     "image": "https://puppis.vteximg.com.br/arquivos/ids/192426-1000-1000/248254.jpg?v=638193476420270000"
   },
   {
     "id": 7,
     "name": "Cepillo Puppis Doble - S",
-    "price": 4290.00,
+    "price": 4290,
     "category" : "esteticaEHigiene",
     "discount": 0,
     "description": "El Cepillo Puppis Doble, es un complemento ideal para la limpieza y el cuidado de tu mascota. Se recomienda desenredar y cepillar el pelo de tu mascota una vez por semana, ya que previene la formación de nudos, la acumulación de suciedad y de pelo muerto. De está manera, se mantendrá limpio y brilloso por más tiempo.",
@@ -68,16 +68,16 @@
   {
     "id": 8,
     "name": "Shampoo Tonalizador Blanco Osspret - 250 Cc",
-    "price": 2850.00,
+    "price": 2850,
     "category" : "esteticaEHigiene",
-    "discount": 0,
+    "discount": 15,
     "description": "El shampoo tonalizador de Osspret cuida el pelaje de tu mascota dejandolo brilloso y suave",
     "image": "https://puppis.vteximg.com.br/arquivos/ids/157379-1000-1000/Osspret_tonalizador_blanco_fueysx.jpg?v=635773197434970000"
   },
   {
     "id": 9,
     "name": "Litera Abierta Cancat Netta",
-    "price": 33290.00,
+    "price": 33290,
     "category" : "esteticaEHigiene",
     "discount": 0,
     "description": "La Litera Abierta Cancat Netta, es una excelente opción para tu mascota. Su diseño se adapta a cualquier lugar de tu casa y además cuenta con un sistema especial que evita que las piedras se caigan.",
@@ -86,7 +86,7 @@
   {
     "id": 10,
     "name": "Piedras Sanitarias Michi Feliz - 1,8 Kg",
-    "price": 490.00,
+    "price": 490,
     "category" : "esteticaEHigiene",
     "discount": 0,
     "description": "Las Piedras Sanitarias Michi Feliz, son una gran opción para mantener la higiene de tu gato y de su espacio, ya que no producen barro, eliminan los olores y son 100% biodegradables.",
@@ -99,16 +99,16 @@
   {
     "id": 11,
     "name": "Snack Golomiau Dental Care - 60 Gr",
-    "price": 850.00,
+    "price": 850,
     "category" : "alimento",
-    "discount": 0,
+    "discount": 5,
     "description": "Los Snacks Golomiau Dental Care para gatos adultos tienen la formulación ideal para mantener el control de dientes limpios para tu gato. Están compuestos con ingredientes fundamentales para la buena salud y conforman una textura única que ayuda al proceso mecánico de limpieza dental, previniendo la formación de sarro. Contiene Taurina (aminoácido esencial en la dieta diaria) y Tropolifosfato de sodio (separa el calcio de la saliva y previene formación de sarro).",
     "image": "https://puppis.vteximg.com.br/arquivos/ids/189515-1000-1000/434074.jpg?v=638004073911870000"
   },
   {
     "id": 12,
     "name": "Bocaditos De Granja Golomiau - 45 Gr",
-    "price": 660.00,
+    "price": 660,
     "category" : "alimento",
     "discount": 0,
     "description": "Los Bocaditos De Granja para gatos adultos tienen la formulación ideal para mantener la nutricion de tu gato. Están compuestos con ingredientes fundamentales para la buena salud y conforman una textura única que ayuda al proceso mecánico de limpieza dental, previniendo la formación de sarro. Contiene Taurina (aminoácido esencial en la dieta diaria) y Tropolifosfato de sodio (separa el calcio de la saliva y previene formación de sarro).",
@@ -117,16 +117,16 @@
   {
     "id": 13,
     "name": "Alimento Excellent Pollo Y Arroz para Gato - 7,5 Kg",
-    "price": 18750.00,
+    "price": 18750,
     "category" : "alimento",
-    "discount": 0,
+    "discount": 10,
     "description": "Excellent Gato Adulto Pollo Y Arroz es un alimento Premium para gatos adultos mayores de un año. Este alimento tiene ingredientes de alta calidad que permiten mantener un pH adecuado en la orina que contribuye a impedir la formación de cálculos y cristales. Tiene una relación adecuada de proteínas y calorías, disminuyendo la masa corporal grasa, evitando los efectos del sobrepeso.",
     "image": "https://puppis.vteximg.com.br/arquivos/ids/179303-1000-1000/7613034755100-1.jpg?v=637570857843400000"
   },
   {
     "id": 14,
     "name": "Alimento Royal Canin Fit 32 - 15 Kg",
-    "price": 35550.00,
+    "price": 35550,
     "category" : "alimento",
     "discount": 0,
     "description": "Royal Canin Cat Fit 32 es un alimento super-premium para gatos adultos de 1 a 7 años con actividad moderada y/o acceso al exterior ocasional.El alimento completo y equilibrado que contiene los nutrientes necesarios que responden perfectamente a las necesidades nutricionales de los gatos adultos y ayuda a mantener un buen estado de salud. Hecho a base de ingredientes de alta calidad y en la dosis que tu mascota necesita: proteinas (36%), grasas (15%), fibra (5,4%), calcio (0,9 a 1,6%), vitaminas y minerales.Beneficios de una alimentación a base de cat fit 32.",
@@ -135,9 +135,9 @@
   {
     "id": 15,
     "name": "Pouch Homemade Delights River Salmon Gato Adulto - 100 Gr",
-    "price": 650.00,
+    "price": 650,
     "category" : "alimento",
-    "discount": 0,
+    "discount": 8,
     "description": "El Pouch Homemade Delights River Salmon Gato Adulto es un alimento húmedo balanceado desarrollado a partir de una fórmula equilibrada de macronutrientes, micronutrientes, vitaminas y minerales de alta calidad que satisfacen las necesidades nutricionales de los gatos adultos mayores de 12 meses de edad.Su principal ingrediente es el salmón del sur criado de manera sostenible, asegurando vitaminas, minerales y nutrientes para proporcionar la nutrición que tu gato necesita para una vida larga y saludable.",
     "image": "https://puppis.vteximg.com.br/arquivos/ids/189026-1000-1000/138163.jpg?v=637965314558900000"
   }
