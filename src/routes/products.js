@@ -35,13 +35,13 @@ router.get('/', productsController.allProducts); // 1
 router.get('/search', productsController.searchProducts)
 router.get('/history', productsController.productHistory);
 router.get('/create', productsController.createProduct); // 2
+router.get('/card', productsController.productCard);
 router.post('/create', fileProdUpload.single('imagenProd'), productsController.saveProduct); // 4
 router.get('/:categoria', productsController.listByCategory);
 router.get('/:idProducto/details', productsController.productDetails); // 3
 router.get('/:idProducto/edit', productsController.editProduct); // 5
 router.put('/:idProducto/edit', productsController.updateProduct); // 6
 router.delete('/:idProducto/delete', productsController.deleteProduct); // 7
-router.get('/card', productsController.productCard);
 
 
 module.exports = router;

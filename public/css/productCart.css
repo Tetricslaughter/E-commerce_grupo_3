@@ -4,15 +4,18 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    background-color: #f2f2f2;
 }
+
 
 /* Estilos para la sección de pago */
 .pago {
-    background-color: #fff;
+    background-color: #ffd8d8;
     border: 1px solid #ddd;
     padding: 1rem;
     width: 45%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .tarjetas {
@@ -33,24 +36,24 @@ main {
 }
 
 #aplicar-descuento {
-    background-color: var(--amarillo);
-    color: #fff;
+    background-color: var(--rosaClaro);
+    color: #f2f2f2;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
     font-size: 1rem;
     margin-top: 0.5rem;
+    border-radius: 2px;
 }
 
 .detalle-compra {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--rosaClaro);
     padding-top: 1rem;
 }
-
-.lista-compra {
-    list-style: none;
-    padding: 0;
+.detalle-compra p{
+    padding: 0.3rem;
 }
+
 
 .lista-compra li {
     display: flex;
@@ -60,6 +63,14 @@ main {
 
 #envio, #descuento, #total {
     font-weight: bold;
+
+}
+#total {
+    font-size: 1.9rem;
+}
+#total-text{
+    font-size: 1.9rem;
+
 }
 
 #boton-pagar {
@@ -68,8 +79,9 @@ main {
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 1rem;
+    border-radius: 2px;
 }
 
 /* Estilos para la estructura horizontal del producto en el carrito */
@@ -84,6 +96,7 @@ main {
     margin-bottom: 1rem;
     background-color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .producto-imagen img {
