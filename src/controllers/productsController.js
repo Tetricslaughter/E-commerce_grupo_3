@@ -36,7 +36,7 @@ const controller = {
     },
 
     productCard: (req, res) => {
-        res.render('productCard')
+        res.render('productCart')
     },
 
     productDetails: (req, res) => {
