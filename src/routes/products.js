@@ -39,6 +39,8 @@ router.get('/history', productsController.productHistory);
 
 router.get('/create', productsController.createProduct); // 2
 
+router.get('/card', productsController.productCard);
+
 router.post('/create', fileProdUpload.single('imagenProd'), productsController.saveProduct); // 4
 
 router.get('/:categoria', productsController.listByCategory);
@@ -58,6 +60,7 @@ router.post('/:idProducto/edit', productsController.updateProduct); // 6
  */
 router.get('/:idProducto/delete', productsController.deleteProduct); // 7
 //router.delete('/:idProducto/delete', productsController.deleteProduct); // 7
+
 
 
 module.exports = router;

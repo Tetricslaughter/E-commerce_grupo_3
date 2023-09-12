@@ -22,8 +22,14 @@ dejar las cosas para ultimo momento
 SPRINT 3
 Al comienzo de este sprint no nos comunicamos para realizar las diferentes tareas del proyecto , por razones académicas no coincidíamos en los horarios disponibles de nuestros compañeros.
 Hubo algunas ocaciones en las  que se pudo hablar, pero no todos estuvieron presentes. Aun asi se avanzo en el sprint cumpliendo con la mayoría de los requerimientos. 
- Hacer mas: Para el próximo sprint consideramos que debe a ver una mejor coordinación y comunicación.
+Hacer mas: Para el próximo sprint consideramos que debe a ver una mejor coordinación y comunicación.
 Continuar haciendo: Empatizar con la situación  particular de cada uno de nuestros compañeros.
 Hacer menos: No ser confiados en que habrá mas tiempo para hacer el trabajo.
 Dejar de hacer: Dejar de ser desatentos con la actividad grupal.
 
+SPRINT 4
+Al comienzo de este sprint no nos pudimos organizar para repartir las tareas, por razones academicas y de trabajo. Ya al paso de los dias nos organizamos y se pudo completar los puntos pendientes de los anteriores sprints. Avanzamos en este sprint cumpliendo con la mayoria de los requerimientos.
+Hacer mas: Para el proximo sprint consideramos tener mejor comunicacion y dar el tiempo necesario a las actividades.
+Continuar haciendo: Empatizar con la situación  particular de cada uno de nuestros compañeros.
+Hacer menos: DiLatar el tiempo en la realizacion de los sprints.
+Dejar de hacer: No estar al dia con las clases y las actividades.
