@@ -100,10 +100,14 @@
     color: #fff;
 }
 
-.header__userIcons li a {
+.userIcons__li a {
     color: #fff;
-
 }
+
+.userIcons__li a:hover {
+    color: #ddd;
+}
+
 .header__icon {
     color: #fff;
     font-size: 22px;

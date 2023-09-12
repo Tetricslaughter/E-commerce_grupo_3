@@ -16,7 +16,7 @@
     <main class="main">
         <div class="crearprod container">
             <h1 class="crearprod__titulo">Editar Producto</h1>
-            <form class="crearprod__form" action="/products/<%= product.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form class="crearprod__form" action="/products/<%= product.id %>/edit" method="POST">
                 <div class="campo">
                     <label for="nombreProd">Nombre del producto:</label>
                     <input type="text" name="nombreProd" id="nombreProd" value="<%= product.name %>">
@@ -34,8 +34,12 @@
                     <input type="number" min="0" max="999999" name="precioProd" id="precioProd" value="<%= product.price %>">
                 </div>
                 <div class="campo">
+                    <label for="descuentoProd">Descuento:</label>
+                    <input type="number" min="0" max="99" name="descuentoProd" id="descuentoProd" value="<%= product.discount %>">
+                </div>
+                <div class="campo">
                     <label for="imagenProd">Imagen:</label>
-                    <input type="file" accept="/jpg" name="imagenProd" id="imagenProd">
+                    <input type="file" accept="/jpg" name="imagenProd" id="imagenProd" value="<%= product.image %>">
                 </div>
                 <div class="campo">
                     <input class="boton boton-verde" id="botonCrearProd" type="submit" value="Crear Producto">
