@@ -49,7 +49,6 @@ const controller = {
     },
 
     saveProduct: (req, res) => {
-        // console.log(req.body);
         console.log(req.file);
         if (req.file) {
             let prod = req.body;
@@ -81,22 +80,28 @@ const controller = {
 
     editProduct: (req, res) => {
         let product = products.find((i) => i.id == req.params.idProducto);
-        // console.log(product);
         res.render('productEdit', { product: product })
     },
 
     updateProduct: (req, res) => {
         console.log(req.body);
+        let id = req.params.idProducto;
         products.forEach((item) => {
-            if (item.id == req.params.idProducto) {
-                item = req.body;
+            if (item.id == id) {
+                item.name = req.body.nombreProd;
+                item.price = parseInt(req.body.precioProd);
+                item.category = req.body.categoriaProd;
+                item.discount = parseInt(req.body.descuentoProd);
+                item.description = req.body.descripcionProd;
             }
         })
         res.redirect('/products');
     },
 
     deleteProduct: (req, res) => {
-        console.log(req.body);
+        let id = req.params.idProducto;
+        let index = products.findIndex(item => item.id == id);
+        products.splice(index, 1);
         res.redirect('/products');
     }
 }
