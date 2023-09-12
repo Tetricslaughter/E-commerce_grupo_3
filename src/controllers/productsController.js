@@ -35,7 +35,7 @@ const controller = {
         res.render('productHistory', { toThousand: toThousand })
     },
 
-    productCard: (req, res) => {
+    productCart: (req, res) => {
         res.render('productCart')
     },
 

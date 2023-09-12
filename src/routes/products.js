@@ -39,7 +39,7 @@ router.get('/history', productsController.productHistory);
 
 router.get('/create', productsController.createProduct); // 2
 
-router.get('/card', productsController.productCard);
+router.get('/cart', productsController.productCart);
 
 router.post('/create', fileProdUpload.single('imagenProd'), productsController.saveProduct); // 4
 
