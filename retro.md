@@ -29,6 +29,7 @@ Dejar de hacer: Dejar de ser desatentos con la actividad grupal.
 
 SPRINT 4
 Al comienzo de este sprint no nos pudimos organizar para repartir las tareas, por razones academicas y de trabajo. Ya al paso de los dias nos organizamos y se pudo completar los puntos pendientes de los anteriores sprints. Avanzamos en este sprint cumpliendo con la mayoria de los requerimientos.
+Una aclaracion necesaria del por que se observan pocos commits de algunos integrantes es a razon de que trabajamos con el metodo de pair programing, tomamos la decision de dividimos en grupos pequeños teniendo en cuenta el horario disponiblle de cada integrante y se procedia a acordar dia de reunion en la cual se trabajaba en una sola computadora, de manera que todos participaran y estuvieramos en contacto. Esta forma de trabajo nos funciona y es la que venimos practicando desde el primer sprint pero no contemplamos que en el registro de commits no quedaria constancia de la participacion activa de algunos integrantes, para resolver esta problematica y quede un registro de la participacion de los integrantes es que por acuerdo grupal se implemente una weekly que constara de las actividades realizadas por semana hasta alcanzar la fecha de entrega del spritn.
 Hacer mas: Para el proximo sprint consideramos tener mejor comunicacion y dar el tiempo necesario a las actividades.
 Continuar haciendo: Empatizar con la situación  particular de cada uno de nuestros compañeros.
 Hacer menos: DiLatar el tiempo en la realizacion de los sprints.
