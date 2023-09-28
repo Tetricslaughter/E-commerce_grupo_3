@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require('path');
+const session = require('express-session');
 
 // routes
 const mainRoutes = require('./routes/main.js');
@@ -16,6 +17,8 @@ app.use(methodOverride('_method'));
 
 app.use(express.static('./public'));
 app.listen(3000, () => console.log("el servidor se conecto en el puerto 3000"));
+
+app.use(session({secret: 'secreto!'}));
 
 // Configurar el motor de plantillas EJS
 app.set('view engine', 'ejs');
