@@ -17,7 +17,7 @@
       <form class="form-login" action="/login" method="POST">
         <h2 class="login__title">Ingresá a tu cuenta</h2>
         <div class="campo">
-          <input type="text" name="username" placeholder="Nombre de usuario" />
+          <input type="text" name="username" placeholder="Nombre de usuario" value="<%= locals.ols && old.username ? old.username : '' %>" />
           <% if (locals.errors && errors.username) { %>
             <p class="feedback">
               <%= errors.username.msg %>

@@ -18,7 +18,8 @@ const controller = {
     registerProcess: (req, res) => {
         let usersArchive = fs.readFileSync(usersFilePath, "utf-8");
         let errors = validationResult(req);
-        // console.log(errors);
+        console.log(errors.mapped());
+        console.log(req.body)
         // console.log(req.body)
         // console.log(req.file);
 

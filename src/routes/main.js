@@ -11,7 +11,7 @@ const mainController = require('../controllers/mainController.js');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/img/avatars')
+        cb(null, './public/img/profileImages')
     },
     filename: (req, file, cb) => {
         let filename = `${Date.now()}-img${path.extname(file.originalname)}`

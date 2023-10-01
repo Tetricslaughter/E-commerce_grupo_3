@@ -19,21 +19,21 @@
             <h2 class="register__title">Crear nueva cuenta</h2>
             <div class="campo">
                 <label for="name">Nombre:</label>
-                <input type="text" name="name" id="name" value="<% locals.old && old.name ? old.name : '' %>">
+                <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : '' %>">
                 <% if (locals.errors && errors.name) { %>
                     <p class="feedback"><%= errors.name.msg %></p>
                 <% } %>
             </div>
             <div class="campo">
                 <label for="surname">Apellido:</label>
-                <input type="text" name="surname" id="surname" value="<% locals.old && old.surname ? old.surname : '' %>">
+                <input type="text" name="surname" id="surname" value="<%= locals.old && old.surname ? old.surname : '' %>">
                 <% if (locals.errors && errors.surname) { %>
                     <p class="feedback"><%= errors.surname.msg %></p>
                 <% } %>
             </div>
             <div class="campo">
                 <label for="username">Nombre de usuario:</label>
-                <input type="text" name="username" id="username" value="<% locals.old && old.username ? old.username : '' %>">
+                <input type="text" name="username" id="username" value="<%= locals.old && old.username ? old.username : '' %>">
                 <% if (locals.errors && errors.username) { %>
                     <p class="feedback"><%= errors.username.msg %></p>
                 <% } %>
@@ -54,21 +54,21 @@
             </div>
             <div class="campo">
                 <label for="email">Email:</label>
-                <input type="text" name="email" id="email" value="<% locals.old && old.email ? old.email : '' %>">
+                <input type="text" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>">
                 <% if (locals.errors && errors.email) { %>
                     <p class="feedback"><%= errors.email.msg %></p>
                 <% } %>
             </div>
             <div class="campo">
                 <label for="birthDate">Fecha de Nacimiento:</label>
-                <input type="date" name="birthDate" id="birthDate" value="<% locals.old && old.birthDate ? old.birthDate : '' %>">
+                <input type="date" name="birthDate" id="birthDate" value="<%= locals.old && old.birthDate ? old.birthDate : '' %>">
                 <% if (locals.errors && errors.birthDate) { %>
                     <p class="feedback"><%= errors.birthDate.msg %></p>
                 <% } %>
             </div>
             <div class="campo">
                 <label for="profileImage">Foto de Perfil</label>
-                <input type="file" name="profileImage" id="profileImage">
+                <input type="file" name="profileImage" id="profileImage" value="<%= locals.old && old.profileImage ? old.profileImage : '' %>">
                 <% if (locals.errors && errors.profileImage) { %>
                     <p class="feedback"><%= errors.profileImage.msg %></p>
                 <% } %>
