@@ -22,9 +22,15 @@
                     </a>
                 </li>
                 <li class="userIcons__li">
-                    <a href="/login">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
+                    <% if (locals.userSingUp && userSingUp.username) { %>
+                        <a href="/profile">
+                            <i class="fa-solid fa-user"></i> <%= userSingUp.username %>
+                        </a>
+                    <% } else { %>
+                        <a href="/login">
+                            <i class="fa-solid fa-user"></i> Iniciar Sesión
+                        </a>
+                    <% } %>
                 </li>
 
             </ul>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- head -->
+  <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/loginStyle.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+    <% if (locals.user && user.username) { %>
+        <h2><%= user.username %></h2>
+    <% } else { %>     
+        <h2>hola extraño</h2>
+    <% } %>
+    <h1>hola extraño</h1>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+
+</html>

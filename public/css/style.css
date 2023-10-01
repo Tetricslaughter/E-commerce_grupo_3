@@ -98,6 +98,12 @@ body {
     color: #000;
 }
 
+.feedback {
+    font-size: 14px;
+    color: #f00;
+    margin-top: 3px;
+}
+
 
 /*  media queries */
 

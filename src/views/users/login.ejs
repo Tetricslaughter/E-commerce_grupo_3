@@ -3,9 +3,9 @@
 
 <head>
   <!-- head -->
-  <%- include('../partials/head.ejs')  %>
-  <link rel="stylesheet" href="/css/loginStyle.css">
-  <title>Login</title>
+  <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/loginStyle.css">
+    <title>Login</title>
 </head>
 
 <body>
@@ -13,23 +13,37 @@
   <!-- header -->
   <%- include('../partials/header.ejs') %>
 
-  <main class="main-login"> 
-    <form  class="form-login" action="/ingresa" method="POST" enctype="multipart/form-data">
-      <h2 class="login__title">Ingresá a tu cuenta</h2>
-      <div class="campo">
-        <input type="text" name="username" placeholder="Nombre de usuario"/>
-      </div>
-      <div class="campo">
-        <input type="password" name="password" placeholder="Contraseña"/>
-      </div>
-      <div class="campo-botones">
-        <button type="submit" class="botonf">Enviar</button>
-      </div>
-    </form>
-  </main>
+    <main class="main-login">
+      <form class="form-login" action="/login" method="POST">
+        <h2 class="login__title">Ingresá a tu cuenta</h2>
+        <div class="campo">
+          <input type="text" name="username" placeholder="Nombre de usuario" />
+          <% if (locals.errors && errors.username) { %>
+            <p class="feedback">
+              <%= errors.username.msg %>
+            </p>
+            <% } %>
+        </div>
+        <div class="campo">
+          <input type="password" name="password" placeholder="Contraseña" />
+          <% if (locals.errors && errors.password) { %>
+            <p class="feedback">
+              <%= errors.password.msg %>
+            </p>
+            <% } %>
+        </div>
+        <div class="campo">
+          <label for="rememberMe">Recordame</label>
+          <input type="checkbox" name="rememberMe" id="rememberMe" />
+        </div>
+        <div class="campo-botones">
+          <button type="submit" class="botonf">Enviar</button>
+        </div>
+      </form>
+    </main>
 
-  <!-- Footer -->
-  <%- include('../partials/footer.ejs') %>
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
 
 </body>
 

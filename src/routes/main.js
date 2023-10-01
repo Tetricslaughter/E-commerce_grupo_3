@@ -1,15 +1,35 @@
 const express = require("express");
 const router = express.Router();
-const { check } = require('express-validator');
-let validateRegister = require('../errorControllers/errores.js');
+const multer = require('multer');
+const path = require('path');
+
+let validateRegister = require('../validates/validateRegister.js');
+let validateLogin = require('../validates/validateLogin.js');
+const authMiddleware = require('../middlewares/authMiddleware.js');
 
 const mainController = require('../controllers/mainController.js');
 
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/img/avatars')
+    },
+    filename: (req, file, cb) => {
+        let filename = `${Date.now()}-img${path.extname(file.originalname)}`
+        cb(null, filename)
+    }
+})
+
+const uploadFile = multer({ storage });
+
 router.get('/', mainController.home);
+
 router.get('/register', mainController.register);
-router.post('/register', validateRegister, mainController.registerProcess);
+router.post('/register', uploadFile.single('profileImage'), validateRegister, mainController.registerProcess);
+
 router.get('/login', mainController.login);
-router.post('/login', mainController.loginProcess);
+router.post('/login', validateLogin, mainController.loginProcess);
+
+router.get('/profile/:id', authMiddleware, mainController.profile);
 
 
 module.exports = router;
