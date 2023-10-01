@@ -30,8 +30,8 @@ app.use(rememberMeMiddleware);
 app.use((req, res, next) => {
     if (req.session.userLogged != undefined) {
         res.locals.userLogged = req.session.userLogged;
-        console.log("TIENES UN USUARIO LOGEADO "+req.session.userLogged.username);
-        console.log(res.locals.userLogged);
+        console.log("TIENES UN USUARIO LOGEADO: "+req.session.userLogged.username);
+        // console.log(res.locals.userLogged);
     }
     next();
 });

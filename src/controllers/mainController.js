@@ -121,8 +121,13 @@ const controller = {
             users = JSON.parse(usersArchive);
 
         if ( req.session.userSignUp == false ) {
-            return res.send('para ver perfiles de usuarios inicia sesion');
+            return res.render('profile', { 
+                errors:  {
+                   msg: "Para ver perfiles de otros usuarios primero debes iniciar sesión."
+                }
+            });
         } else {
+            
             let user;
             for (i=0; i<users.length; i++) {
                 if (req.params.id == users[i].id) {
@@ -130,10 +135,22 @@ const controller = {
                 }
             }
             if (user != undefined) {
-                console.log(user);
+                if (req.session.userLogged.id != req.params.id) {
+                    return res.render('profile', {
+                        user: user, 
+                        errors:  {
+                           msg: "No puedes ver los datos personales de otros usuarios."
+                        }
+                    });
+                }
+                // console.log(user);
                 return res.render('profile', { user: user });
             } else {
-                return res.send("el usuario "+req.params.id+" no existe")
+                return res.render('profile', { 
+                    errors:  {
+                       msg: "Lo sentimos, el usuario "+req.params.id+" al parecer no existe."
+                    }
+                });
             }
         }         
     }

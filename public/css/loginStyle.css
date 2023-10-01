@@ -25,7 +25,6 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
-
 }
 
 .form-login .campo input {
@@ -46,6 +45,12 @@
     margin-bottom: 20px;
 }
 
+.campo-recordame {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
 
 @media (min-width: 576px) {
     .form-login {
@@ -65,13 +70,13 @@
         position: relative;
     }
     .form-login {
+        display: flex;
+        flex-direction: column;
         background-color: #fff;
         margin: auto;
         min-width: 100px;
         max-width: 400px;
-        height: 250px;
-        display: flex;
-        flex-direction: column;
+        height: min-content;
         padding: 20px;
         border-radius: 4px;
         position: absolute;
