@@ -13,6 +13,9 @@
     <!-- header -->
     <%- include('../partials/header.ejs') %>
     <main id="main">
+        <% if ( locals.errors && errors.msg ) { %>
+            <h2><%= errors.msg %></h2>
+        <% } else { %>
         <section class="carrito">
             <h2>Productos en el Carrito</h2>
             <ul class="lista-productos">
@@ -142,6 +145,7 @@
                 <button id="boton-pagar">Pagar</button>
             </div>
         </section>
+        <% } %>
     </main>
     
 

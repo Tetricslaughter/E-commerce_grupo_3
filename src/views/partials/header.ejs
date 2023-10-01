@@ -22,9 +22,15 @@
                     </a>
                 </li>
                 <li class="userIcons__li">
-                    <a href="/login">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
+                    <% if (locals.userLogged && userLogged.username) { %>
+                        <a href="/profile/<%= userLogged.id %>">
+                            <%= userLogged.username %> <img src="/img/profileImages/<%= userLogged.avatar %>" alt="">
+                        </a>
+                    <% } else { %>
+                        <a href="/login">
+                            Iniciar Sesión <i class="fa-solid fa-user"></i>
+                        </a>
+                    <% } %>
                 </li>
 
             </ul>
@@ -37,10 +43,8 @@
             <ul class="header__ul">
                 <li class="header__li"><a href="/">Inicio</a></li>
                 <li class="header__li"><a href="/products">Productos</a></li>
-                <!-- <li class="header__li"><a href="/products/card">Metodos de pago</a></li> -->
                 <li class="header__li"><a href="/products/history">Historial</a></li>
                 <li class="header__li"><a href="/register">Registrarse</a></li>
-                <!-- <li class="header__li"><a href="/login">Iniciar sesion</a></li> -->
             </ul>
         </nav>
     </div>

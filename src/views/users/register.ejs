@@ -15,43 +15,67 @@
 
     <main class="main container">
 
-        <form class="form-register" action="" method="POST" enctype="multipart/form-data">
+        <form class="form-register" action="/register" method="POST" enctype="multipart/form-data">
             <h2 class="register__title">Crear nueva cuenta</h2>
             <div class="campo">
-                <label for="Nombre">Nombre:</label>
-                <input type="text" name="userName" id="nombre">
+                <label for="name">Nombre:</label>
+                <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : '' %>">
+                <% if (locals.errors && errors.name) { %>
+                    <p class="feedback"><%= errors.name.msg %></p>
+                <% } %>
             </div>
             <div class="campo">
-                <label for="Apellido">Apellido:</label>
-                <input type="text" name="apellido" id="apellido">
+                <label for="surname">Apellido:</label>
+                <input type="text" name="surname" id="surname" value="<%= locals.old && old.surname ? old.surname : '' %>">
+                <% if (locals.errors && errors.surname) { %>
+                    <p class="feedback"><%= errors.surname.msg %></p>
+                <% } %>
             </div>
             <div class="campo">
-                <label for="Nombredeusuario">Nombre de usuario:</label>
-                <input type="text" name="nombredeusuario" id="nombredeusuario">
+                <label for="username">Nombre de usuario:</label>
+                <input type="text" name="username" id="username" value="<%= locals.old && old.username ? old.username : '' %>">
+                <% if (locals.errors && errors.username) { %>
+                    <p class="feedback"><%= errors.username.msg %></p>
+                <% } %>
             </div>
             <div class="campo">
-                <label for="Contraseña">Contraseña:</label>
-                <input type="password" name="contraseña" id="contraseña">
+                <label for="password">Contraseña:</label>
+                <input type="password" name="password" id="password">
+                <% if (locals.errors && errors.password) { %>
+                    <p class="feedback"><%= errors.password.msg %></p>
+                <% } %>
             </div>
             <div class="campo">
-                <label for="ConfirmarContraseña">Confirmar Contraseña:</label>
-                <input type="password" name="contraseña" id="contraseña">
+                <label for="confirmPassword">Confirmar Contraseña:</label>
+                <input type="password" name="confirmPassword" id="confirmPassword">
+                <% if (locals.errors && errors.confirmPassword) { %>
+                    <p class="feedback"><%= errors.confirmPassword.msg %></p>
+                <% } %>
             </div>
             <div class="campo">
-                <label for="Email">Email:</label>
-                <input type="email" name="email" id="email">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>">
+                <% if (locals.errors && errors.email) { %>
+                    <p class="feedback"><%= errors.email.msg %></p>
+                <% } %>
             </div>
             <div class="campo">
-                <label for="Fechadenac">Fecha de Nacimiento:</label>
-                <input type="date" name="fechadenac" id="fechadenac">
+                <label for="birthDate">Fecha de Nacimiento:</label>
+                <input type="date" name="birthDate" id="birthDate" value="<%= locals.old && old.birthDate ? old.birthDate : '' %>">
+                <% if (locals.errors && errors.birthDate) { %>
+                    <p class="feedback"><%= errors.birthDate.msg %></p>
+                <% } %>
             </div>
             <div class="campo">
-                <label>Foto de Perfil</label>
-                <input type="file" name="imagenPerfil" id="imagenPerfil" accept=".jpg">
+                <label for="profileImage">Foto de Perfil</label>
+                <input type="file" name="profileImage" id="profileImage" value="<%= locals.old && old.profileImage ? old.profileImage : '' %>">
+                <% if (locals.errors && errors.profileImage) { %>
+                    <p class="feedback"><%= errors.profileImage.msg %></p>
+                <% } %>
             </div>
             <div class="campo-botones">
+                <button type="submit">Registrarse</button>
                 <button type="reset">Borrar</button>
-                <button type="submit">Enviar</button>
             </div>
         </form>
 

@@ -16,6 +16,9 @@
     <main class="main">
 
         <div class="historial container">
+            <% if ( locals.errors && errors.msg ) { %>
+            <h2>Para ver tu historial de compras primero debes iniciar sesión</h2>
+            <% } else { %>
             <h2>Historial de productos comprados</h2>
             <div class="producto__contenedor">
                 <div class="producto">
@@ -67,6 +70,7 @@
                     </div>
                 </div>
             </div>
+            <% } %>
         </div>
 
     </main>

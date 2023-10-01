@@ -32,11 +32,28 @@ const controller = {
     },
 
     productHistory: (req, res) => {
-        res.render('productHistory', { toThousand: toThousand })
+        if ( req.session.userSignUp == false ) {
+            return res.render('productHistory', { 
+                toThousand: toThousand,
+                errors: {
+                    msg: "Para ver tu historial de compra debes iniciar sesión."
+                 }
+            });
+        } else {
+            return res.render('productHistory', { toThousand: toThousand })
+        }
     },
 
     productCart: (req, res) => {
-        res.render('productCart')
+        if ( req.session.userSignUp == false ) {
+            return res.render('productCart', {
+                errors: {
+                    msg: "Para comprar primero debes iniciar sesión."
+                }
+            })
+        } else {
+            return res.render('productCart')
+        }
     },
 
     productDetails: (req, res) => {

@@ -3,19 +3,7 @@ const router = express.Router();
 const path = require('path');
 const multer = require('multer');
 const productsController = require('../controllers/productsController.js');
-
-// configuracion para imagenes de fotos de usuario
-let multerDiskStorage1 = multer.diskStorage({
-    destination: (req, file, callback) => {
-        let folder = path.join(__dirname, '../../public/img/profileImages');
-        callback(null, folder);
-    },
-    filename: (req, file, callback) => {
-        let imageName = 'user-' + Date.now() + path.extname(file.originalname);
-        callback(null, imageName);
-    }
-})
-let fileUserUpload = multer({ storage: multerDiskStorage1 });
+const authMiddleware = require('../middlewares/authMiddleware.js');
 
 // configuracion para imagenes de productos
 let multerDiskStorage2 = multer.diskStorage({
@@ -35,11 +23,14 @@ router.get('/', productsController.allProducts); // 1
 
 router.get('/search', productsController.searchProducts);
 
-router.get('/history', productsController.productHistory);
+/**
+ * para acceder a ver el historial se requiere iniciar session
+ */
+router.get('/history', authMiddleware, productsController.productHistory);
 
 router.get('/create', productsController.createProduct); // 2
 
-router.get('/cart', productsController.productCart);
+router.get('/cart', authMiddleware, productsController.productCart);
 
 router.post('/create', fileProdUpload.single('imagenProd'), productsController.saveProduct); // 4
 

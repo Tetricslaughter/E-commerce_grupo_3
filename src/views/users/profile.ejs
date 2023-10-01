@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- head -->
+  <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/profileStyle.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <%- include('../partials/header.ejs') %>
+
+    <main class="container">
+        <div class="profile">
+            <% if ( locals.errors && errors.msg ) { %>
+                <% if ( locals.user && user.username ) { %>
+                <h2>No puedes ver informacion personal sobre <%= user.username %></h2>
+                <% } else { %>
+                <h2><%= errors.msg %></h2>
+                <% } %>
+            <% } else { %>
+            <div class="profile__head">
+                <img class="profile__avatar" src="/img/profileImages/<%= user.avatar %>">
+                <% if (locals.user && user.username) { %>
+                <h2 class="profile__username"><%= user.username %></h2>
+                <% } %>
+            </div>
+            <div class="profile__body">
+                <h3>Información Personal</h3>
+                <div class="campo">
+                    <label for="name">Nombre:</label>
+                    <input type="text" name="name" id="name" disabled value="<%= locals.user && user.name ? user.name : '' %>">
+                </div>
+                <div class="campo">
+                    <label for="surname">Apellido:</label>
+                    <input type="text" name="surname" id="surname" disabled value="<%= locals.user && user.surname ? user.surname : '' %>">
+                </div>
+                <div class="campo">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email" disabled value="<%= locals.user && user.email ? user.email : '' %>">
+                </div>
+                <div class="campo">
+                    <label for="birthDate">Fecha de Nacimiento:</label>
+                    <input type="date" name="birthDate" id="birthDate" disabled value="<%= locals.user && user.birthDate ? user.birthDate : '' %>">
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+
+</html>
