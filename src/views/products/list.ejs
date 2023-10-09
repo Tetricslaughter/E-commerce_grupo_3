@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- head -->
+    <%- include('../partials/head.ejs')  %>
+    <link rel="stylesheet" href="/css/productCart.css">
+    <title>Carrito</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <%- include('../partials/header.ejs') %>
+
+    <ul>
+    <% if ( locals.products && products ) { %>
+        <% for( let i=0; i<products.length; i++ ) { %>
+            <li><%= products[i].name %></li>    
+        <% } %>
+    <% } %>
+    </ul>
+            
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+
+</html>

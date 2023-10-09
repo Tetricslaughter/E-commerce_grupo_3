@@ -3,8 +3,17 @@ const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/productsDatabase.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const db = require('../../database/models');
 
 const controller = {
+
+    list: (req, res) => {
+        db.Products.findAll()
+            .then((products) => {
+                return res.render('list', { products: products })
+            })
+            .catch((e) => res.send(e))
+    },
 
     allProducts: (req, res) => {
         res.render('products', { products: products, toThousand: toThousand })

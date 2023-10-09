@@ -3,6 +3,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const usersFilePath = path.join(__dirname, "../data/users.json");
+const db = require('../../database/models');
 var users;
 
 const controller = {

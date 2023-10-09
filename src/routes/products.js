@@ -30,6 +30,8 @@ router.get('/history', authMiddleware, productsController.productHistory);
 
 router.get('/create', productsController.createProduct); // 2
 
+router.get('/list', productsController.list)
+
 router.get('/cart', authMiddleware, productsController.productCart);
 
 router.post('/create', fileProdUpload.single('imagenProd'), productsController.saveProduct); // 4
