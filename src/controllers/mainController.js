@@ -16,48 +16,30 @@ const controller = {
         return res.render('register');
     },
 
-    registerProcess: (req, res) => {
-        let usersArchive = fs.readFileSync(usersFilePath, "utf-8");
-        let errors = validationResult(req);
-        console.log(errors.mapped());
-        console.log(req.body)
-        // console.log(req.body)
-        // console.log(req.file);
-
-        if ( usersArchive == "" )
-            users = [];
-        else
-            users = JSON.parse(usersArchive);
-
-        if ( !errors.isEmpty() ) {
-            return res.render("register", {
-                errors: errors.mapped(),
-                old: req.body    
-            })
-        } else {
-            let id = 0;
-            for (i=0; i<users.length; i++){
-                if (users[i].id > id) {
-                    id = users[i].id;
-                }
+    registerProcess: async (req, res) => {
+        try {
+            let errors = validationResult(req);
+            if ( !errors.isEmpty() ) {
+                return res.render("register", {
+                    errors: errors.mapped(),
+                    old: req.body    
+                })
+            } else {
+                await db.Users.create({
+                    username: req.body.username,
+                    name: req.body.name,
+                    surname: req.body.surname,
+                    email: req.body.email,
+                    password: bcrypt.hashSync(req.body.password, 10),
+                    birthday: req.body.birthDay,
+                    avatar: req.session.nameProfileImage,
+                    rol_id: 2,
+                    active: 1
+                })
+                return res.redirect('/login');
             }
-            id++;
-            let user = {
-                "id": id,
-                "name": req.body.name,
-                "surname": req.body.surname,
-                "username": req.body.username,
-                "email": req.body.email,
-                "birthDate": req.body.birthDate,
-                "avatar": req.session.nameProfileImage,
-                "password": bcrypt.hashSync(req.body.password, 10)
-            };
-
-            users.push(user);
-            let usersJSON = JSON.stringify(users);
-            fs.writeFileSync(usersFilePath, usersJSON);
-
-            return res.redirect('/login');
+        } catch(e) {
+            console.log(e)
         }
     },
 

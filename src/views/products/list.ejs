@@ -16,7 +16,7 @@
     <ul>
     <% if ( locals.products && products ) { %>
         <% for( let i=0; i<products.length; i++ ) { %>
-            <li><%= products[i].name %></li>    
+            <li><%= products[i].name %> $<%= products[i].price %></li>    
         <% } %>
     <% } %>
     </ul>
