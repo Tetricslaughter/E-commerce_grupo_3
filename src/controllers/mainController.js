@@ -8,7 +8,7 @@ var users;
 
 const controller = {
     
-    home: (req, res) => {
+    index: (req, res) => {
         res.render('home')
     },
 
@@ -47,95 +47,100 @@ const controller = {
         res.render('login')
     },
 
-    loginProcess: (req, res) => {
-        let usersArchive = fs.readFileSync(usersFilePath, "utf-8");
-        let errors = validationResult(req);
+    loginProcess: async (req, res) => {
+        try {
+            let errors = validationResult(req);
 
-        if ( usersArchive == "" )
-            users = [];
-        else
-            users = JSON.parse(usersArchive);
+            if ( !errors.isEmpty() ) {
+                res.render('login', { 
+                    errors: errors.mapped(),
+                    old: req.body 
+                });
 
-        if ( !errors.isEmpty() ) {
-            res.render('login', { 
-                errors: errors.mapped(),
-                old: req.body 
-            });
-        } else {
-
-            let userLogged;
-            for (i=0; i<users.length; i++) {
-                if ( users[i].username == req.body.username && bcrypt.compareSync(req.body.password, users[i].password) ) {
-                    userLogged = users[i];
-                    break;
-                }
-            }
-            
-            if ( userLogged == undefined ) {
-                return res.render('login', { 
-                    errors: {                        
-                        username: {
-                            "msg": "el usuario o contraseña son incorrectos"
-                        }
+            } else {
+                let user = await db.Users.findOne({
+                    where: {
+                        username: req.body.username
                     }
                 });
-            }
 
-            // guardamos en session
-            req.session.userLogged = userLogged;
+                if ( user == undefined ) {
+                    return res.render('login', { 
+                        errors: {
+                            username: {
+                                "msg": "el usuario o contraseña son incorrectos" 
+                            }
+                        }
+                    });
 
-            if ( req.body.rememberMe != undefined ) {
-                res.cookie(
-                    "rememberMe",
-                    userLogged.username,
-                    { maxAge: 120000 }
-                    )
+                } else {
+                    if ( bcrypt.compareSync(req.body.password, user.password) == false ) {
+                        return res.render('login', { 
+                            errors: {
+                                username: {
+                                    "msg": "el usuario o contraseña son incorrectos" 
+                                }
+                            }
+                        });
+                    } else {
+                        req.session.userLogged = user;
+                        req.session.userSignUp = true;
+
+                        if ( req.body.rememberMe != undefined ) {
+                            res.cookie("rememberMe", req.session.userLogged.username, {maxAge: 120000});
+                        }
+
+                        return res.redirect('/');
+                    }
+                }
             }
-            
-            return res.redirect('/');
+        } catch (e) {
+            console.log(e)
         }
     },
 
-    profile: (req, res) => {
-        let usersArchive = fs.readFileSync(usersFilePath, "utf-8");
-        if ( usersArchive == "" )
-            users = [];
-        else
-            users = JSON.parse(usersArchive);
-
-        if ( req.session.userSignUp == false ) {
-            return res.render('profile', { 
-                errors:  {
-                   msg: "Para ver perfiles de otros usuarios primero debes iniciar sesión."
-                }
-            });
-        } else {
-            
-            let user;
-            for (i=0; i<users.length; i++) {
-                if (req.params.id == users[i].id) {
-                    user = users[i];
-                }
-            }
-            if (user != undefined) {
-                if (req.session.userLogged.id != req.params.id) {
-                    return res.render('profile', {
-                        user: user, 
-                        errors:  {
-                           msg: "No puedes ver los datos personales de otros usuarios."
-                        }
-                    });
-                }
-                // console.log(user);
-                return res.render('profile', { user: user });
-            } else {
+    profile: async (req, res) => {
+        try {
+            if ( req.session.userSignUp == false ) {
                 return res.render('profile', { 
                     errors:  {
-                       msg: "Lo sentimos, el usuario "+req.params.id+" al parecer no existe."
+                       msg: "Para ver perfiles de otros usuarios primero debes iniciar sesión."
                     }
                 });
+            } else {
+                let user = req.session.userLogged;
+                if ( user == undefined ) {
+                    return res.render('profile', { 
+                        errors:  {
+                           msg: "error al cargar el perfil"
+                        }
+                    });
+                } else {
+                    if ( user.id != req.params.id) {
+                        user = await db.Users.findOne({where:{id:req.params.id}});
+                        if (user != undefined) {
+                            return res.render('profile', {
+                                user: user, 
+                                errors:  {
+                                msg: "No puedes ver los datos personales de otros usuarios."
+                                }
+                            });
+                        } else {
+                            return res.render('profile', { 
+                                errors:  {
+                                   msg: "Lo sentimos, el usuario "+req.params.id+" al parecer no existe."
+                                }
+                            });
+                        }
+                    } else {
+                        console.log(user)
+                        return res.render('profile', { user: user });
+                    }
+                }
             }
-        }         
+        } catch(e) {
+            console.log(e);
+        }        
     }
 }
 

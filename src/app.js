@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 const mainRoutes = require('./routes/main.js');
 const productsRoutes = require('./routes/products.js');
 const rememberMeMiddleware = require('./middlewares/rememberMeMiddleware.js');
-
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
@@ -30,12 +29,12 @@ app.use(rememberMeMiddleware);
 app.use((req, res, next) => {
     if (req.session.userLogged != undefined) {
         res.locals.userLogged = req.session.userLogged;
-        console.log("TIENES UN USUARIO LOGEADO: "+req.session.userLogged.username);
+        console.log("hay un usuario loggeado: "+req.session.userLogged.username);
+        req.session.userSignUp = true;
         // console.log(res.locals.userLogged);
     }
     next();
 });
-
 
 app.use("/", mainRoutes);
 app.use("/products", productsRoutes);

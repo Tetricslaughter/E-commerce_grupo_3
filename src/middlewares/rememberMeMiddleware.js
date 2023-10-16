@@ -1,23 +1,24 @@
-const fs = require('fs');
-const path = require('path');
-const filePath = path.join(__dirname, "../data/users.json");
+const db = require('../../database/models');
 
-const rememberMeMiddleware = (req, res, next) => {
-    
-    if ( req.cookies.rememberMe != undefined ) {
-        console.log('HAY UNA COOKIE')
-        console.log(req.cookies.rememberMe);
-        let users = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-        for ( i=0; i<users.length; i++ ) {
-            if ( req.cookies.rememberMe == users[i].username ) {
-                req.session.userLogged = users[i];
-                break;
+const rememberMeMiddleware = async (req, res, next) => {
+    try {
+        if ( req.cookies.rememberMe != undefined ) {
+            console.log('hay una cookie: rememberMe')
+            console.log(req.cookies.rememberMe);
+            let user = await db.Users.findOne({where: {username: req.cookies.rememberMe}});
+            if ( user != undefined ) {
+                req.session.userLogged = user;
+                res.locals.userLogged = req.session.userLogged;
+            } else {
+                console.log("usuario no encontrado en la BD")
             }
+        } else {
+            console.log('no hay cookie rememberMe')
         }
-        res.locals.userLogged = req.session.userLogged;
-    } else {
-        console.log('no hay cookie')
+    } catch(e) {
+        console.log(e);
     }
+
     next();
 }
 
