@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- head -->
+  <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/profileStyle.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <%- include('../partials/header.ejs') %>
+
+    <main class="container">
+        <div class="profile">
+            <% if ( locals.errors && errors.msg ) { %>
+                <% if ( locals.user && user.username ) { %>
+                <h2>No puedes ver informacion personal sobre <%= user.username %></h2>
+                <% } else { %>
+                <h2><%= errors.msg %></h2>
+                <% } %>
+            <% } else { %>
+            <div class="profile__head">
+                <img class="profile__avatar" src="/img/profileImages/<%= user.avatar %>">
+                <% if (locals.user && user.username) { %>
+                <h2 class="profile__username"><%= user.username %></h2>
+                <% } %>
+            </div>
+            <div class="profile__body">
+                <h3>Información Personal</h3>
+                <form  method="POST" action="/profile/<%=user.id%>/edit?_method=PUT">
+                    <div class="campo">
+                        <label for="name">Nombre:</label>
+                        <input type="text" name="name" id="name" value="<%= locals.user && user.name ? user.name : '' %>">
+                    </div>
+                    <div class="campo">
+                        <label for="surname">Apellido:</label>
+                        <input type="text" name="surname" id="surname" value="<%= locals.user && user.surname ? user.surname : '' %>">
+                    </div>
+                    <div class="campo">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" id="email" value="<%= locals.user && user.email ? user.email : '' %>">
+                    </div>
+                    <div class="campo">
+                        <label for="birthDay">Fecha de Nacimiento:</label>
+                        <input type="date" name="birthDay" id="birthDay" value="<%= locals.user && user.birthday ? user.birthday : '' %>">
+                    </div>
+                    <button class="boton" type="submit">Confirmar</button>
+                </form>
+                <form method="POST" action="/profile/<%=user.id%>/delete?_method=DELETE">
+                    <button class="boton" type="submit">Borrar Cuenta</button>
+                </form>
+            </div>
+            <% } %>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+
+</html>

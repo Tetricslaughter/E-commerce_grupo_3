@@ -108,7 +108,10 @@ const controller = {
                     }
                 });
             } else {
-                let user = req.session.userLogged;
+                let user = await db.Users.findOne({
+                    where: { id: req.session.userLogged.id }
+                })
+                
                 if ( user == undefined ) {
                     return res.render('profile', { 
                         errors:  {
@@ -133,7 +136,7 @@ const controller = {
                             });
                         }
                     } else {
-                        console.log(user)
+                        // console.log(user)
                         return res.render('profile', { user: user });
                     }
                 }
@@ -141,6 +144,55 @@ const controller = {
         } catch(e) {
             console.log(e);
         }        
+    },
+
+    profileEdit: async (req, res) => {
+        try {
+            let user = await db.Users.findOne({where:{id:req.params.id}});
+            if (req.session.userLogged.id != req.params.id) {
+                return res.render('profileEdit', {
+                    errors: {
+                        msg: "no puedes editar informacion de otro perfil"
+                    }
+                });
+
+            } else {
+                return res.render('profileEdit', {
+                    user: user
+                });
+            }
+        } catch(e) {
+            console.log(e);
+        }
+    },
+
+    profileEditProcess: async (req, res) => {
+        try {
+            let user = await db.Users.update({
+                name: req.body.name,
+                surname: req.body.surname,
+                email: req.body.email,
+                birthday: req.body.birthDay,
+            },{
+                where: { id: req.session.userLogged.id }
+            })
+            req.session.userLogged = await db.Users.findOne({where:{id:req.params.id}});
+            res.redirect('/profile/'+req.params.id);
+        } catch(e) {
+            console.log(e);
+        }
+    },
+
+    profileDeleteProcess: async (req, res) => {
+        try {
+            console.log('borrando cuenta '+req.session.userLogged.id);
+            await db.Users.destroy({
+                where: { id: req.session.userLogged.id }
+            })
+            res.redirect('/');
+        } catch(e) {
+            console.log(e);
+        }
     }
 }
 

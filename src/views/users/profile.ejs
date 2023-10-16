@@ -46,6 +46,7 @@
                     <label for="birthDay">Fecha de Nacimiento:</label>
                     <input type="date" name="birthDay" id="birthDay" disabled value="<%= locals.user && user.birthday ? user.birthday : '' %>">
                 </div>
+                <a class="boton" href="/profile/<%=user.id%>/edit">Editar datos</a>
             </div>
             <% } %>
         </div>
