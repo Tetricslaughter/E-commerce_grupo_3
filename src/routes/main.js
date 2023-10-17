@@ -26,14 +26,9 @@ router.post('/register', uploadFile.single('profileImage'), validateRegister, ma
 router.get('/login', mainController.login);
 router.post('/login', validateLogin, mainController.loginProcess);
 
-/**
- * para ver perfiles se requiere primero iniciar sesion
- * ademas no se podra ver la informacion personal de los demas perfiles salvo el propio
- */
 router.get('/profile/:id', authMiddleware, mainController.profile);
 router.get('/profile/:id/edit', authMiddleware, mainController.profileEdit);
 router.put('/profile/:id/edit', authMiddleware, mainController.profileEditProcess);
 router.delete('/profile/:id/delete', authMiddleware, mainController.profileDeleteProcess);
-
 
 module.exports = router;

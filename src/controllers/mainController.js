@@ -1,10 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const usersFilePath = path.join(__dirname, "../data/users.json");
 const db = require('../../database/models');
-var users;
 
 const controller = {
     
@@ -107,18 +104,23 @@ const controller = {
                        msg: "Para ver perfiles de otros usuarios primero debes iniciar sesión."
                     }
                 });
+
             } else {
+
                 let user = await db.Users.findOne({
+                    include: [{association: "rol"}],
                     where: { id: req.session.userLogged.id }
                 })
-                
+
                 if ( user == undefined ) {
                     return res.render('profile', { 
                         errors:  {
                            msg: "error al cargar el perfil"
                         }
                     });
+
                 } else {
+
                     if ( user.id != req.params.id) {
                         user = await db.Users.findOne({where:{id:req.params.id}});
                         if (user != undefined) {
@@ -135,8 +137,8 @@ const controller = {
                                 }
                             });
                         }
+
                     } else {
-                        // console.log(user)
                         return res.render('profile', { user: user });
                     }
                 }
@@ -168,7 +170,7 @@ const controller = {
 
     profileEditProcess: async (req, res) => {
         try {
-            let user = await db.Users.update({
+            await db.Users.update({
                 name: req.body.name,
                 surname: req.body.surname,
                 email: req.body.email,

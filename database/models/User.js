@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         email: { type: DataTypes.STRING(35), allowNull: false, unique: true },
         birthday: { type: DataTypes.DATE, allowNull: false },
         avatar: { type: DataTypes.STRING(100), allowNull: false },
+        rol_id: { type: DataTypes.INTEGER, allowNull: false },
         active: { type: DataTypes.BOOLEAN, allowNull: false },
     },{
         tableName: "users",
@@ -16,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
     User.associate = (models) => {
         User.belongsTo(models.Roles, {
-            as: "roles",
+            as: "rol",
             foreignKey: "rol_id"
         });
         User.hasMany(models.Invoices, {

@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
         description: { type: DataTypes.TEXT, allowNull: true }, 
         price: { type: DataTypes.DOUBLE, allowNull: false },
         discount: { type: DataTypes.DOUBLE, defaultValue: 0 },
-        image: { type: DataTypes.STRING(100), allowNull: false }
+        image: { type: DataTypes.STRING(100), allowNull: false },
+        brand_id: { type: DataTypes.BIGINT, allowNull: false },
+        lifestage_id: { type: DataTypes.BIGINT, allowNull: false }
     },
     {
         tableName: "products",
@@ -22,11 +24,11 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         });
         Product.belongsTo(models.Brands, {
-            as: "brands",
+            as: "brand",
             foreignKey: "brand_id"
         });
         Product.belongsTo(models.Lifestages, {
-            as: "lifestages",
+            as: "lifestage",
             foreignKey: "lifestage_id"
         });
     }
