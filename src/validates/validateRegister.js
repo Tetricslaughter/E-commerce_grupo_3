@@ -29,7 +29,7 @@ let validateRegister = [
     body('email')
         .notEmpty().withMessage('el campo no puede estar vacío.').bail()
         .isEmail().withMessage('email no válido.'),
-    body('birthDate').notEmpty().withMessage('debe ingresar una fecha'),
+    body('birthDay').notEmpty().withMessage('debe ingresar una fecha'),
     body('profileImage')
         .custom((value, { req }) => {
             let file = req.file;

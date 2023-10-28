@@ -13,77 +13,64 @@
     <!-- header -->
     <%- include('../partials/header.ejs') %>
 
-    <main class="main_Details_Products">
-
-        <div class="details_Products_Container">
-
-            <div class="details_Products_Item">
-                <img src="<%= product.image %>" alt="" class="detail_img">
-            </div>
-
-            <div class="details_Products">
-
-                <div class="details_Products_Title">
-                    <h2 class="products_Title"><%= product.name %></h2>
+    <main class="main">
+        <section class="product container">
+            <div class="product__detail">
+                <% if (locals.product && product) { %>
+                <div class="image__container">
+                    <img src="/img/productImages/<%=product.image%>" alt="" class="product__image">
                 </div>
-
-                <div class="details_Products_Description">
-                    <div class="products_Description_Title">
-                        <h3><%= product.name %></h3>
-                    </div>
-                    <div class="products_Description">
-                        <p><%= product.description %></p>
-                    </div>
-                    <div class="description_Price">
-                        <h4>
-                            <%= product.price %>
-                        </h4>
-                        <h4>
-                            <%= product.discount %>
-                        </h4>
-                    </div>
-                    <div class="description_Amount">
-                        <div class="description_Amount_Title">
-                            <h4>
-                                Cantidad
-                            </h4>
+                <div class="description__container">
+                    <p class="product__name"><%= product.name %></p>
+                    <% if (product.discount > 0) { %>
+                    <p class="product__price">
+                        $<%= product.price - (product.price*(product.discount/100)) %>
+                        <span class="product__oldprice">
+                            <%= product.price %> 
+                        </span>
+                        <span class="product__discount">
+                            <%= product.discount %>%OFF
+                        </span>
+                    </p> 
+                    <% } else { %>
+                    <p class="product__price">$<%= product.price %></p>
+                    <% } %>
+                    <div class="product__details__container">
+                        <div class="categories">
+                            <p><b>Categoria/s</b></p>
+                            <ul class="product__categories">
+                            <% for(let i=0; i<product.categories.length; i++) { %>
+                                <li class="product__categories__li"><%= product.categories[i].name %></li>
+                            <% } %>
+                            </ul>
                         </div>
-                        <div class="description_Amount_Num">
-                            <button class="button_Amount" type="button">
-                                -
-                            </button>
-                            <input class="amount_Num" type="tel" step="1" value="1">
-                            <button class="button_Amount" type="button">
-                                +
-                            </button>
+                        <div class="brand">
+                            <p><b>Marca</b></p>
+                            <p class="product__brand">
+                                <%= product.brand.name %>
+                            </p>
                         </div>
-                    </div>
-                    <div class="description_Payment">
-                        <div class="method_Payment">
-                            <h4>
-                                Metodos de pago
-                            </h4>
-                        </div>
-                        <div class="method_Payment_Item">
-                            <li class="payment_li">
-                                <img src="/img/visa_logo.png" alt="img_Payment"
-                                    class="products_payment_logo_img">
-                            </li>
-                            <li class="payment_li">
-                                <img src="/img/mastercard_logo.png" alt="img_Payment"
-                                    class="products_payment_logo_img">
-                            </li>
-                            <li class="payment_li">
-                                <img src="/img/Icono_tarjeta.png" alt="img_Payment"
-                                    class="products_payment_logo_img">
-                            </li>
+                        <div class="lifestage">
+                            <p><b>Etapa de Vida</b></p>
+                            <p class="product__lifestage">
+                                <%= product.lifestage.stagename %>
+                            </p>
                         </div>
                     </div>
+                    <p><b>Descripcion:</b></p>
+                    <% if (product.description.length > 0) { %>
+                    <p class="product__desc">
+                        <%= product.description %>
+                    </p> 
+                    <% } else { %>
+                    <p class="product__desc">
+                        Sin descripción disponible.
+                    </p>
+                    <% } %>
                 </div>
+                <% } %>
             </div>
-        </div>
-
-
+        </section>
     </main>
 
     <!-- Footer -->

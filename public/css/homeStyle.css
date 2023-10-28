@@ -54,13 +54,13 @@
 }
 
 .cat1 {
-    background-image: url(/img/alimentos.jpg);
+    background-image: url(/img/otherImages/alimentos.jpg);
 }
 .cat2 {
-    background-image: url(/img/accesorios.jpg);
+    background-image: url(/img/otherImages/accesorios.jpg);
 }
 .cat3 {
-    background-image: url(/img/higiene.jpg);
+    background-image: url(/img/otherImages/higiene.jpg);
 }
 
 /* slider */

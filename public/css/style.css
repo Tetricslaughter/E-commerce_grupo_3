@@ -34,6 +34,14 @@ body {
     margin: auto;
 }
 
+.boton {
+    padding: 12px 16px;
+    background-color: var(--rojo);
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
 .boton-verde {
     background-color: #1b8925;
     color: #fff;
