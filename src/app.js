@@ -28,9 +28,21 @@ app.use((req, res, next) => {
     if (req.session.userLogged != undefined) {
         res.locals.userLogged = req.session.userLogged;
         console.log("hay un usuario loggeado: "+req.session.userLogged.username);
+
         req.session.userSignUp = true;
         // console.log(res.locals.userLogged);
+
+        if ( req.session.userLogged.rol.id == 1 ) {
+            req.session.isAdmin = true;
+            res.locals.isAdmin = req.session.isAdmin;
+            console.log('\nse logeo un admin\n');
+        } else {
+            req.session.isAdmin = false;
+            res.locals.isAdmin = req.session.isAdmin;
+            console.log('\nse logeo un cliente\n');
+        }
     }
+    
     next();
 });
 

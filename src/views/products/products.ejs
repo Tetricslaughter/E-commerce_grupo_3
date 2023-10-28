@@ -20,6 +20,7 @@
 
             <div class="card">
                 <div class="product__item">
+                    <% if (locals.isAdmin) { %>
                     <form method="POST" action="/products/<%= products[i].id %>/delete?_method=DELETE">
                         <button type="submit" class="product__delete">
                             <i class="fa-sharp fa-solid fa-trash"></i>
@@ -28,6 +29,7 @@
                     <a class="product__edit" href="/products/<%= products[i].id %>/edit">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
+                    <% } %>
                     <img class="product__image" src="/img/productImages/<%= products[i].image ? products[i].image : '/img/productImages/default.jpg' %>" alt="">
                     <div class="product__info">
                         <a href="/products/<%= products[i].id %>/details" class="product__name"><%= products[i].name %></a>
@@ -35,7 +37,7 @@
                             <% if (products[i].discount > 0) { %>
                                 <p class="product__price">$<%= toThousand(Math.floor(products[i].price - (products[i].price*(products[i].discount/100)))) %></p>
                                 <p class="product__pricelinethrough">$<%= toThousand(products[i].price) %></p>
-                                <p class="product__discount"><%= products[i].discount %>% OFF!!!</p>
+                                <p class="product__discount"> -<%= products[i].discount %>%</p>
                             <% } else { %>
                                 <p class="product__price">$<%= toThousand(Math.floor(products[i].price - (products[i].price*(products[i].discount/100)))) %></p>
                             <% } %>

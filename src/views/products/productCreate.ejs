@@ -106,6 +106,10 @@
                     <input type="number" min="0" max="99" name="discountProd" id="discountProd" value="<%= locals.old && old.discountProd ? old.discountProd: '' %>">
                 </div>
                 <div class="campo">
+                    <label for="stockProd">Stock:</label>
+                    <input type="number" min="0" max="99999" name="stockProd" id="stockProd" value="<%= locals.old && old.stockProd ? old.stockProd: '' %>">
+                </div>
+                <div class="campo">
                     <label for="imageProd">Imagen:</label>
                     <input type="file" accept="/jpg" name="imageProd" id="imageProd" value="<%= locals.old && old.imageProd ? old.imageProd: '' %>">
                     <% if (locals.errors && errors.imageProd) { %>

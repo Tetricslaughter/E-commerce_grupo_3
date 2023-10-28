@@ -28,14 +28,29 @@ const controller = {
         }
     },
 
-    listByCategory: (req, res) => {
-        let prodBuscados = [];
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].category == req.params.categoria) {
-                prodBuscados.push(products[i])
+    listByCategory: async (req, res) => {
+        try {
+            let p = await db.product_category.findAll({
+                include: [{association: "products"}],
+                where: {
+                    category_id: req.params.idCategory
+                }
+            })
+            // console.log(p[0].products);
+            let products = [];
+            if (p.length > 0) {
+                console.log("paso por aca");
+                for (let i=0; i<p.length; i++) {
+                    products.push(p[i].products)
+                }
+                console.log(p[0].products);
             }
+            
+            return res.render('products', { products: products, toThousand: toThousand });
+
+        } catch(e) {
+            console.log(e);
         }
-        res.render('products', { products: prodBuscados, toThousand: toThousand })
     },
 
     searchProducts: (req, res) => {
@@ -74,9 +89,21 @@ const controller = {
         }
     },
 
-    productDetails: (req, res) => {
-        let product = products.find((i) => i.id == req.params.idProducto);
-        res.render('productDetail', { product: product })
+    productDetails: async (req, res) => {
+        try {
+            let product = await db.Products.findByPk(req.params.idProducto, {
+                include: [
+                    {association: "categories"},
+                    {association: "lifestage"},
+                    {association: "brand"}
+                ]
+            });
+
+            return res.render('productDetail', { product: product });
+
+        } catch(e) {
+            console.log(e);
+        }
     },
 
     createProduct: async (req, res) => {
@@ -121,7 +148,8 @@ const controller = {
                     discount: req.body.discountProd,
                     image: req.session.nameProdImage,
                     brand_id: req.body.brandProd,
-                    lifestage_id: req.body.lifestageProd
+                    lifestage_id: req.body.lifestageProd,
+                    stock: req.body.stockProd
                 });
     
                 await db.product_category.create({
@@ -151,6 +179,7 @@ const controller = {
             req.body.brandProd = product.brand_id;
             req.body.categoryProd = product.categories[0].id
             req.body.lifestageProd = product.lifestage_id;
+            req.body.stockProd = product.stock;
             req.session.nameProdImage = product.image;
 
             let categories = await db.Categories.findAll();
@@ -203,7 +232,8 @@ const controller = {
                     discount: req.body.discountProd,
                     image: req.session.nameProdImage,
                     brand_id: req.body.brandProd,
-                    lifestage_id: req.body.lifestageProd
+                    lifestage_id: req.body.lifestageProd,
+                    stock: req.body.stockProd
                 },{
                     where: { id: req.params.idProducto }
                 });
@@ -228,10 +258,29 @@ const controller = {
 
     deleteProduct: async (req, res) => {
         try {
+
             console.log("\nreq.params = "+req.params.idProducto+"\n");
+
+            let product = await db.Products.findByPk(req.params.idProducto);
+
+            let fileNameToDelete = product.image;
+
+            fs.unlink(`./public/img/productImages/${fileNameToDelete}`, (error) => {
+                if (error) {
+                    console.log('\nFS: no se pudo borrar la imagen del producto dentro del proyecto\n');
+                } else {
+                    console.log('\nFS: se borro la imagen del producto dentro del proyecto\n');
+                }
+            });
+
+            await db.product_category.destroy({
+                where: { product_id: req.params.idProducto }
+            });
+
             await db.Products.destroy({
                 where: { id: req.params.idProducto }
-            })
+            });
+            
             return res.redirect('/products');
 
         } catch(e) {

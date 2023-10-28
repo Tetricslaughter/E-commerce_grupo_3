@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         discount: { type: DataTypes.DOUBLE, defaultValue: 0 },
         image: { type: DataTypes.STRING(100), allowNull: false },
         brand_id: { type: DataTypes.BIGINT, allowNull: false },
-        lifestage_id: { type: DataTypes.BIGINT, allowNull: false }
+        lifestage_id: { type: DataTypes.BIGINT, allowNull: false },
+        stock: { type: DataTypes.INTEGER(5), defaultValue: 0 }
     },
     {
         tableName: "products",

@@ -47,7 +47,7 @@ const controller = {
     loginProcess: async (req, res) => {
         try {
             let errors = validationResult(req);
-
+            console.log(req.body);
             if ( !errors.isEmpty() ) {
                 res.render('login', { 
                     errors: errors.mapped(),
@@ -56,6 +56,7 @@ const controller = {
 
             } else {
                 let user = await db.Users.findOne({
+                    include: [{association: "rol"}],
                     where: {
                         username: req.body.username
                     }
@@ -67,7 +68,8 @@ const controller = {
                             username: {
                                 "msg": "el usuario o contraseña son incorrectos" 
                             }
-                        }
+                        },
+                        old: req.body
                     });
 
                 } else {
@@ -77,7 +79,8 @@ const controller = {
                                 username: {
                                     "msg": "el usuario o contraseña son incorrectos" 
                                 }
-                            }
+                            },
+                            old: req.body
                         });
                     } else {
                         req.session.userLogged = user;
