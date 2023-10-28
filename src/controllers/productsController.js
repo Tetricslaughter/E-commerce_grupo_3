@@ -1,7 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const productsFilePath = path.join(__dirname, "../data/productsDatabase.json");
-const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const { validationResult } = require('express-validator');
 const db = require('../../database/models');
@@ -36,15 +34,16 @@ const controller = {
                     category_id: req.params.idCategory
                 }
             })
-            // console.log(p[0].products);
+            console.log(p.length);
             let products = [];
-            if (p.length > 0) {
-                console.log("paso por aca");
+            if (p.length > 0) { 
+                console.log("paso por aca!!!!!!!!!");
                 for (let i=0; i<p.length; i++) {
-                    products.push(p[i].products)
+                    products.push(p[i].products);
+                    // console.log(p[i].products);
                 }
-                console.log(p[0].products);
             }
+            console.log(products)
             
             return res.render('products', { products: products, toThousand: toThousand });
 
@@ -53,15 +52,18 @@ const controller = {
         }
     },
 
-    searchProducts: (req, res) => {
+    searchProducts: async (req, res) => {
         let buscado = req.query.searchBar;
+        buscado = buscado.toLowerCase();
         let userResults = [];
-        for (let i=0; i<products.length; i++) {
-            if (products[i].name.toLowerCase().includes(buscado.toLowerCase())) {
-                userResults.push(products[i]);
+        
+        userResults = await db.Products.findAll({
+            where: {
+                name: {[db.Sequelize.Op.like]: `%${buscado}%`}
             }
-        }
-        res.render('products', { products: userResults, toThousand: toThousand })
+        })
+
+        return res.render('products', { products: userResults, toThousand: toThousand })
     },
 
     productHistory: (req, res) => {
@@ -141,13 +143,39 @@ const controller = {
                 })
 
             } else {
+                let brandName = req.body.brandProd;
+                let brandFound = await db.Brands.findOne({
+                    where: {
+                        name: {[db.Sequelize.Op.like]: `%${brandName}%`}
+                    }
+                });
+
+                console.log("\nla marca: \n");
+                console.log(brandFound);
+                let brandId;
+
+                if ( brandFound != undefined ) {
+                    brandId = brandFound.id;
+                } else {
+                    await db.Brands.create({
+                        name: brandName,
+                        country: 'Argentina'
+                    });
+                    brandFound = await db.Brands.findOne({
+                        where:{
+                            name: {[db.Sequelize.Op.like]: `%${brandName}%`}
+                        }
+                    })
+                    brandId = brandFound.id;
+                }
+
                 let product = await db.Products.create({
                     name: req.body.nameProd,
                     description: req.body.descriptionProd,
                     price: req.body.priceProd,
                     discount: req.body.discountProd,
                     image: req.session.nameProdImage,
-                    brand_id: req.body.brandProd,
+                    brand_id: brandId,
                     lifestage_id: req.body.lifestageProd,
                     stock: req.body.stockProd
                 });

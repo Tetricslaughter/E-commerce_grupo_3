@@ -29,7 +29,7 @@ router.post('/create', fileProdUpload.single('imageProd'), validateProduct, prod
 
 router.get('/cart', authMiddleware, productsController.productCart);
 
-router.get('/:idCategory', productsController.listByCategory);
+router.get('/category/:idCategory', productsController.listByCategory);
 
 router.get('/:idProducto/details', productsController.productDetails);
 

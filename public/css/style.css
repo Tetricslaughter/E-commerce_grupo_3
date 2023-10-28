@@ -2,17 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Playpen Sans', cursive;
 }
 
 :root {
-    --rojo: #D94A56;
-    --rojoOscuro: #af3d46;
+    --rojo: #ff081d;
+    --rojoOscuro: #9f0b17;
     --rosaFuerte: #F26B8F;
     --amarillo: #C0D904;
     --rosaClaro: #F2A2A2;
     --grisClaro: #F2F2F2;
-   
 }
 
 body {
@@ -40,6 +39,14 @@ body {
     color: #fff;
     border-radius: 5px;
     text-decoration: none;
+    border: none;
+    outline: none;
+    transition: all 0.15s;
+}
+
+.boton:hover {
+    background-color: #95000c;
+    cursor: pointer;
 }
 
 .boton-verde {

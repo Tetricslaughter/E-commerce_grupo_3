@@ -1,11 +1,11 @@
 <header class="header__fondo">
     <div class="header container">
         <div class="header__logo">
-            <img width="50px" src="/img/LogoRedondo.png" alt="logo-picatso">
-            PICATSO
+            <!-- <img width="50px" src="/img/LogoRedondo.png" alt="logo-picatso"> -->
+            Picatso
         </div>
         <form class="header__searcher" action="/products/search" method="GET">
-            <input type="text" name="searchBar" id="searchBar" placeholder="Buscar productos">
+            <input type="text" name="searchBar" id="searchBar" placeholder="Buscar ...">
             <button id="btn-buscar" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div class="header__userIcons">
@@ -43,8 +43,11 @@
             <ul class="header__ul">
                 <li class="header__li"><a href="/">Inicio</a></li>
                 <li class="header__li"><a href="/products">Productos</a></li>
+                <% if (locals.userLogged == undefined) { %>
+                <li class="header__li"><a href="/register">Registrarme</a></li> 
+                <% } else { %>
                 <li class="header__li"><a href="/products/history">Historial</a></li>
-                <li class="header__li"><a href="/register">Registrarse</a></li>
+                <% } %>
             </ul>
         </nav>
     </div>

@@ -1,14 +1,3 @@
-:root {
-    --rojo: #D94A56;
-    --rojoOscuro: #852f36;
-    --rosaFuerte: #F26B8F;
-    --amarillo: #C0D904;
-    --rosaClaro: #F2A2A2;
-    --grisClaro: #F2F2F2;
-   
-}
-
-
 .footer {
     display: flex;
     align-items: flex-end;

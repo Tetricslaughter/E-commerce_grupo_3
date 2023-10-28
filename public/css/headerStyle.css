@@ -1,14 +1,3 @@
-:root {
-    --rojo: #D94A56;
-    --rojoOscuro: #852f36;
-    --rosaFuerte: #F26B8F;
-    --amarillo: #C0D904;
-    --rosaClaro: #F2A2A2;
-    --grisClaro: #F2F2F2;
-   
-}
-
-
 .header__fondo {
     background-color: var(--rojo);
     position: absolute;
@@ -54,11 +43,15 @@
     min-width: 80px;
     width: 100%;
     max-width: 350px;
-    height: 30px;
-    padding: 4px 10px;
+    height: 35px;
+    padding: 7px 10px;
     border-radius: 6px;
     outline: none;
     border: none;
+}
+
+#searchBar:focus {
+    outline: 3px solid #bfe8ff;
 }
 
 #btn-buscar {
@@ -75,9 +68,9 @@
 
 .header__searcher button {
     border-radius: 6px;
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
+    width: 40px;
+    height: 35px;
+    margin-left: 5px;
     outline: none;
     border: none;
 }
@@ -159,12 +152,13 @@
 
 .header__li a {
     color: #fff;
+    font-weight: bold;
     text-decoration: none;
 }
 
 .header__li a:hover {
     cursor: pointer;
-    text-decoration: underline;
+    color: #bcbcbc;
 }
 
 #menu:checked ~ .header__nav {
@@ -199,9 +193,9 @@
     .header__nav {
         /* border: 1px solid #000; */
         display: block;
-        height: 30px; 
+        height: 35px; 
         background-color: var(--rojo);
-        padding: 0px 0px 10px 0px;
+        padding: 0px 0px 20px 0px;
     }
     .header__ul {
         display: flex;

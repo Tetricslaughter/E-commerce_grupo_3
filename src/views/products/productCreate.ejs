@@ -52,7 +52,7 @@
                 </div>
                 <div class="campo">
                     <label for="brandProd">Marca:</label>
-                    <select name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
+                    <!-- <select name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
                         <option value="" selected>Seleccione una marca</option>
                         <% if (locals.brands && brands) { %>
                             <% for( let i=0; i<brands.length; i++ ) { %>
@@ -67,7 +67,8 @@
                                 <% } %>
                             <% } %>
                         <% } %>
-                    </select>
+                    </select> -->
+                    <input type="text" name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
                     <% if (locals.errors && errors.brandProd) { %>
                         <p class="feedback"><%= errors.brandProd.msg %></p>
                     <% } %>

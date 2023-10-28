@@ -14,10 +14,16 @@
     <%- include('../partials/header.ejs') %>
 
     <main class="main">
+        <% if (locals.isAdmin) { %>
+        <div class="options container">
+            <a href="/products/create" class="boton">Agregar Producto</a>
+        </div>
+        <% } %>
         <div class="productos container">
-
+            <% if (locals.products && products.length < 1) { %>
+                <h3>Lo sentimos no hay productos para mostrar...</h3>
+            <% } else { %>
             <% for (let i=0; i<products.length; i++) { %>
-
             <div class="card">
                 <div class="product__item">
                     <% if (locals.isAdmin) { %>
@@ -46,6 +52,7 @@
                 </div>
             </div>
 
+            <% } %>
             <% } %>
 
         </div>
