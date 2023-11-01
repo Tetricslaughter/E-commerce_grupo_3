@@ -29,8 +29,15 @@
                     <input type="text" name="descriptionProd" id="descriptionProd" value="<%= locals.old && old.descriptionProd ? old.descriptionProd: '' %>">
                 </div>
                 <div class="campo">
+                    <label for="brandProd">Marca:</label>
+                    <input type="text" name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
+                    <% if (locals.errors && errors.brandProd) { %>
+                        <p class="feedback"><%= errors.brandProd.msg %></p>
+                    <% } %>
+                </div>
+                <div class="campo">
                     <label for="categoryProd">Categoria:</label>
-                    <select name="categoryProd" id="categoryProd">
+                    <select class="form-select" name="categoryProd" id="categoryProd">
                         <option value="" <%=locals.old && old.categoryProd ? '' : 'selected' %> >Seleccione una categoria</option>
                         <% if (locals.categories && categories) { %>
                             <% for( let i=0; i<categories.length; i++ ) { %>
@@ -45,24 +52,8 @@
                     <% } %>
                 </div>
                 <div class="campo">
-                    <label for="brandProd">Marca:</label>
-                    <select name="brandProd" id="brandProd">
-                        <option value="" <%=locals.old && old.brandProd ? '' : 'selected' %> >Seleccione una marca</option>
-                        <% if (locals.brands && brands) { %>
-                            <% for( let i=0; i<brands.length; i++ ) { %>
-                                <option value="<%=brands[i].id%>" <%=old.brandProd == brands[i].id ? 'selected' : '' %> >
-                                    <%=brands[i].name%>
-                                </option>
-                            <% } %>
-                        <% } %>
-                    </select>
-                    <% if (locals.errors && errors.brandProd) { %>
-                        <p class="feedback"><%= errors.brandProd.msg %></p>
-                    <% } %>
-                </div>
-                <div class="campo">
                     <label for="lifestageProd">Etapa de vida:</label>
-                    <select name="lifestageProd" id="lifestageProd">
+                    <select class="form-select" name="lifestageProd" id="lifestageProd">
                         <option value="" <%=locals.old && old.lifestageProd ? '' : 'selected' %> >Seleccione una opcion</option>
                         <% if (locals.lifestages && lifestages) { %>
                             <% for( let i=0; i<lifestages.length; i++ ) { %>
@@ -100,7 +91,7 @@
                     <img src="/img/productImages/<%=old.imageProd%>" width="120px" alt="">
                 </div>
                 <div class="campo">
-                    <input class="boton boton-verde" id="botonCrearProd" type="submit" value="Crear Producto">
+                    <input class="boton boton-verde" id="botonCrearProd" type="submit" value="Guardar Cambios">
                 </div>
             </form>
         </div>

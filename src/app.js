@@ -21,18 +21,21 @@ app.set('views', [
     path.join(__dirname, '/views/products')
 ]);
 
+
 app.use(rememberMeMiddleware);
 
 // Las variables definidas en res.locals estan disponibles en todas las vistas
 app.use((req, res, next) => {
+
     if (req.session.userLogged != undefined) {
+
         res.locals.userLogged = req.session.userLogged;
         console.log("hay un usuario loggeado: "+req.session.userLogged.username);
 
         req.session.userSignUp = true;
-        // console.log(res.locals.userLogged);
+        console.log(res.locals.userLogged);
 
-        if ( req.session.userLogged.rol.id == 1 ) {
+        if ( req.session.userLogged.rol_id == 1 ) {
             req.session.isAdmin = true;
             res.locals.isAdmin = req.session.isAdmin;
             console.log('\nse logeo un admin\n');
@@ -46,9 +49,12 @@ app.use((req, res, next) => {
     next();
 });
 
+
 app.use("/", mainRoutes);
+
 app.use("/products", productsRoutes);
 
+/** Pagina error 404 */
 app.use((req, res, next) => {
     res.status(404).render('not-found')
 })

@@ -31,20 +31,16 @@
             <div class="profile__body">
                 <h3>Información Personal</h3>
                 <div class="campo">
-                    <label for="name">Nombre:</label>
-                    <input type="text" name="name" id="name" disabled value="<%= locals.user && user.name ? user.name : '' %>">
+                    <label for="name">Nombre: <%= locals.user && user.name ? user.name : '' %></label>
                 </div>
                 <div class="campo">
-                    <label for="surname">Apellido:</label>
-                    <input type="text" name="surname" id="surname" disabled value="<%= locals.user && user.surname ? user.surname : '' %>">
+                    <label for="surname">Apellido: <%= locals.user && user.surname ? user.surname : '' %></label>
                 </div>
                 <div class="campo">
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" id="email" disabled value="<%= locals.user && user.email ? user.email : '' %>">
+                    <label for="email">Email: <%= locals.user && user.email ? user.email : '' %></label>
                 </div>
                 <div class="campo">
-                    <label for="birthDay">Fecha de Nacimiento:</label>
-                    <input type="date" name="birthDay" id="birthDay" disabled value="<%= locals.user && user.birthday ? user.birthday : '' %>">
+                    <label for="birthDay">Fecha de Nacimiento: <%= locals.user && user.birthday ? user.birthday : '' %></label>
                 </div>
                 <a class="boton" href="/profile/<%=user.id%>/edit">Editar datos</a>
             </div>

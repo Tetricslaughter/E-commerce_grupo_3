@@ -15,7 +15,7 @@
 }
 
 body {
-    margin-top: 60px;
+    margin-top: 70px;
     overflow-x: hidden;
 }
 
@@ -40,8 +40,10 @@ body {
     border-radius: 5px;
     text-decoration: none;
     border: none;
+    margin: 3px;
     outline: none;
     transition: all 0.15s;
+    max-width: max-content;
 }
 
 .boton:hover {
@@ -64,6 +66,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.form-select {
+    padding: 7px 15px;
+    outline: none;
+    border: 1px solid #bcbcbc;
+    border-radius: 3px;
+    font-size: 16px;
+    min-width: 200px;
+    width: 100%;
+    max-width: 400px;
+    color: #676767;
+}
+
+.form-select:focus {
+    border: 1px solid var(--rojo);
+    color: #000;
 }
 
 .campo-botones {

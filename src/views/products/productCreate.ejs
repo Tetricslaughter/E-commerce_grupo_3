@@ -15,7 +15,7 @@
     <%- include('../partials/header.ejs') %>
     <main class="main">
         <div class="crearprod container">
-            <h1 class="crearprod__titulo">Crear Producto</h1>
+            <h1 class="crearprod__titulo">Agregar Producto</h1>
             <form class="crearprod__form" action="/products/create" method="POST" enctype="multipart/form-data">
                 <div class="campo">
                     <label for="nameProd">Nombre del producto:</label>
@@ -29,8 +29,15 @@
                     <input type="text" name="descriptionProd" id="descriptionProd" value="<%= locals.old && old.descriptionProd ? old.descriptionProd: '' %>">
                 </div>
                 <div class="campo">
+                    <label for="brandProd">Marca:</label>
+                    <input type="text" name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
+                    <% if (locals.errors && errors.brandProd) { %>
+                        <p class="feedback"><%= errors.brandProd.msg %></p>
+                    <% } %>
+                </div>
+                <div class="campo">
                     <label for="categoryProd">Categoria:</label>
-                    <select name="categoryProd" id="categoryProd" value="<%= locals.old && old.categoryProd ? old.categoryProd: '' %>">
+                    <select class="form-select" name="categoryProd" id="categoryProd" value="<%= locals.old && old.categoryProd ? old.categoryProd: '' %>">
                         <option value="" selected>Seleccione una categoria</option>
                         <% if (locals.categories && categories) { %>
                             <% for( let i=0; i<categories.length; i++ ) { %>
@@ -51,31 +58,8 @@
                     <% } %>
                 </div>
                 <div class="campo">
-                    <label for="brandProd">Marca:</label>
-                    <!-- <select name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
-                        <option value="" selected>Seleccione una marca</option>
-                        <% if (locals.brands && brands) { %>
-                            <% for( let i=0; i<brands.length; i++ ) { %>
-                                <% if (locals.old && old) { %>
-                                    <option value="<%=brands[i].id%>" <%=old.brandProd == brands[i].id ? 'selected' : '' %> >
-                                        <%=brands[i].name%>
-                                    </option>
-                                <% } else { %>
-                                    <option value="<%=brands[i].id%>">
-                                        <%=brands[i].name%>
-                                    </option>
-                                <% } %>
-                            <% } %>
-                        <% } %>
-                    </select> -->
-                    <input type="text" name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
-                    <% if (locals.errors && errors.brandProd) { %>
-                        <p class="feedback"><%= errors.brandProd.msg %></p>
-                    <% } %>
-                </div>
-                <div class="campo">
                     <label for="lifestageProd">Etapa de vida:</label>
-                    <select name="lifestageProd" id="lifestageProd" value="<%= locals.old && old.lifestageProd ? old.lifestageProd: '' %>">
+                    <select class="form-select" name="lifestageProd" id="lifestageProd" value="<%= locals.old && old.lifestageProd ? old.lifestageProd: '' %>">
                         <option value="" selected>Seleccione una opcion</option>
                         <% if (locals.lifestages && lifestages) { %>
                             <% for( let i=0; i<lifestages.length; i++ ) { %>

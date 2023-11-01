@@ -153,7 +153,12 @@ const controller = {
 
     profileEdit: async (req, res) => {
         try {
-            let user = await db.Users.findOne({where:{id:req.params.id}});
+            
+            let user = await db.Users.findOne({
+                include: [{association: "rol"}],
+                where: { id: req.session.userLogged.id }
+            });
+
             if (req.session.userLogged.id != req.params.id) {
                 return res.render('profileEdit', {
                     errors: {
@@ -166,6 +171,7 @@ const controller = {
                     user: user
                 });
             }
+            
         } catch(e) {
             console.log(e);
         }

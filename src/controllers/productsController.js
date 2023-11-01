@@ -22,7 +22,7 @@ const controller = {
             return res.render('products', { products: products, toThousand: toThousand })
 
         } catch(e) {
-            console.log();
+            console.log(e);
         }
     },
 
@@ -53,17 +53,21 @@ const controller = {
     },
 
     searchProducts: async (req, res) => {
-        let buscado = req.query.searchBar;
-        buscado = buscado.toLowerCase();
-        let userResults = [];
-        
-        userResults = await db.Products.findAll({
-            where: {
-                name: {[db.Sequelize.Op.like]: `%${buscado}%`}
-            }
-        })
+        try {
+            let buscado = req.query.searchBar;
+            buscado = buscado.toLowerCase();
+            let userResults = [];
+            
+            userResults = await db.Products.findAll({
+                where: {
+                    name: {[db.Sequelize.Op.like]: `%${buscado}%`}
+                }
+            })
 
-        return res.render('products', { products: userResults, toThousand: toThousand })
+            return res.render('products', { products: userResults, toThousand: toThousand })
+        } catch(e) {
+            console.log(e);
+        }
     },
 
     productHistory: (req, res) => {
@@ -150,8 +154,8 @@ const controller = {
                     }
                 });
 
-                console.log("\nla marca: \n");
-                console.log(brandFound);
+                // console.log("\nla marca: \n");
+                // console.log(brandFound);
                 let brandId;
 
                 if ( brandFound != undefined ) {
@@ -196,7 +200,7 @@ const controller = {
     editProduct: async (req, res) => {
         try {
             let product = await db.Products.findByPk(req.params.idProducto,{
-                include: [{association: "categories"}]
+                include: [{association: "categories"},{association: "brand"}]
             });
 
             req.body.nameProd = product.name;
@@ -204,7 +208,7 @@ const controller = {
             req.body.priceProd = product.price;
             req.body.discountProd = product.discount;
             req.body.imageProd = product.image;
-            req.body.brandProd = product.brand_id;
+            req.body.brandProd = product.brand.name;
             req.body.categoryProd = product.categories[0].id
             req.body.lifestageProd = product.lifestage_id;
             req.body.stockProd = product.stock;
@@ -232,15 +236,21 @@ const controller = {
             let errors = validationResult(req);
 
             if ( !errors.isEmpty() ) {
+
                 let categories = await db.Categories.findAll();
                 let brands = await db.Brands.findAll();
                 let lifestages = await db.Lifestages.findAll();
                 let product = await db.Products.findByPk(req.params.idProducto,{
-                    include: [{association: "categories"}]
+                    include: [
+                        {association: "categories"},
+                        {association: "brand"},
+                        {association: "lifestage"}
+                    ]
                 });
 
-                console.log('el req.body: ');
-                console.log(req.body);
+                // console.log('el req.body: ');
+                // console.log(req.body);
+
                 return res.render('productEdit', {
                     errors: errors.mapped(),
                     old: req.body,
@@ -252,21 +262,48 @@ const controller = {
                 
             } else {
 
-                // actualiza el producto
+                /** si la marca del prod. ingresada no existe, se crea */
+                let brandName = req.body.brandProd;
+                let brandFound = await db.Brands.findOne({
+                    where: {
+                        name: {[db.Sequelize.Op.like]: `%${brandName}%`}
+                    }
+                });
+
+                // console.log("\nla marca: \n");
+                // console.log(brandFound);
+                let brandId;
+
+                if ( brandFound != undefined ) {
+                    brandId = brandFound.id;
+                } else {
+                    await db.Brands.create({
+                        name: brandName,
+                        country: 'Argentina'
+                    });
+                    brandFound = await db.Brands.findOne({
+                        where:{
+                            name: {[db.Sequelize.Op.like]: `%${brandName}%`}
+                        }
+                    })
+                    brandId = brandFound.id;
+                }
+
+                //** actualizacion del producto */
                 await db.Products.update({
                     name: req.body.nameProd,
                     description: req.body.descriptionProd,
                     price: req.body.priceProd,
                     discount: req.body.discountProd,
                     image: req.session.nameProdImage,
-                    brand_id: req.body.brandProd,
+                    brand_id: brandId,
                     lifestage_id: req.body.lifestageProd,
                     stock: req.body.stockProd
                 },{
                     where: { id: req.params.idProducto }
                 });
 
-                // actualiza la tabla pivot
+                /** actualiza la tabla pivot */
                 await db.product_category.update({
                     category_id: req.body.categoryProd
                 },{

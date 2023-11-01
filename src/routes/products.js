@@ -7,6 +7,7 @@ const authMiddleware = require('../middlewares/authMiddleware.js');
 const validateProduct = require('../validates/validateProduct.js');
 const validateProductEdit = require('../validates/validateProductEdit.js');
 
+/** configuracion de multer */
 let multerDiskStorage = multer.diskStorage({
     destination: (req, file, callback) => {
         callback(null, './public/img/productImages');
@@ -18,30 +19,37 @@ let multerDiskStorage = multer.diskStorage({
 })
 let fileProdUpload = multer({ storage: multerDiskStorage });
 
+
+/** Pagina con todos los productos */
 router.get('/', productsController.allProducts);
+
+/** Buscar un producto */
 router.get('/search', productsController.searchProducts);
 
-router.get('/list', productsController.list)
+/** Historial */
 router.get('/history', authMiddleware, productsController.productHistory);
 
+/** Creacion de un Producto */
 router.get('/create', productsController.createProduct);
 router.post('/create', fileProdUpload.single('imageProd'), validateProduct, productsController.saveProduct);
 
+/** Pagina de carrito de compras */
 router.get('/cart', authMiddleware, productsController.productCart);
 
+/** Buscar productos filtrado por una categoria */
 router.get('/category/:idCategory', productsController.listByCategory);
 
+/** Pagina de detalle de un Producto */
 router.get('/:idProducto/details', productsController.productDetails);
 
+/** Edicion de un Producto */
 router.get('/:idProducto/edit', productsController.editProduct);
 router.put('/:idProducto/edit', fileProdUpload.single('imageProd'), validateProductEdit, productsController.updateProduct);
 
-/**
- * Comentamos la ruta con metodo delete para usar get para que funcione el eliminar productos
- */
-// router.get('/:idProducto/delete', productsController.deleteProduct); // 7
+/** Eliminacion de un Producto */
 router.delete('/:idProducto/delete', productsController.deleteProduct); // 7
 
+// router.get('/list', productsController.list)
 
 
 module.exports = router;

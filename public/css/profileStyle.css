@@ -37,12 +37,11 @@
 .profile__body h3 {
     width: 100%;
     max-width: 400px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 .profile__body .campo input {
-    cursor: not-allowed;
     width: 100%;
     max-width: 400px;
 }
@@ -57,8 +56,9 @@
         margin: 0px 0px 0px 30px;
     }
     .profile__body {
-        margin-top: 40px;
-        align-items: center;
+        margin-top: 20px;
+        padding: 0px 100px;
+        align-items: left;
     }
     .profile__body h3 {
         text-align: left;
