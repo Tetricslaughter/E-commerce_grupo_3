@@ -49,7 +49,4 @@ router.put('/:idProducto/edit', fileProdUpload.single('imageProd'), validateProd
 /** Eliminacion de un Producto */
 router.delete('/:idProducto/delete', productsController.deleteProduct); // 7
 
-// router.get('/list', productsController.list)
-
-
 module.exports = router;

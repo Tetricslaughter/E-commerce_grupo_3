@@ -7,8 +7,12 @@ let validateProductEdit = [
     body('nameProd')
         .notEmpty().withMessage('debe asignar un nombre al producto').bail()
         .isLength({ min: 3 }).withMessage('el nombre del producto debe tener al menos 3 caracteres.'),
+    body('brandProd')
+        .notEmpty().withMessage('debes ingresar la marca del producto'),
     body('categoryProd')
         .notEmpty().withMessage('debe seleccionar una categoria'),
+    body('lifestageProd')
+        .notEmpty().withMessage('debe seleccionar una etapa de vida'),
     body('priceProd')
         .notEmpty().withMessage('debe colocar un precio al producto'),
     body('imageProd')

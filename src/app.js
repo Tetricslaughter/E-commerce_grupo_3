@@ -5,13 +5,13 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const mainRoutes = require('./routes/main.js');
 const productsRoutes = require('./routes/products.js');
-const rememberMeMiddleware = require('./middlewares/rememberMeMiddleware.js');
 const methodOverride = require('method-override');
+const rememberMeMiddleware = require('./middlewares/rememberMeMiddleware.js');
 
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
-app.listen(3000, () => console.log("el servidor se conecto en el puerto 3000"));
+app.listen(3000, () => console.log("Up to -> http://localhost:3000"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(session({ secret: 'secreto!' }));
@@ -26,7 +26,6 @@ app.use(rememberMeMiddleware);
 
 // Las variables definidas en res.locals estan disponibles en todas las vistas
 app.use((req, res, next) => {
-
     if (req.session.userLogged != undefined) {
 
         res.locals.userLogged = req.session.userLogged;
@@ -49,9 +48,8 @@ app.use((req, res, next) => {
     next();
 });
 
-
+/** Routes */
 app.use("/", mainRoutes);
-
 app.use("/products", productsRoutes);
 
 /** Pagina error 404 */

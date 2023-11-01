@@ -43,6 +43,7 @@
                     <label for="birthDay">Fecha de Nacimiento: <%= locals.user && user.birthday ? user.birthday : '' %></label>
                 </div>
                 <a class="boton" href="/profile/<%=user.id%>/edit">Editar datos</a>
+                <a class="boton" href="/profile/logout">Cerrar Sesion</a>
             </div>
             <% } %>
         </div>

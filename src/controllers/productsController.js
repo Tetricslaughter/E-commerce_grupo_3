@@ -1,21 +1,12 @@
 const fs = require("fs");
 const path = require("path");
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const { validationResult } = require('express-validator');
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require('../../database/models');
 
 const controller = {
 
-    list: async (req, res) => {
-        try {
-            let products = await db.Products.findAll()
-            return res.render('products', { products: products, toThousand: toThousand })
-
-        } catch(e) {
-            console.log();
-        }
-    },
-
+    /** Pagina mostrando todos los productos */
     allProducts: async (req, res) => {
         try {
             let products = await db.Products.findAll()
@@ -26,6 +17,7 @@ const controller = {
         }
     },
 
+    /** Todos los productos de una categoria */
     listByCategory: async (req, res) => {
         try {
             let p = await db.product_category.findAll({
@@ -34,16 +26,13 @@ const controller = {
                     category_id: req.params.idCategory
                 }
             })
-            console.log(p.length);
+
             let products = [];
             if (p.length > 0) { 
-                console.log("paso por aca!!!!!!!!!");
                 for (let i=0; i<p.length; i++) {
                     products.push(p[i].products);
-                    // console.log(p[i].products);
                 }
             }
-            console.log(products)
             
             return res.render('products', { products: products, toThousand: toThousand });
 
@@ -52,6 +41,7 @@ const controller = {
         }
     },
 
+    /** Buscar productos por la barra de busqueda */
     searchProducts: async (req, res) => {
         try {
             let buscado = req.query.searchBar;
@@ -70,6 +60,7 @@ const controller = {
         }
     },
 
+    /** Mostrar la pagina de historial de compras (aun no funciona de acuerdo a un usuario) */
     productHistory: (req, res) => {
         if ( req.session.userSignUp == false ) {
             return res.render('productHistory', { 
@@ -83,6 +74,7 @@ const controller = {
         }
     },
 
+    /** Mostrar pagina del carrito de compras (au no funciona de acuerdo a un usuario) */
     productCart: (req, res) => {
         if ( req.session.userSignUp == false ) {
             return res.render('productCart', {
@@ -95,6 +87,7 @@ const controller = {
         }
     },
 
+    /** Mostrar detalles de un producto en particular */
     productDetails: async (req, res) => {
         try {
             let product = await db.Products.findByPk(req.params.idProducto, {
@@ -112,6 +105,7 @@ const controller = {
         }
     },
 
+    /** Mostrar pagina de crear producto */
     createProduct: async (req, res) => {
         try {
             let categories = await db.Categories.findAll();
@@ -129,15 +123,16 @@ const controller = {
         }
     },
 
+    /** Proceso de la creacion de un producto */
     saveProduct: async (req, res) => {
-        // console.log(req.file);
         try {
             let errors = validationResult(req);
+
             if ( !errors.isEmpty() ) {
                 let categories = await db.Categories.findAll();
                 let brands = await db.Brands.findAll();
                 let lifestages = await db.Lifestages.findAll();
-                console.log(req.body)
+
                 return res.render('productCreate', {
                     errors: errors.mapped(),
                     old: req.body,
@@ -154,10 +149,7 @@ const controller = {
                     }
                 });
 
-                // console.log("\nla marca: \n");
-                // console.log(brandFound);
                 let brandId;
-
                 if ( brandFound != undefined ) {
                     brandId = brandFound.id;
                 } else {
@@ -197,10 +189,14 @@ const controller = {
         }
     },
 
+    /** Mostrar pagina de edicion de un producto */
     editProduct: async (req, res) => {
         try {
             let product = await db.Products.findByPk(req.params.idProducto,{
-                include: [{association: "categories"},{association: "brand"}]
+                include: [
+                    {association: "categories"},
+                    {association: "brand"}
+                ]
             });
 
             req.body.nameProd = product.name;
@@ -231,12 +227,12 @@ const controller = {
         }
     },
 
+    /** Proceso de la edicion de un producto */
     updateProduct: async (req, res) => {
         try {
             let errors = validationResult(req);
 
             if ( !errors.isEmpty() ) {
-
                 let categories = await db.Categories.findAll();
                 let brands = await db.Brands.findAll();
                 let lifestages = await db.Lifestages.findAll();
@@ -247,9 +243,6 @@ const controller = {
                         {association: "lifestage"}
                     ]
                 });
-
-                // console.log('el req.body: ');
-                // console.log(req.body);
 
                 return res.render('productEdit', {
                     errors: errors.mapped(),
@@ -262,7 +255,7 @@ const controller = {
                 
             } else {
 
-                /** si la marca del prod. ingresada no existe, se crea */
+                // si la marca del prod. ingresada no existe, se crea
                 let brandName = req.body.brandProd;
                 let brandFound = await db.Brands.findOne({
                     where: {
@@ -270,10 +263,7 @@ const controller = {
                     }
                 });
 
-                // console.log("\nla marca: \n");
-                // console.log(brandFound);
                 let brandId;
-
                 if ( brandFound != undefined ) {
                     brandId = brandFound.id;
                 } else {
@@ -289,7 +279,7 @@ const controller = {
                     brandId = brandFound.id;
                 }
 
-                //** actualizacion del producto */
+                // actualizacion del producto
                 await db.Products.update({
                     name: req.body.nameProd,
                     description: req.body.descriptionProd,
@@ -314,18 +304,14 @@ const controller = {
 
                 return res.redirect('/products')
             }
-
-
         } catch(e) {
             console.log(e);
         }
     },
 
+    /** eliminacion de un producto */
     deleteProduct: async (req, res) => {
         try {
-
-            console.log("\nreq.params = "+req.params.idProducto+"\n");
-
             let product = await db.Products.findByPk(req.params.idProducto);
 
             let fileNameToDelete = product.image;

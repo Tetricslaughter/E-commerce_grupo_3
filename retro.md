@@ -34,3 +34,24 @@ Hacer mas: Para el proximo sprint consideramos tener mejor comunicacion y dar el
 Continuar haciendo: Empatizar con la situación  particular de cada uno de nuestros compañeros.
 Hacer menos: DiLatar el tiempo en la realizacion de los sprints.
 Dejar de hacer: No estar al dia con las clases y las actividades.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+SPRINT 6
+
+Tuvimos algunos inconvenientes con la organizacion de este sprint y lamentablemente tuvimos un par de bajas en nuestro grupo
+con los dias seguimos intentando aprender los temas para seguir al dia y por temas academicos y de trabajo no todos pudimos.
+Sin embargo aun asi intentamos seguir con el proyecto los que seguimos y pudimos llegar hasta aqui, que quizas aun falten
+algunas cosas del proyecto por mejorar pero con el tiempo las mejoraremos.
+Con el tema de las reuniones semanales o diarios nos resulto muy dificil ya que no podiamos conincidir un horario entre los
+compañeros, aun asi se pudo llegar a completar lo que se pidio en este sprint
+
+* Hacer mas: intentar estar al dia con los contenidos de las clases
+* Continuar: con las ganas de seguir aprendiendo y aplicar todo en el proyecto
+* Hacer menos: procastinar con las tareas
+* Dejar de hacer: la falta de organizacion
+
+NOTA:
+Se dejo un archivo 'data.sql' en la carpeta sequelize con los datos para cargarlos a la base de datos 'picatso'
+Todos los usuarios en ese script tienen la contraseña 'asdasd'
+Existen 3 usuarios, el primero es un usuario con rol de ADMIN que permite hacer el CRUD de los productos

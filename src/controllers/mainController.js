@@ -99,6 +99,23 @@ const controller = {
         }
     },
 
+    logout: async (req, res) => {
+        try {
+            req.session.userLogged = undefined;
+            res.locals.userLogged = undefined;
+            req.session.userSignUp = false;
+            res.locals.userSignUp = false;
+            req.session.isAdmin = false;
+            res.locals.isAdmin = false;
+            res.clearCookie('rememberMe');
+            console.log('ha cerrado sesion');
+            return res.redirect('/');
+
+        } catch(error) {
+            console.log(error);
+        }
+    },
+
     profile: async (req, res) => {
         try {
             if ( req.session.userSignUp == false ) {
