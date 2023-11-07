@@ -26,10 +26,10 @@
                     <p class="product__price">
                         $<%= product.price - (product.price*(product.discount/100)) %>
                         <span class="product__oldprice">
-                            <%= product.price %> 
+                            $<%= product.price %> 
                         </span>
                         <span class="product__discount">
-                            <%= product.discount %>%OFF
+                            -<%= product.discount %>%OFF
                         </span>
                     </p> 
                     <% } else { %>

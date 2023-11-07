@@ -4,7 +4,10 @@ const path = require('path');
 let validateProduct = [
     body('nameProd')
         .notEmpty().withMessage('el campo no puede estar vacío.').bail()
-        .isLength({ min: 3 }).withMessage('el nombre del producto debe tener al menos 3 caracteres.'),
+        .isLength({ min: 5 }).withMessage('el nombre del producto debe tener al menos 5 caracteres.'),
+    body('descriptionProd')
+        .notEmpty().withMessage('el campo no puede estar vacío.').bail()
+        .isLength({ min: 20 }).withMessage('la descripcion del producto debe tener al menos 20 caracteres.'),
     body('brandProd')
         .notEmpty().withMessage('debes ingresar la marca del producto'),
     body('categoryProd')
@@ -16,8 +19,8 @@ let validateProduct = [
     body('imageProd')
         .custom((value, { req }) => {
             let file = req.file;
-            console.log(file);
-            let extensions = [".jpg", ".jpeg", ".png", ".JPG", "JPEG", ".PNG"];
+            // console.log(file);
+            let extensions = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".JPG", ".JPEG", ".PNG", ".GIF", ".WEBP"];
             if (file == undefined) {
                 throw new Error('debes subir una imagen')
             }

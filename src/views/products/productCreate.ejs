@@ -27,6 +27,9 @@
                 <div class="campo">
                     <label for="descriptionProd">Descripción:</label>
                     <input type="text" name="descriptionProd" id="descriptionProd" value="<%= locals.old && old.descriptionProd ? old.descriptionProd: '' %>">
+                    <% if (locals.errors && errors.descriptionProd) { %>
+                        <p class="feedback"><%= errors.descriptionProd.msg %></p>
+                    <% } %>
                 </div>
                 <div class="campo">
                     <label for="brandProd">Marca:</label>
@@ -88,11 +91,11 @@
                 </div>
                 <div class="campo">
                     <label for="discountProd">Descuento:</label>
-                    <input type="number" min="0" max="99" name="discountProd" id="discountProd" value="<%= locals.old && old.discountProd ? old.discountProd: '' %>">
+                    <input placeholder="0" type="number" min="0" max="99" name="discountProd" id="discountProd" value="<%= locals.old && old.discountProd ? old.discountProd: '' %>">
                 </div>
                 <div class="campo">
                     <label for="stockProd">Stock:</label>
-                    <input type="number" min="0" max="99999" name="stockProd" id="stockProd" value="<%= locals.old && old.stockProd ? old.stockProd: '' %>">
+                    <input placeholder="0" type="number" min="0" max="99999" name="stockProd" id="stockProd" value="<%= locals.old && old.stockProd ? old.stockProd: '' %>">
                 </div>
                 <div class="campo">
                     <label for="imageProd">Imagen:</label>

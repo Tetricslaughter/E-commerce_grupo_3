@@ -1,4 +1,3 @@
-
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const db = require('../../database/models');
@@ -47,7 +46,7 @@ const controller = {
     loginProcess: async (req, res) => {
         try {
             let errors = validationResult(req);
-            console.log(req.body);
+            // console.log(req.body);
             if ( !errors.isEmpty() ) {
                 res.render('login', { 
                     errors: errors.mapped(),
