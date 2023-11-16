@@ -5,16 +5,16 @@ const db = require('../../database/models');
 
 let validateProductEdit = [
     body('nameProd')
-        .notEmpty().withMessage('debe asignar un nombre al producto').bail()
-        .isLength({ min: 3 }).withMessage('el nombre del producto debe tener al menos 3 caracteres.'),
+        .notEmpty().withMessage('Debe asignar un nombre al producto').bail()
+        .isLength({ min: 3 }).withMessage('El nombre del producto debe tener al menos 3 caracteres.'),
     body('brandProd')
-        .notEmpty().withMessage('debes ingresar la marca del producto'),
+        .notEmpty().withMessage('Debes ingresar la marca del producto'),
     body('categoryProd')
-        .notEmpty().withMessage('debe seleccionar una categoria'),
+        .notEmpty().withMessage('Debe seleccionar una categoria'),
     body('lifestageProd')
-        .notEmpty().withMessage('debe seleccionar una etapa de vida'),
+        .notEmpty().withMessage('Debe seleccionar una etapa de vida'),
     body('priceProd')
-        .notEmpty().withMessage('debe colocar un precio al producto'),
+        .notEmpty().withMessage('Debe colocar un precio al producto'),
     body('imageProd')
         .custom((value, { req }) => {
             let file = req.file;
@@ -28,7 +28,7 @@ let validateProductEdit = [
                 let extensions = [".jpg", ".jpeg", ".png", ".JPG", "JPEG", ".PNG", "webp"];
                 let extension = path.extname(file.originalname);
                 if (!extensions.includes(extension)) {
-                    throw new Error("formato de imagen no permitido.")
+                    throw new Error("El formato de imagen no permitido.")
                 }
 
                 let fileNameToDelete = req.session.nameProdImage;
