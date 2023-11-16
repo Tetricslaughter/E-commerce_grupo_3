@@ -128,7 +128,7 @@ body {
 }
 
 .campo input:focus {
-    border: 1px solid var(--rojo);
+    border: 2px solid #b2b2b2;
     color: #000;
 }
 

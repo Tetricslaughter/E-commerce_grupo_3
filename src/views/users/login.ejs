@@ -5,6 +5,7 @@
   <!-- head -->
   <%- include('../partials/head.ejs') %>
     <link rel="stylesheet" href="/css/loginStyle.css">
+    <script src="/js/validations-userLogin.js"></script>
     <title>Login</title>
 </head>
 
@@ -17,7 +18,7 @@
       <form class="form-login" action="/login" method="POST">
         <h2 class="login__title">Ingresá a tu cuenta</h2>
         <div class="campo">
-          <input type="text" name="username" placeholder="Nombre de usuario" value="<%= locals.ols && old.username ? old.username : '' %>" />
+          <input type="text" name="username" id="username" placeholder="Nombre de usuario" value="<%= locals.ols && old.username ? old.username : '' %>" />
           <% if (locals.errors && errors.username) { %>
           <p class="feedback">
             <%= errors.username.msg %>
@@ -25,7 +26,7 @@
           <% } %>
         </div>
         <div class="campo">
-          <input type="password" name="password" placeholder="Contraseña" />
+          <input type="password" name="password" id="password" placeholder="Contraseña" />
           <% if (locals.errors && errors.password) { %>
           <p class="feedback">
             <%= errors.password.msg %>
