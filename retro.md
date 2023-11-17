@@ -55,3 +55,16 @@ NOTA:
 Se dejo un archivo 'data.sql' en la carpeta sequelize con los datos para cargarlos a la base de datos 'picatso'
 Todos los usuarios en ese script tienen la contraseña 'asdasd'
 Existen 3 usuarios, el primero es un usuario con rol de ADMIN que permite hacer el CRUD de los productos
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+SPRINT 7
+
+En el proceso de este sprint no tuvimos muchos problemas con el temas de las validaciones por parte del backend
+ya que contabamos con la mayoria de validaciones ya hechas en sprints pasados, en este tuvimos que agregar
+las del parte del frontend con javascript.
+
+* Hacer mas: intentar estar al dia con los contenidos de las clases
+* Continuar: con las ganas de seguir aprendiendo y aplicar todo en el proyecto
+* Hacer menos: procastinar con las tareas
+* Dejar de hacer: la falta de organizacion
