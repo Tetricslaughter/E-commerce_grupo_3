@@ -5,6 +5,7 @@
   <!-- head -->
   <%- include('../partials/head.ejs') %>
     <link rel="stylesheet" href="/css/profileStyle.css">
+    <script src="/js/validations-userEdit.js"></script>
     <title>Login</title>
 </head>
 
@@ -30,22 +31,34 @@
             </div>
             <div class="profile__body">
                 <h3>Información Personal</h3>
-                <form  method="POST" action="/profile/<%=user.id%>/edit?_method=PUT">
+                <form class="form-edit" method="POST" action="/profile/<%=user.id%>/edit?_method=PUT">
                     <div class="campo">
                         <label for="name">Nombre:</label>
-                        <input type="text" name="name" id="name" value="<%= locals.user && user.name ? user.name : '' %>">
+                        <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : '' %>">
+                        <% if (locals.errors && errors.name) { %>
+                            <p class="feedback"><%= errors.name.msg %></p>
+                        <% } %>
                     </div>
                     <div class="campo">
                         <label for="surname">Apellido:</label>
-                        <input type="text" name="surname" id="surname" value="<%= locals.user && user.surname ? user.surname : '' %>">
+                        <input type="text" name="surname" id="surname" value="<%= locals.old && old.surname ? old.surname : '' %>">
+                        <% if (locals.errors && errors.surname) { %>
+                            <p class="feedback"><%= errors.surname.msg %></p>
+                        <% } %>
                     </div>
                     <div class="campo">
                         <label for="email">Email:</label>
-                        <input type="text" name="email" id="email" value="<%= locals.user && user.email ? user.email : '' %>">
+                        <input type="text" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>">
+                        <% if (locals.errors && errors.email) { %>
+                            <p class="feedback"><%= errors.email.msg %></p>
+                        <% } %>
                     </div>
                     <div class="campo">
                         <label for="birthDay">Fecha de Nacimiento:</label>
-                        <input type="date" name="birthDay" id="birthDay" value="<%= locals.user && user.birthday ? user.birthday : '' %>">
+                        <input type="date" name="birthDay" id="birthDay" value="<%= locals.old && old.birthday ? old.birthday : '' %>">
+                        <% if (locals.errors && errors.birthDay) { %>
+                            <p class="feedback"><%= errors.birthDay.msg %></p>
+                        <% } %>
                     </div>
                     <button class="boton" type="submit">Confirmar</button>
                 </form>
