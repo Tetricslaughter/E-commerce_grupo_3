@@ -29,7 +29,20 @@ let validateRegister = [
         }),
     body('email')
         .notEmpty().withMessage('El campo no puede estar vacío.').bail()
-        .isEmail().withMessage('El email no es válido.'),
+        .isEmail().withMessage('El email no es válido.')
+        .custom( async (value, { req }) => {
+            let email = req.body.email;
+            let emailOfDB = await db.Users.findOne({
+                where: {
+                    email: { [db.Sequelize.Op.like]: `%${email}%` }
+                }
+            });
+            if (emailOfDB != undefined) {
+                throw new Error("El email ya está en uso.");
+            }
+
+            return true;
+        }),
     body('birthDay').notEmpty().withMessage('Debe ingresar una fecha.'),
     body('profileImage')
         .custom((value, { req }) => {

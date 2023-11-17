@@ -4,8 +4,8 @@ const path = require('path');
 const multer = require('multer');
 const productsController = require('../controllers/productsController.js');
 const authMiddleware = require('../middlewares/authMiddleware.js');
-const validateProduct = require('../validates/validateProduct.js');
-const validateProductEdit = require('../validates/validateProductEdit.js');
+const validateProduct = require('../validators/validateProduct.js');
+const validateProductEdit = require('../validators/validateProductEdit.js');
 
 /** configuracion de multer */
 let multerDiskStorage = multer.diskStorage({

@@ -169,7 +169,7 @@ const controller = {
 
     profileEdit: async (req, res) => {
         try {
-            
+
             let user = await db.Users.findOne({
                 include: [{association: "rol"}],
                 where: { id: req.session.userLogged.id }
@@ -195,16 +195,26 @@ const controller = {
 
     profileEditProcess: async (req, res) => {
         try {
-            await db.Users.update({
-                name: req.body.name,
-                surname: req.body.surname,
-                email: req.body.email,
-                birthday: req.body.birthDay,
-            },{
-                where: { id: req.session.userLogged.id }
-            })
-            req.session.userLogged = await db.Users.findOne({where:{id:req.params.id}});
-            res.redirect('/profile/'+req.params.id);
+            let errors = validationResult(req);
+            if ( !errors.isEmpty() ) {
+                return res.render("profileEdit", {
+                    errors: errors.mapped(),
+                    old: req.body,
+                    user: req.session.userLogged 
+                })
+            } else {
+                
+                await db.Users.update({
+                    name: req.body.name,
+                    surname: req.body.surname,
+                    email: req.body.email,
+                    birthday: req.body.birthDay,
+                },{
+                    where: { id: req.session.userLogged.id }
+                })
+                req.session.userLogged = await db.Users.findOne({where:{id:req.params.id}});
+                return res.redirect('/profile/'+req.params.id);
+            }
         } catch(e) {
             console.log(e);
         }
@@ -215,7 +225,14 @@ const controller = {
             console.log('borrando cuenta '+req.session.userLogged.id);
             await db.Users.destroy({
                 where: { id: req.session.userLogged.id }
-            })
+            });
+            req.session.userLogged = undefined;
+            res.locals.userLogged = undefined;
+            req.session.userSignUp = false;
+            res.locals.userSignUp = false;
+            req.session.isAdmin = false;
+            res.locals.isAdmin = false;
+            res.clearCookie('rememberMe');
             res.redirect('/');
         } catch(e) {
             console.log(e);

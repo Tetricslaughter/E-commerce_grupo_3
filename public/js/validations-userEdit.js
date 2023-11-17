@@ -2,12 +2,9 @@ window.addEventListener("load", () => {
 
     let name = document.querySelector("#name");
     let surname = document.querySelector("#surname");
-    let username = document.querySelector("#username");
-    let password = document.querySelector("#password");
-    let confirmPassword = document.querySelector("#confirmPassword");
     let email = document.querySelector("#email");
     let birthDay = document.querySelector("#birthDay");
-    let form = document.querySelector("form.form-register");
+    let form = document.querySelector("form.form-edit");
 
     name.addEventListener("blur", (e) => {
         
@@ -54,9 +51,9 @@ window.addEventListener("load", () => {
         if (surname.value.length == 0) {
             errores.push("El campo no puede estar vacío.");
         } else if (surname.value.length < 2) {
-            errores.push("El nombre debe tener al menos 2 caracteres.")
+            errores.push("El apellido debe tener al menos 2 caracteres.")
         } else if (surname.value.length > 30) {
-            errores.push("El nombre puede tener como maximo 30 caracteres.")
+            errores.push("El apellido puede tener como maximo 30 caracteres.")
         }
 
         for (let i=0; i<errores.length; i++) {
@@ -68,37 +65,6 @@ window.addEventListener("load", () => {
 
         if (errores.length > 0) {
             surname.style.border = "1px solid red";
-        }
-    });
-
-    username.addEventListener("blur", (e) => {
-        
-        username.removeAttribute("style");
-        /** elimino los p.feedback anteriores para que no se amontonen */
-        let elementoPadre = username.parentElement;
-        elementoPadre.querySelectorAll("p.feedback").forEach(feedback => {
-            elementoPadre.removeChild(feedback);
-        });
-
-        let errores = [];
-
-        if (username.value.length == 0) {
-            errores.push("El campo no puede estar vacío.");
-        } else if (username.value.length < 6) {
-            errores.push("El nombre de usuario de usuario debe tener al menos 6 caracteres.")
-        } else if (username.value.length > 30) {
-            errores.push("El nombre de usuario puede tener como maximo 30 caracteres.")
-        }
-
-        for (let i=0; i<errores.length; i++) {
-            let p = document.createElement("p");
-            p.classList.add("feedback");
-            p.innerText = errores[i]
-            username.parentNode.insertBefore(p, username.nextSibling)
-        }
-
-        if (errores.length > 0) {
-            username.style.border = "1px solid red";
         }
     });
 
@@ -132,66 +98,6 @@ window.addEventListener("load", () => {
 
         if (errores.length > 0) {
             email.style.border = "1px solid red";
-        }
-    });
-
-    password.addEventListener("blur", (e) => {
-        
-        password.removeAttribute("style");
-
-        /** elimino los p.feedback anteriores para que no se amontonen */
-        let elementoPadre = password.parentElement;
-        elementoPadre.querySelectorAll("p.feedback").forEach(feedback => {
-            elementoPadre.removeChild(feedback);
-        });
-
-        let errores = [];
-
-        if (password.value.length == 0) {
-            errores.push("El campo no puede estar vacío.");
-        } else if (password.value.length < 8) {
-            errores.push("La contraseña debe tener al menos 8 caracteres.");
-        }
-
-        for (let i=0; i<errores.length; i++) {
-            let p = document.createElement("p");
-            p.classList.add("feedback");
-            p.innerText = errores[i]
-            password.parentNode.insertBefore(p, password.nextSibling)
-        }
-
-        if (errores.length > 0) {
-            password.style.border = "1px solid red";
-        }
-    });
-
-    confirmPassword.addEventListener("blur", (e) => {
-        
-        confirmPassword.removeAttribute("style");
-        
-        /** elimino los p.feedback anteriores para que no se amontonen */
-        let elementoPadre = confirmPassword.parentElement;
-        elementoPadre.querySelectorAll("p.feedback").forEach(feedback => {
-            elementoPadre.removeChild(feedback);
-        });
-
-        let errores = [];
-
-        if (confirmPassword.value.length == 0) {
-            errores.push("El campo no puede estar vacío.");
-        } else if (confirmPassword.value.length < 8) {
-            errores.push("La contraseña debe tener al menos 8 caracteres.");
-        }
-
-        for (let i=0; i<errores.length; i++) {
-            let p = document.createElement("p");
-            p.classList.add("feedback");
-            p.innerText = errores[i]
-            confirmPassword.parentNode.insertBefore(p, confirmPassword.nextSibling)
-        }
-
-        if (errores.length > 0) {
-            passconfirmPasswordord.style.border = "1px solid red";
         }
     });
 

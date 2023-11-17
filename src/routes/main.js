@@ -4,8 +4,9 @@ const multer = require('multer');
 const path = require('path');
 
 /** Validaciones de formularios */
-let validateRegister = require('../validates/validateRegister.js');
-let validateLogin = require('../validates/validateLogin.js');
+let validateRegister = require('../validators/validateRegister.js');
+let validateEdit = require('../validators/validateUserEdit.js');
+let validateLogin = require('../validators/validateLogin.js');
 
 /** Middlewares */
 const authMiddleware = require('../middlewares/authMiddleware.js');
@@ -48,7 +49,7 @@ router.get('/profile/:id', authMiddleware, mainController.profile);
 router.get('/profile/:id/edit', authMiddleware, mainController.profileEdit);
 
 /** Proceso de edicion de cuenta */
-router.put('/profile/:id/edit', authMiddleware, mainController.profileEditProcess);
+router.put('/profile/:id/edit', authMiddleware, validateEdit, mainController.profileEditProcess);
 
 /** Eliminacion de cuenta de un usuario */
 router.delete('/profile/:id/delete', authMiddleware, mainController.profileDeleteProcess);
