@@ -44,7 +44,6 @@ window.addEventListener("load", () => {
     });
 
     descriptionProd.addEventListener("blur", (e) => {
-
         descriptionProd.removeAttribute("style");
 
         /** elimino los p.feedback anteriores para que no se amontonen */

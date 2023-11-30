@@ -19,25 +19,24 @@
             <h1 class="crearprod__titulo">Editar Producto</h1>
             <form class="crearprod__form" method="POST" action="/products/<%= product.id %>/edit?_method=PUT" enctype="multipart/form-data">
                 <div class="campo">
-                    <label for="nameProd">Nombre del producto:</label>
-                    <input type="text" name="nameProd" id="nameProd" value="<%= locals.old && old.nameProd ? old.nameProd: '' %>">
+                    <input placeholder="Nombre del producto" type="text" name="nameProd" id="nameProd" value="<%= locals.old && old.nameProd ? old.nameProd: '' %>">
                     <% if (locals.errors && errors.nameProd) { %>
                         <p class="feedback"><%= errors.nameProd.msg %></p>
                     <% } %>
                 </div>
                 <div class="campo">
-                    <label for="descriptionProd">Descripción:</label>
-                    <input type="text" name="descriptionProd" id="descriptionProd" value="<%= locals.old && old.descriptionProd ? old.descriptionProd: '' %>">
+                    <textarea placeholder="Descripción" name="descriptionProd" id="descriptionProd" cols="30" rows="10"><%= locals.old && old.descriptionProd ? old.descriptionProd: '' %></textarea>
+                    <% if (locals.errors && errors.descriptionProd) { %>
+                        <p class="feedback"><%= errors.descriptionProd.msg %></p>
+                    <% } %>
                 </div>
                 <div class="campo">
-                    <label for="brandProd">Marca:</label>
-                    <input type="text" name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
+                    <input placeholder="Marca" type="text" name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
                     <% if (locals.errors && errors.brandProd) { %>
                         <p class="feedback"><%= errors.brandProd.msg %></p>
                     <% } %>
                 </div>
                 <div class="campo">
-                    <label for="categoryProd">Categoria:</label>
                     <select class="form-select" name="categoryProd" id="categoryProd">
                         <option value="" <%=locals.old && old.categoryProd ? '' : 'selected' %> >Seleccione una categoria</option>
                         <% if (locals.categories && categories) { %>
@@ -53,9 +52,8 @@
                     <% } %>
                 </div>
                 <div class="campo">
-                    <label for="lifestageProd">Etapa de vida:</label>
                     <select class="form-select" name="lifestageProd" id="lifestageProd">
-                        <option value="" <%=locals.old && old.lifestageProd ? '' : 'selected' %> >Seleccione una opcion</option>
+                        <option value="" <%=locals.old && old.lifestageProd ? '' : 'selected' %> >Seleccione una etapa de vida</option>
                         <% if (locals.lifestages && lifestages) { %>
                             <% for( let i=0; i<lifestages.length; i++ ) { %>
                                 <option value="<%=lifestages[i].id%>" <%=old.lifestageProd == lifestages[i].id ? 'selected' : '' %> >
@@ -89,7 +87,7 @@
                     <% if (locals.errors && errors.imageProd) { %>
                         <p class="feedback"><%= errors.imageProd.msg %></p>
                     <% } %>
-                    <img src="/img/productImages/<%=old.imageProd%>" width="120px" alt="">
+                    <img id="img-prodedit" src="/img/productImages/<%=old.imageProd%>" width="120px" alt="">
                 </div>
                 <div class="campo">
                     <input class="boton boton-verde" id="botonCrearProd" type="submit" value="Guardar Cambios">

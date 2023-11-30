@@ -6,6 +6,13 @@
     align-items: center;
 }
 
+.campo input,
+.campo label,
+.campo select,
+.campo textarea {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .crearprod__titulo {
     color: #333;
     padding-bottom: 15px;
@@ -13,15 +20,20 @@
     width: 100%;
     text-align: center;
     max-width: 400px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .crearprod__form {
     width: fit-content;
 }
 
-#imagenProd {
+#imageProd {
     border: none;
     padding: 4px 0px;
+}
+
+#img-prodedit {
+    margin-top: 10px;
 }
 
 #botonCrearProd {
@@ -43,6 +55,11 @@
         padding: 0px 30px;
     }
 
+    #priceProd,
+    #discountProd,
+    #stockProd {
+        max-width: 150px;
+    }
 }
 
 @media (min-width: 992px) {

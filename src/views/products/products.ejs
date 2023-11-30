@@ -13,7 +13,13 @@
     <!-- header -->
     <%- include('../partials/header.ejs') %>
 
-    <main class="main">
+    <main class="main container">
+        <% if (locals.products && products.length > 0) { %>
+        <div class="product-header">
+            <h2>Todos los Productos</h2>
+            <p>Conoce los productos que Picatso tiene para su mascota.</p>
+        </div>
+        <% } %>
         <% if (locals.isAdmin) { %>
         <div class="options container">
             <a href="/products/create" class="boton">Agregar Producto</a>
@@ -21,7 +27,9 @@
         <% } %>
         <div class="productos container">
             <% if (locals.products && products.length < 1) { %>
-                <h3>Lo sentimos no hay productos para mostrar...</h3>
+                <div class="no-products">
+                    <h3>Lo sentimos no hay productos para mostrar...</h3>
+                </div>
             <% } else { %>
             <% for (let i=0; i<products.length; i++) { %>
             <div class="card">
