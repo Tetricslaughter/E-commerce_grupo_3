@@ -3,7 +3,7 @@
     align-items: flex-end;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
-    background-color: var(--rojoOscuro);
+    background-color: #fff;
     height: fit-content;
     padding: 20px;
 }
@@ -17,13 +17,14 @@
 
 .footer__enlace {
     margin: 10px 10px;
-    color: #DEDEDE;
+    color: #666;
+    font-size: 12px;
     text-decoration: none;
     white-space: nowrap;
 }
 
 .footer__enlace:hover {
-    color: #BCBCBC;
+    color: #000;
 }
 
 .icono {
@@ -72,10 +73,10 @@
 
 .copyright {
     height: 30px;
-    font-size: 13px;
-    color: #cdcdcd;
+    font-size: 12px;
+    color: #ababab;
     text-align: center;
-    background-color: var(--rojoOscuro);
+    background-color: #fff;
     font-weight: normal;
     letter-spacing: 3px;
 }

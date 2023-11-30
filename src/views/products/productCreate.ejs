@@ -19,30 +19,26 @@
             <h1 class="crearprod__titulo">Agregar Producto</h1>
             <form class="crearprod__form" action="/products/create" method="POST" enctype="multipart/form-data">
                 <div class="campo">
-                    <label for="nameProd">Nombre del producto:</label>
-                    <input type="text" name="nameProd" id="nameProd" value="<%= locals.old && old.nameProd ? old.nameProd: '' %>">
+                    <input placeholder="Nombre del producto" type="text" name="nameProd" id="nameProd" value="<%= locals.old && old.nameProd ? old.nameProd: '' %>">
                     <% if (locals.errors && errors.nameProd) { %>
                         <p class="feedback"><%= errors.nameProd.msg %></p>
                     <% } %>
                 </div>
                 <div class="campo">
-                    <label for="descriptionProd">Descripción:</label>
-                    <input type="text" name="descriptionProd" id="descriptionProd" value="<%= locals.old && old.descriptionProd ? old.descriptionProd: '' %>">
+                    <textarea placeholder="Descripción" name="descriptionProd" id="descriptionProd" cols="30" rows="10"><%= locals.old && old.descriptionProd ? old.descriptionProd: '' %></textarea>
                     <% if (locals.errors && errors.descriptionProd) { %>
                         <p class="feedback"><%= errors.descriptionProd.msg %></p>
                     <% } %>
                 </div>
                 <div class="campo">
-                    <label for="brandProd">Marca:</label>
-                    <input type="text" name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
+                    <input placeholder="Marca" type="text" name="brandProd" id="brandProd" value="<%= locals.old && old.brandProd ? old.brandProd: '' %>">
                     <% if (locals.errors && errors.brandProd) { %>
                         <p class="feedback"><%= errors.brandProd.msg %></p>
                     <% } %>
                 </div>
                 <div class="campo">
-                    <label for="categoryProd">Categoria:</label>
                     <select class="form-select" name="categoryProd" id="categoryProd" value="<%= locals.old && old.categoryProd ? old.categoryProd: '' %>">
-                        <option value="" selected>Seleccione una categoria</option>
+                        <option value="" selected>Seleccione una Categoria</option>
                         <% if (locals.categories && categories) { %>
                             <% for( let i=0; i<categories.length; i++ ) { %>
                                 <% if (locals.old && old) { %>
@@ -62,9 +58,8 @@
                     <% } %>
                 </div>
                 <div class="campo">
-                    <label for="lifestageProd">Etapa de vida:</label>
                     <select class="form-select" name="lifestageProd" id="lifestageProd" value="<%= locals.old && old.lifestageProd ? old.lifestageProd: '' %>">
-                        <option value="" selected>Seleccione una opcion</option>
+                        <option value="" selected>Seleccione una etapa de vida</option>
                         <% if (locals.lifestages && lifestages) { %>
                             <% for( let i=0; i<lifestages.length; i++ ) { %>
                                 <% if (locals.old && old) { %>
@@ -85,7 +80,7 @@
                 </div>
                 <div class="campo">
                     <label for="priceProd">Precio:</label>
-                    <input type="number" min="0" max="999999" name="priceProd" id="priceProd" value="<%= locals.old && old.priceProd ? old.priceProd: '' %>">
+                    <input placeholder="0" type="number" min="0" max="999999" name="priceProd" id="priceProd" value="<%= locals.old && old.priceProd ? old.priceProd: '' %>">
                     <% if (locals.errors && errors.priceProd) { %>
                         <p class="feedback"><%= errors.priceProd.msg %></p>
                     <% } %>
@@ -99,7 +94,7 @@
                     <input placeholder="0" type="number" min="0" max="99999" name="stockProd" id="stockProd" value="<%= locals.old && old.stockProd ? old.stockProd: '' %>">
                 </div>
                 <div class="campo">
-                    <label for="imageProd">Imagen:</label>
+                    <label for="imageProd">Imagen del Producto:</label>
                     <input type="file" accept="/jpg" name="imageProd" id="imageProd" value="<%= locals.old && old.imageProd ? old.imageProd: '' %>">
                     <% if (locals.errors && errors.imageProd) { %>
                         <p class="feedback"><%= errors.imageProd.msg %></p>
