@@ -22,7 +22,7 @@ const usersAPIController = {
             })
             .catch(error => {
                 console.error(error);
-                return res.status(500).json({
+                return res.status(400).json({
                     status: 400,
                     error: 'Error al obtener usuarios'
                 });
@@ -50,7 +50,7 @@ const usersAPIController = {
             })
         }).catch(error => {
             console.error(error);
-            return res.status(500).json({
+            return res.status(400).json({
                 status: 400,
                 error: 'Error al obtener usuario'
             });
