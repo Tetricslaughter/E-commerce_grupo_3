@@ -22,9 +22,9 @@ const usersAPIController = {
             })
             .catch(error => {
                 console.error(error);
-                return res.status(500).json({ 
+                return res.status(500).json({
                     status: 400,
-                    error: 'Error al obtener usuarios' 
+                    error: 'Error al obtener usuarios'
                 });
             });
     },
@@ -32,31 +32,29 @@ const usersAPIController = {
     userDetails: (req, res) => {
         db.Users.findByPk(req.params.id, {
             include: [{ association: "rol" }]
-        })
-            .then(data => {
-                const user = {
-                    id: data.id,
-                    username: data.username,
-                    name: data.name,
-                    surname: data.surname,
-                    email: data.email,
-                    birthday: data.email,
-                    avatar: data.avatar,
-                    rol: data.rol
-                }
+        }).then(data => {
+            const user = {
+                id: data.id,
+                username: data.username,
+                name: data.name,
+                surname: data.surname,
+                email: data.email,
+                birthday: data.email,
+                avatar: data.avatar,
+                rol: data.rol
+            }
 
-                return res.status(200).json({
-                    status: 200,
-                    data: user
-                })
+            return res.status(200).json({
+                status: 200,
+                data: user
             })
-            .catch(error => {
-                console.error(error);
-                return res.status(500).json({ 
-                    status: 400,
-                    error: 'Error al obtener usuario' 
-                });
+        }).catch(error => {
+            console.error(error);
+            return res.status(500).json({
+                status: 400,
+                error: 'Error al obtener usuario'
             });
+        });
     }
 
 }
