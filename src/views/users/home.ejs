@@ -3,9 +3,10 @@
 
 <head>
     <!-- head -->
-    <%- include('../partials/head.ejs')  %>
-    <link rel="stylesheet" href="/css/homeStyle.css">
-    <title>Picatso</title>
+    <%- include('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/homeStyle.css">
+        <script src="/js/home.js"></script>
+        <title>Picatso</title>
 </head>
 
 <body>
@@ -13,43 +14,41 @@
     <!-- header -->
     <%- include('../partials/header.ejs') %>
 
-    <main class="container">
-        <div class="home-titulos">
-            <h2>Binvenidos a Picatso</h2>
-            <p>Tenemos distintas variedades de productos de la mejor calidad para tu gato</p>
-        </div>
-        <div class="categorias-container">
-            <p>CATEGORIAS</p>
-            <div class="categorias">
-                <div class="categoria__item cat1">
-                    <a href="/products/category/1">Alimentos</a>
+        <main class="home-main container">
+            <div class="home-titulos">
+                <h2>Binvenidos a Picatso</h2>
+                <p>Tenemos distintas variedades de productos de la mejor calidad para tu gato</p>
+            </div>
+            <div class="categorias-container">
+                <p>Categorías</p>
+                <div class="categorias">
+                    <div class="categoria__item cat1">
+                        <a href="/products/category/1">Alimentos</a>
+                    </div>
+                    <div class="categoria__item cat2">
+                        <a href="/products/category/2">Accesorios</a>
+                    </div>
+                    <div class="categoria__item cat3">
+                        <a href="/products/category/3">Higiene</a>
+                    </div>
                 </div>
-                <div class="categoria__item cat2">
-                    <a href="/products/category/2">Accesorios</a>
-                </div>
-                <div class="categoria__item cat3">
-                    <a href="/products/category/3">Higiene</a>
+
+
+                <h3 class="slider__titulo">Ofrecemos productos de las mejores marcas</h3>
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="slider__inner">
+                            <img class="slider__img" width="700px" src="/img/otherImages/slider1.jpg" alt="slider1">
+                            <img class="slider__img" width="700px" src="/img/otherImages/slider3.jpg" alt="slider3">
+                            <img class="slider__img" width="700px" src="/img/otherImages/slider2.jpg" alt="slider2">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-    <h3 class="slider__titulo">NUEVAS OFERTAS IMPERDIBLES</h3>
-    <div class="slider">
-        <ul class="slider__ul">
-            <li class="slider__li">
-                <img class="slider__img" src="/img/otherImages/slider1.jpg" alt="slider1">
-            </li>
-            <li class="slider__li">
-                <img class="slider__img" src="/img/otherImages/slider2.jpg" alt="slider2">
-            </li>
-            <li class="slider__li">
-                <img class="slider__img" src="/img/otherImages/slider3.jpg" alt="slider3">
-            </li>
-        </ul>
-    </div>
+        </main>
 
-    <!-- Footer -->
-    <%- include('../partials/footer.ejs') %>
+        <!-- Footer -->
+        <%- include('../partials/footer.ejs') %>
 
 </body>
 
