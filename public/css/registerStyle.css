@@ -1,7 +1,7 @@
 .form-register {
     margin: auto;
     max-width: 500px;
-    padding-top: 30px;
+    padding-top: 30px !important;
     padding: 15px;
     padding-bottom: 80px;
 }
@@ -12,12 +12,15 @@
     margin-bottom: 20px;
 }
 
-#imagenPerfil {
+#profileImage {
     border: none;
     outline: none;
     padding: 0px 0px 10px 0px;
 }
 
+#birthDay {
+    max-width: 200px;
+}
 
 
 @media (min-width: 576px) {

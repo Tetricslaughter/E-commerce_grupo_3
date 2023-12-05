@@ -33,22 +33,19 @@
                 <h3>Información Personal</h3>
                 <form class="form-edit" method="POST" action="/profile/<%=user.id%>/edit?_method=PUT">
                     <div class="campo">
-                        <label for="name">Nombre:</label>
-                        <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : '' %>">
+                        <input placeholder="Nombre" type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : '' %>">
                         <% if (locals.errors && errors.name) { %>
                             <p class="feedback"><%= errors.name.msg %></p>
                         <% } %>
                     </div>
                     <div class="campo">
-                        <label for="surname">Apellido:</label>
-                        <input type="text" name="surname" id="surname" value="<%= locals.old && old.surname ? old.surname : '' %>">
+                        <input placeholder="Apellido" type="text" name="surname" id="surname" value="<%= locals.old && old.surname ? old.surname : '' %>">
                         <% if (locals.errors && errors.surname) { %>
                             <p class="feedback"><%= errors.surname.msg %></p>
                         <% } %>
                     </div>
                     <div class="campo">
-                        <label for="email">Email:</label>
-                        <input type="text" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>">
+                        <input placeholder="Correo electrónico" type="text" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>">
                         <% if (locals.errors && errors.email) { %>
                             <p class="feedback"><%= errors.email.msg %></p>
                         <% } %>
