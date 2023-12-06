@@ -17,7 +17,7 @@
 }
 
 body {
-    margin-top: 70px;
+    /* margin-top: 70px; */
     overflow-x: hidden;
     background-color: #ededed;
 }
@@ -25,6 +25,7 @@ body {
 .main {
     min-height: 90vh;
     height: fit-content;
+    margin-top: 30px !important;
 }
 
 .m-auto {
@@ -176,7 +177,7 @@ body {
 
 @media (min-width: 992px) {
     body {
-        margin-top: 90px;
+        /* margin-top: 90px; */
     }
 }
 

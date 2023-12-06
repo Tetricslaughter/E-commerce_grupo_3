@@ -1,5 +1,5 @@
 .crearprod {
-    padding: 30px 30px 100px 30px !important;
+    padding: 30px 30px 100px 30px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -51,8 +51,9 @@
     }
 
     .crearprod {
-        margin-top: 90px;
-        padding: 0px 30px;
+        margin-top: 60px;
+        margin-bottom: 50px;
+        padding: 0px 30px 60px 30px;
     }
 
     #priceProd,
