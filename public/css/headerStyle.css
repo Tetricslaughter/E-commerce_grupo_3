@@ -1,9 +1,13 @@
 .header__fondo {
     background-color: var(--rojo);
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
-    right: 0;
+
+    animation: enhance-header linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 200px;
+    z-index: 100;
 }
 
 .header {
@@ -13,6 +17,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+@keyframes enhance-header {
+    100% {
+        background-color: var(--rojo);
+        opacity: 90%;
+        backdrop-filter: blur(50px);
+    }
 }
 
 .header__logo {
@@ -29,7 +41,7 @@
     gap: 3px;
 }
 
-.header__searcher{
+.header__searcher {
     display: none;
     padding: 0px 50px;
     flex-grow: 1;
@@ -77,7 +89,7 @@
     display: none;
     width: 100%;
     min-width: 210px;
-    padding-right: 15px;
+    padding-right: 20px;
 }
 
 .header__userIcons ul {
@@ -102,7 +114,7 @@
 }
 
 .header__userIcons a img {
-    width: 40px; 
+    width: 40px;
     height: 35px;
     border-radius: 50%;
 }
@@ -157,7 +169,7 @@
     color: #bcbcbc;
 }
 
-#menu:checked ~ .header__nav {
+#menu:checked~.header__nav {
     display: block;
 }
 
@@ -167,27 +179,30 @@
     }
 }
 
-@media (min-width: 576px) {
-    
-}
+@media (min-width: 576px) {}
 
-@media (min-width: 768px) {
-
-}
+@media (min-width: 768px) {}
 
 @media (min-width: 992px) {
     .header {
         padding: 0px;
     }
+
+    .header__logo {
+        padding-left: 20px;
+    }
+
     .header__label {
         display: none;
     }
+
     .header__nav {
         display: block;
-        height: 35px; 
+        height: 35px;
         background-color: var(--rojo);
         padding: 0px 0px 20px 0px;
     }
+
     .header__ul {
         display: flex;
         flex-direction: row;
@@ -195,20 +210,24 @@
         width: 100%;
         max-width: 800px;
     }
+
     .header__userIcons {
         display: flex;
         width: 100%;
         max-width: 200px;
     }
+
     .header__userIcons ul {
         display: flex;
         align-items: center;
     }
+
     .userIcons__li a {
         display: flex;
         align-items: center;
         gap: 8px;
     }
+
     .userIcons__li a {
         text-decoration: none;
     }
@@ -220,6 +239,4 @@
     }
 }
 
-@media (min-width: 1400px) {
-    
-}
+@media (min-width: 1400px) {}

@@ -10,7 +10,7 @@
 }
 
 .product-header {
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 .product-header h2 {
@@ -30,13 +30,30 @@
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    justify-content: center;
+    justify-content: center !important;
 }
 
 .card {
     width: 350px;
     height: auto;
     padding: 20px;
+
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 20%;
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        tranlate: 0 100px;
+        scale: 0.7;
+    }
+    100% {
+        opacity: 1;
+        tranlate: 0 0;
+        scale: 1;
+    }
 }
 
 .product__item {
@@ -154,7 +171,7 @@
     }
 
     .product-header {
-        margin-top: 120px;
+        margin-top: 70px;
     }
 }
 
@@ -167,6 +184,9 @@
     }
     .options {
         justify-content: start;
+    }
+    .productos {
+        justify-content: flex-start;
     }
 }
 
