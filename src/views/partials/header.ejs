@@ -6,7 +6,7 @@
         </div>
         <form class="header__searcher" action="/products/search" method="GET">
             <input type="text" name="searchBar" id="searchBar" placeholder="Buscar...">
-            <button id="btn-buscar" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <!-- <button id="btn-buscar" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button> -->
         </form>
         <div class="header__userIcons">
             <ul class="userIcons__ul">
@@ -41,10 +41,18 @@
         </label>
         <nav class="header__nav">
             <ul class="header__ul">
+                <% if (locals.userLogged != undefined) { %>
+                <li class="header__li" id="profile__li">
+                    <a id="header__profile" href="/profile/<%= userLogged.id %>">
+                        <img src="/img/profileImages/<%= userLogged.avatar %>" width="30px" alt=""> <%= userLogged.username %>
+                    </a>
+                </li>    
+                <% } %>
                 <li class="header__li"><a href="/">Inicio</a></li>
                 <li class="header__li"><a href="/products">Productos</a></li>
                 <% if (locals.userLogged == undefined) { %>
-                <li class="header__li"><a href="/register">Registrarme</a></li> 
+                <li class="header__li"><a href="/register">Registrarme</a></li>
+                <li class="header__li" id="login__li"><a href="/login">Iniciar Sesión</a></li>
                 <% } else { %>
                 <li class="header__li"><a href="/products/history">Historial</a></li>
                 <% } %>

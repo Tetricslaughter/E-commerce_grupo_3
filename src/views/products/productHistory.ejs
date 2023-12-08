@@ -3,9 +3,9 @@
 
 <head>
     <!-- head -->
-    <%- include('../partials/head.ejs')  %>
-    <link rel="stylesheet" href="/css/historyStyle.css">
-    <title>Picatso</title>
+    <%- include('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/historyStyle.css">
+        <title>Picatso</title>
 </head>
 
 <body>
@@ -13,70 +13,41 @@
     <!-- header -->
     <%- include('../partials/header.ejs') %>
 
-    <main class="main">
+        <main class="main">
 
-        <div class="historial container">
-            <% if ( locals.errors && errors.msg ) { %>
-            <h2>Para ver tu historial de compras primero debes iniciar sesión</h2>
-            <% } else { %>
-            <h2>Historial de productos comprados</h2>
-            <div class="producto__contenedor">
-                <div class="producto">
-                    <img src="/img/otherImages/prod1-rascador.jpg" alt="rascador" class="producto__img">
-                    <div class="producto__info">
-                        <p class="producto__nombre">Rascador de madera para gatos</p>
-                        <p class="producto__precio">$5800</p>
-                        <p class="producto__descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis provident ullam repudiandae, voluptatem doloremque assumenda eligendi optio deleniti et facilis quo sapiente ut possimus. Iste est sapiente perferendis pariatur tempora.</p>
-                    </div>
-                </div>
+            <div class="historial container">
+                <% if ( locals.errors && errors.msg ) { %>
+                    <h2>Para ver tu historial de productos primero debes iniciar sesión</h2>
+                <% } else { %>
+                    <h2>Productos visitados recientemente</h2>
+                    <% if (cart.length === 0) { %>
+                        <p>Aún no visitaste ningun producto.</p>
+                    <% } else { %>
+                        <% for (let i=0; i<cart.length; i++) { %>
+                            <div class="producto__contenedor">
+                                <div class="producto">
+                                    <img src="/img/productImages/<%= cart[i].image %>" alt="rascador" class="producto__img">
+                                    <div class="producto__info">
+                                        <p class="producto__nombre"><%= cart[i].name %></p>
+                                        <% if (cart[i].discount > 0) { %>
+                                            <p class="producto__precio">$<%= toThousand(Math.floor(cart[i].price - (cart[i].price*(cart[i].discount/100)))) %></p>
+                                            <p class="producto__descuento">(<%= cart[i].discount %>% de descuento)</p>
+                                        <% } else { %>
+                                            <p class="producto__precio">$<%= toThousand(Math.floor(cart[i].price - (cart[i].price*(cart[i].discount/100)))) %></p>
+                                        <% } %>
+                                        <p class="producto__descripcion"><%= cart[i].description %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>        
+                    <% } %>
+                <% } %>
             </div>
-            <div class="producto__contenedor">
-                <div class="producto">
-                    <img src="/img/otherImages/prod2-transportador.jpg" alt="transportador" class="producto__img">
-                    <div class="producto__info">
-                        <p class="producto__nombre">Transportador para gatos puerta de metal</p>
-                        <p class="producto__precio">$12300</p>
-                        <p class="producto__descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis provident ullam repudiandae, voluptatem doloremque assumenda eligendi optio deleniti et facilis.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="producto__contenedor">
-                <div class="producto">
-                    <img src="/img/otherImages/prod3-casita.jpg" alt="casita" class="producto__img">
-                    <div class="producto__info">
-                        <p class="producto__nombre">Casita para gatos</p>
-                        <p class="producto__precio">$6900</p>
-                        <p class="producto__descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis provident ullam repudiandae, voluptatem doloremque assumenda eligendi optio deleniti et facilis quo sapiente ut possimus. Iste.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="producto__contenedor">
-                <div class="producto">
-                    <img src="/img/otherImages/prod4-alimento.jpg" alt="alimento" class="producto__img">
-                    <div class="producto__info">
-                        <p class="producto__nombre">Alimento Raza sabor pescado</p>
-                        <p class="producto__precio">$3800</p>
-                        <p class="producto__descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis provident ullam repudiandae, voluptatem doloremque assumenda eligendi optio deleniti.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="producto__contenedor">
-                <div class="producto">
-                    <img src="/img/otherImages/prod5-peine.jpg" alt="peine" class="producto__img">
-                    <div class="producto__info">
-                        <p class="producto__nombre">Peine para gatos</p>
-                        <p class="producto__precio">$700</p>
-                        <p class="producto__descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis provident pariatur tempora.</p>
-                    </div>
-                </div>
-            </div>
-            <% } %>
-        </div>
 
-    </main>
+        </main>
 
-    <!-- Footer -->
-    <%- include('../partials/footer.ejs') %>
+        <!-- Footer -->
+        <%- include('../partials/footer.ejs') %>
 
 </body>
 

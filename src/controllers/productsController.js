@@ -12,7 +12,7 @@ const controller = {
             let products = await db.Products.findAll()
             return res.render('products', { products: products, toThousand: toThousand })
 
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     },
@@ -21,22 +21,22 @@ const controller = {
     listByCategory: async (req, res) => {
         try {
             let p = await db.product_category.findAll({
-                include: [{association: "products"}],
+                include: [{ association: "products" }],
                 where: {
                     category_id: req.params.idCategory
                 }
             })
 
             let products = [];
-            if (p.length > 0) { 
-                for (let i=0; i<p.length; i++) {
+            if (p.length > 0) {
+                for (let i = 0; i < p.length; i++) {
                     products.push(p[i].products);
                 }
             }
-            
+
             return res.render('products', { products: products, toThousand: toThousand });
 
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     },
@@ -47,36 +47,45 @@ const controller = {
             let buscado = req.query.searchBar;
             buscado = buscado.toLowerCase();
             let userResults = [];
-            
+
             userResults = await db.Products.findAll({
                 where: {
-                    name: {[db.Sequelize.Op.like]: `%${buscado}%`}
+                    name: { [db.Sequelize.Op.like]: `%${buscado}%` }
                 }
             })
 
             return res.render('products', { products: userResults, toThousand: toThousand })
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     },
 
     /** Mostrar la pagina de historial de compras (aun no funciona de acuerdo a un usuario) */
     productHistory: (req, res) => {
-        if ( req.session.userSignUp == false ) {
-            return res.render('productHistory', { 
+        if (req.session.userSignUp == false) {
+            return res.render('productHistory', {
                 toThousand: toThousand,
                 errors: {
                     msg: "Para ver tu historial de compra debes iniciar sesión."
-                 }
+                }
             });
         } else {
-            return res.render('productHistory', { toThousand: toThousand })
+
+            let cart = [];
+            if (req.session.userLogged.cart) {
+                cart = res.locals.userLogged.cart;
+            }
+
+            return res.render('productHistory', {
+                toThousand: toThousand,
+                cart: cart
+            })
         }
     },
 
-    /** Mostrar pagina del carrito de compras (au no funciona de acuerdo a un usuario) */
+    /** Mostrar pagina del carrito de compras (aun no funciona de acuerdo a un usuario) */
     productCart: (req, res) => {
-        if ( req.session.userSignUp == false ) {
+        if (req.session.userSignUp == false) {
             return res.render('productCart', {
                 errors: {
                     msg: "Para comprar primero debes iniciar sesión."
@@ -92,15 +101,25 @@ const controller = {
         try {
             let product = await db.Products.findByPk(req.params.idProducto, {
                 include: [
-                    {association: "categories"},
-                    {association: "lifestage"},
-                    {association: "brand"}
+                    { association: "categories" },
+                    { association: "lifestage" },
+                    { association: "brand" }
                 ]
             });
 
+            if (req.session.userLogged) {
+                if (!req.session.userLogged.cart) {
+                    req.session.userLogged.cart = [];
+                }
+                if (!req.session.userLogged.cart.find(item => item.id === product.id)) {
+                    req.session.userLogged.cart.push(product.get({ plain: true }));
+                }
+                res.locals.userLogged.cart = req.session.userLogged.cart;
+            }
+
             return res.render('productDetail', { product: product });
 
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     },
@@ -108,17 +127,35 @@ const controller = {
     /** Mostrar pagina de crear producto */
     createProduct: async (req, res) => {
         try {
-            let categories = await db.Categories.findAll();
-            let brands = await db.Brands.findAll();
-            let lifestages = await db.Lifestages.findAll();
+            if (req.session.userSignUp == false) {
+                if (res.locals.isAdmin == false) {
+                    return res.render('productCreate', {
+                        toThousand: toThousand,
+                        errors: {
+                            msg: "No tienes permisos para esta función"
+                        }
+                    });
+                } else {
+                    return res.render('productCreate', {
+                        toThousand: toThousand,
+                        errors: {
+                            msg: "Primero debes iniciar sesión"
+                        }
+                    });
+                }
+            } else {
+                let categories = await db.Categories.findAll();
+                let brands = await db.Brands.findAll();
+                let lifestages = await db.Lifestages.findAll();
 
-            return res.render('productCreate', {
-                categories: categories,
-                brands: brands,
-                lifestages: lifestages,
-            })
+                return res.render('productCreate', {
+                    categories: categories,
+                    brands: brands,
+                    lifestages: lifestages,
+                })
+            }
 
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     },
@@ -128,7 +165,7 @@ const controller = {
         try {
             let errors = validationResult(req);
 
-            if ( !errors.isEmpty() ) {
+            if (!errors.isEmpty()) {
                 let categories = await db.Categories.findAll();
                 let brands = await db.Brands.findAll();
                 let lifestages = await db.Lifestages.findAll();
@@ -145,12 +182,12 @@ const controller = {
                 let brandName = req.body.brandProd;
                 let brandFound = await db.Brands.findOne({
                     where: {
-                        name: {[db.Sequelize.Op.like]: `%${brandName}%`}
+                        name: { [db.Sequelize.Op.like]: `%${brandName}%` }
                     }
                 });
 
                 let brandId;
-                if ( brandFound != undefined ) {
+                if (brandFound != undefined) {
                     brandId = brandFound.id;
                 } else {
                     await db.Brands.create({
@@ -158,8 +195,8 @@ const controller = {
                         country: 'Argentina'
                     });
                     brandFound = await db.Brands.findOne({
-                        where:{
-                            name: {[db.Sequelize.Op.like]: `%${brandName}%`}
+                        where: {
+                            name: { [db.Sequelize.Op.like]: `%${brandName}%` }
                         }
                     })
                     brandId = brandFound.id;
@@ -175,16 +212,16 @@ const controller = {
                     lifestage_id: req.body.lifestageProd,
                     stock: req.body.stockProd
                 });
-    
+
                 await db.product_category.create({
                     category_id: req.body.categoryProd,
                     product_id: product.id
                 });
-    
+
                 return res.redirect('/products');
             }
 
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     },
@@ -192,37 +229,55 @@ const controller = {
     /** Mostrar pagina de edicion de un producto */
     editProduct: async (req, res) => {
         try {
-            let product = await db.Products.findByPk(req.params.idProducto,{
-                include: [
-                    {association: "categories"},
-                    {association: "brand"}
-                ]
-            });
+            if (req.session.userSignUp == false) {
+                if (res.locals.isAdmin == false) {
+                    return res.render('productEdit', {
+                        toThousand: toThousand,
+                        errors: {
+                            msg: "No tienes permisos para esta función"
+                        }
+                    });
+                } else {
+                    return res.render('productEdit', {
+                        toThousand: toThousand,
+                        errors: {
+                            msg: "Primero debes iniciar sesión"
+                        }
+                    });
+                }
+            } else {
+                let product = await db.Products.findByPk(req.params.idProducto, {
+                    include: [
+                        { association: "categories" },
+                        { association: "brand" }
+                    ]
+                });
 
-            req.body.nameProd = product.name;
-            req.body.descriptionProd = product.description;
-            req.body.priceProd = product.price;
-            req.body.discountProd = product.discount;
-            req.body.imageProd = product.image;
-            req.body.brandProd = product.brand.name;
-            req.body.categoryProd = product.categories[0].id
-            req.body.lifestageProd = product.lifestage_id;
-            req.body.stockProd = product.stock;
-            req.session.nameProdImage = product.image;
+                req.body.nameProd = product.name;
+                req.body.descriptionProd = product.description;
+                req.body.priceProd = product.price;
+                req.body.discountProd = product.discount;
+                req.body.imageProd = product.image;
+                req.body.brandProd = product.brand.name;
+                req.body.categoryProd = product.categories[0].id
+                req.body.lifestageProd = product.lifestage_id;
+                req.body.stockProd = product.stock;
+                req.session.nameProdImage = product.image;
 
-            let categories = await db.Categories.findAll();
-            let brands = await db.Brands.findAll();
-            let lifestages = await db.Lifestages.findAll();
+                let categories = await db.Categories.findAll();
+                let brands = await db.Brands.findAll();
+                let lifestages = await db.Lifestages.findAll();
 
-            return res.render('productEdit', { 
-                product: product,
-                old: req.body,
-                categories: categories,
-                brands: brands,
-                lifestages: lifestages
-            });
-            
-        } catch(e) {
+                return res.render('productEdit', {
+                    product: product,
+                    old: req.body,
+                    categories: categories,
+                    brands: brands,
+                    lifestages: lifestages
+                });
+            }
+
+        } catch (e) {
             console.log(e);
         }
     },
@@ -232,15 +287,15 @@ const controller = {
         try {
             let errors = validationResult(req);
 
-            if ( !errors.isEmpty() ) {
+            if (!errors.isEmpty()) {
                 let categories = await db.Categories.findAll();
                 let brands = await db.Brands.findAll();
                 let lifestages = await db.Lifestages.findAll();
-                let product = await db.Products.findByPk(req.params.idProducto,{
+                let product = await db.Products.findByPk(req.params.idProducto, {
                     include: [
-                        {association: "categories"},
-                        {association: "brand"},
-                        {association: "lifestage"}
+                        { association: "categories" },
+                        { association: "brand" },
+                        { association: "lifestage" }
                     ]
                 });
 
@@ -252,19 +307,19 @@ const controller = {
                     brands: brands,
                     lifestages: lifestages
                 });
-                
+
             } else {
 
                 // si la marca del prod. ingresada no existe, se crea
                 let brandName = req.body.brandProd;
                 let brandFound = await db.Brands.findOne({
                     where: {
-                        name: {[db.Sequelize.Op.like]: `%${brandName}%`}
+                        name: { [db.Sequelize.Op.like]: `%${brandName}%` }
                     }
                 });
 
                 let brandId;
-                if ( brandFound != undefined ) {
+                if (brandFound != undefined) {
                     brandId = brandFound.id;
                 } else {
                     await db.Brands.create({
@@ -272,8 +327,8 @@ const controller = {
                         country: 'Argentina'
                     });
                     brandFound = await db.Brands.findOne({
-                        where:{
-                            name: {[db.Sequelize.Op.like]: `%${brandName}%`}
+                        where: {
+                            name: { [db.Sequelize.Op.like]: `%${brandName}%` }
                         }
                     })
                     brandId = brandFound.id;
@@ -289,14 +344,14 @@ const controller = {
                     brand_id: brandId,
                     lifestage_id: req.body.lifestageProd,
                     stock: req.body.stockProd
-                },{
+                }, {
                     where: { id: req.params.idProducto }
                 });
 
                 /** actualiza la tabla pivot */
                 await db.product_category.update({
                     category_id: req.body.categoryProd
-                },{
+                }, {
                     where: {
                         product_id: req.params.idProducto
                     }
@@ -304,7 +359,7 @@ const controller = {
 
                 return res.redirect('/products')
             }
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     },
@@ -312,34 +367,41 @@ const controller = {
     /** eliminacion de un producto */
     deleteProduct: async (req, res) => {
         try {
-            let product = await db.Products.findByPk(req.params.idProducto);
-
-            let fileNameToDelete = product.image;
-
-            fs.unlink(`./public/img/productImages/${fileNameToDelete}`, (error) => {
-                if (error) {
-                    console.log('\nFS: no se pudo borrar la imagen del producto dentro del proyecto\n');
-                } else {
-                    console.log('\nFS: se borro la imagen del producto dentro del proyecto\n');
+            if (req.session.userSignUp == false) {
+                if (res.locals.isAdmin == false) {
+                    return res.redirect('/products');
                 }
-            });
+            } else {
+                let product = await db.Products.findByPk(req.params.idProducto);
 
-            await db.product_category.destroy({
-                where: { product_id: req.params.idProducto }
-            });
+                let fileNameToDelete = product.image;
 
-            await db.Products.destroy({
-                where: { id: req.params.idProducto }
-            });
-            
-            return res.redirect('/products');
+                fs.unlink(`./public/img/productImages/${fileNameToDelete}`, (error) => {
+                    if (error) {
+                        console.log('\nFS: no se pudo borrar la imagen del producto dentro del proyecto\n');
+                    } else {
+                        console.log('\nFS: se borro la imagen del producto dentro del proyecto\n');
+                    }
+                });
 
-        } catch(e) {
+                await db.product_category.destroy({
+                    where: { product_id: req.params.idProducto }
+                });
+
+                await db.Products.destroy({
+                    where: { id: req.params.idProducto }
+                });
+
+                req.session.userLogged.cart = [];
+
+                return res.redirect('/products');
+            }
+        } catch (e) {
             console.log(e);
         }
     },
 
-    
+
 }
 
 module.exports = controller;

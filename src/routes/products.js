@@ -30,7 +30,7 @@ router.get('/search', productsController.searchProducts);
 router.get('/history', authMiddleware, productsController.productHistory);
 
 /** Creacion de un Producto */
-router.get('/create', productsController.createProduct);
+router.get('/create', authMiddleware, productsController.createProduct);
 router.post('/create', fileProdUpload.single('imageProd'), validateProduct, productsController.saveProduct);
 
 /** Pagina de carrito de compras */
@@ -43,10 +43,10 @@ router.get('/category/:idCategory', productsController.listByCategory);
 router.get('/:idProducto/details', productsController.productDetails);
 
 /** Edicion de un Producto */
-router.get('/:idProducto/edit', productsController.editProduct);
+router.get('/:idProducto/edit', authMiddleware, productsController.editProduct);
 router.put('/:idProducto/edit', fileProdUpload.single('imageProd'), validateProductEdit, productsController.updateProduct);
 
 /** Eliminacion de un Producto */
-router.delete('/:idProducto/delete', productsController.deleteProduct); // 7
+router.delete('/:idProducto/delete', authMiddleware, productsController.deleteProduct);
 
 module.exports = router;
