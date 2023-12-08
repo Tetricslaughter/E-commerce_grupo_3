@@ -3,7 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 30px 20px 100px 20px;
+    padding: 20px 20px 30px 20px;
+    margin-bottom: 100px;
+    background-color: #FFF;
 }
 
 .historial h2 {
@@ -33,6 +35,7 @@
 .producto__img {
     height: 150px;
     object-fit: contain;
+    background-color: #FFF;
 }
 
 .producto__info {

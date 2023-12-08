@@ -62,7 +62,7 @@ app.use((req, res, next) => {
         console.log("hay un usuario loggeado: "+req.session.userLogged.username);
 
         req.session.userSignUp = true;
-        console.log(res.locals.userLogged);
+        // console.log(res.locals.userLogged);
 
         if ( req.session.userLogged.rol_id == 1 ) {
             req.session.isAdmin = true;
